@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ImportGroup Label="PropertySheets" />
+	<PropertyGroup Label="UserMacros" Condition="'$(Platform)'=='Win32'">
+	</PropertyGroup>
+	<PropertyGroup Label="UserMacros" Condition="'$(Platform)'=='x64'">
+	</PropertyGroup>
+	<PropertyGroup Label="UserMacros" Condition="'$(Configuration)'=='debug'">
+		<mk_true_in_debug>true</mk_true_in_debug>
+		<mk_true_in_release>false</mk_true_in_release>
+		<mk_debug_information_format>ProgramDatabase</mk_debug_information_format>
+		<mk_optimization>Disabled</mk_optimization>
+		<mk_inline_function_expansion>Disabled</mk_inline_function_expansion>
+		<mk_preprocessor_definitions></mk_preprocessor_definitions>
+		<mk_basic_runtime_checks>EnableFastChecks</mk_basic_runtime_checks>
+		<mk_runtime_library>MultiThreadedDebugDLL</mk_runtime_library>
+		<mk_control_flow_guard>Guard</mk_control_flow_guard>
+		<mk_link_time_code_generation>Default</mk_link_time_code_generation>
+	</PropertyGroup>
+	<PropertyGroup Label="UserMacros" Condition="'$(Configuration)'=='release'">
+		<mk_true_in_debug>false</mk_true_in_debug>
+		<mk_true_in_release>true</mk_true_in_release>
+		<mk_debug_information_format>None</mk_debug_information_format>
+		<mk_optimization>MaxSpeed</mk_optimization>
+		<mk_inline_function_expansion>AnySuitable</mk_inline_function_expansion>
+		<mk_preprocessor_definitions>NDEBUG</mk_preprocessor_definitions>
+		<mk_basic_runtime_checks>Default</mk_basic_runtime_checks>
+		<mk_runtime_library>MultiThreadedDLL</mk_runtime_library>
+		<mk_control_flow_guard>false</mk_control_flow_guard>
+		<mk_link_time_code_generation>UseLinkTimeCodeGeneration</mk_link_time_code_generation>
+	</PropertyGroup>
+	<PropertyGroup Label="UserMacros" Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">
+	</PropertyGroup>
+	<PropertyGroup Label="UserMacros" Condition="'$(Configuration)|$(Platform)'=='release|Win32'">
+	</PropertyGroup>
+	<PropertyGroup Label="UserMacros" Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+	</PropertyGroup>
+	<PropertyGroup Label="UserMacros" Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+	</PropertyGroup>
+	<ItemGroup>
+		<BuildMacro Include="mk_true_in_debug">
+			<Value>$(mk_true_in_debug)</Value>
+		</BuildMacro>
+		<BuildMacro Include="mk_true_in_release">
+			<Value>$(mk_true_in_release)</Value>
+		</BuildMacro>
+		<BuildMacro Include="mk_debug_information_format">
+			<Value>$(mk_debug_information_format)</Value>
+		</BuildMacro>
+		<BuidMacro Include="mk_optimization">
+			<Value>$(mk_optimization)</Value>
+		</BuidMacro>
+		<BuidMacro Include="mk_inline_function_expansion">
+			<Value>$(mk_inline_function_expansion)</Value>
+		</BuidMacro>
+		<BuildMacro Include="mk_preprocessor_definitions">
+			<Value>$(mk_preprocessor_definitions)</Value>
+		</BuildMacro>
+		<BuildMacro Include="mk_basic_runtime_checks">
+			<Value>$(mk_basic_runtime_checks)</Value>
+		</BuildMacro>
+		<BuildMacro Include="mk_runtime_library">
+			<Value>$(mk_runtime_library)</Value>
+		</BuildMacro>
+		<BuildMacro Include="mk_control_flow_guard">
+			<Value>$(mk_control_flow_guard)</Value>
+		</BuildMacro>
+		<BuildMacro Include="mk_link_time_code_generation">
+			<Value>$(mk_link_time_code_generation)</Value>
+		</BuildMacro>
+	</ItemGroup>
+</Project>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mklib", "mklib.vcxproj", "{12DF8B9D-C039-4783-B2AE-BE33114CE48A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		debug|amd64 = debug|amd64
+		debug|i386 = debug|i386
+		release|amd64 = release|amd64
+		release|i386 = release|i386
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12DF8B9D-C039-4783-B2AE-BE33114CE48A}.debug|i386.ActiveCfg = debug|Win32
+		{12DF8B9D-C039-4783-B2AE-BE33114CE48A}.debug|i386.Build.0 = debug|Win32
+		{12DF8B9D-C039-4783-B2AE-BE33114CE48A}.release|i386.ActiveCfg = release|Win32
+		{12DF8B9D-C039-4783-B2AE-BE33114CE48A}.release|i386.Build.0 = release|Win32
+		{12DF8B9D-C039-4783-B2AE-BE33114CE48A}.debug|amd64.ActiveCfg = debug|x64
+		{12DF8B9D-C039-4783-B2AE-BE33114CE48A}.debug|amd64.Build.0 = debug|x64
+		{12DF8B9D-C039-4783-B2AE-BE33114CE48A}.release|amd64.ActiveCfg = release|x64
+		{12DF8B9D-C039-4783-B2AE-BE33114CE48A}.release|amd64.Build.0 = release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EAFC52D6-E679-4465-9DF7-BFF83D293786}
+	EndGlobalSection
+EndGlobal
