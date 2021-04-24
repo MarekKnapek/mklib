@@ -176,6 +176,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\src\stdlib\type_traits.hpp"/>
+		<ClInclude Include="..\..\src\stdlib\type_traits\is_same.hpp"/>
 	</ItemGroup>
 	<ItemGroup>
 	</ItemGroup>
