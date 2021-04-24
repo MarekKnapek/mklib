@@ -177,6 +177,7 @@
 	<ItemGroup>
 		<ClInclude Include="..\..\src\stdlib\architecture.hpp"/>
 		<ClInclude Include="..\..\src\stdlib\ints.hpp"/>
+		<ClInclude Include="..\..\src\stdlib\size.hpp"/>
 		<ClInclude Include="..\..\src\stdlib\type_traits.hpp"/>
 		<ClInclude Include="..\..\src\stdlib\type_traits\is_same.hpp"/>
 		<ClInclude Include="..\..\src\stdlib\type_traits\remove_reference.hpp"/>
