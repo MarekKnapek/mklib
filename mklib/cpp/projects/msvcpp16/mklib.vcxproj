@@ -179,7 +179,9 @@
 		<ClInclude Include="..\..\src\stdlib\type_traits\is_same.hpp"/>
 		<ClInclude Include="..\..\src\stdlib\type_traits\remove_reference.hpp"/>
 		<ClInclude Include="..\..\src\stdlib\utility.hpp"/>
+		<ClInclude Include="..\..\src\stdlib\utility\move.hpp"/>
 	</ItemGroup>
 	<ItemGroup>
+		<None Include="..\..\src\stdlib\utility\move.inl"/>
 	</ItemGroup>
 </Project>
