@@ -3,12 +3,14 @@
 	<ItemGroup>
 		<Filter Include="src"><UniqueIdentifier>{f28dea9a-eb20-4484-93bd-a8a45de04e43}</UniqueIdentifier></Filter>
 		<Filter Include="src\stdlib"><UniqueIdentifier>{d771f568-1a6e-44c1-8045-bf8dd803dd49}</UniqueIdentifier></Filter>
+		<Filter Include="src\stdlib\type_traits"><UniqueIdentifier>{21f416c6-da62-4327-8656-2abec2f0ab32}</UniqueIdentifier></Filter>
 		<Filter Include="tests"><UniqueIdentifier>{fbd7989f-3c35-449b-9343-6da06f7e48dc}</UniqueIdentifier></Filter>
 	</ItemGroup>
 	<ItemGroup>
 		<ClCompile Include="..\..\tests\tests.cpp"><Filter>tests</Filter></ClCompile>
 	</ItemGroup>
 	<ItemGroup>
+		<ClInclude Include="..\..\src\stdlib\type_traits.hpp"><Filter>src\stdlib</Filter></ClInclude>
 	</ItemGroup>
 	<ItemGroup>
 	</ItemGroup>

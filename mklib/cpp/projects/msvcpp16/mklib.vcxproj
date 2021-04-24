@@ -175,6 +175,7 @@
 		<ClCompile Include="..\..\tests\tests.cpp"/>
 	</ItemGroup>
 	<ItemGroup>
+		<ClInclude Include="..\..\src\stdlib\type_traits.hpp"/>
 	</ItemGroup>
 	<ItemGroup>
 	</ItemGroup>
