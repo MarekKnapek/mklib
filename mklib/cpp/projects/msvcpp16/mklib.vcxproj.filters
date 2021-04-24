@@ -12,6 +12,7 @@
 	<ItemGroup>
 		<ClInclude Include="..\..\src\stdlib\type_traits.hpp"><Filter>src\stdlib</Filter></ClInclude>
 		<ClInclude Include="..\..\src\stdlib\type_traits\is_same.hpp"><Filter>src\stdlib\type_traits</Filter></ClInclude>
+		<ClInclude Include="..\..\src\stdlib\type_traits\remove_reference.hpp"><Filter>src\stdlib\type_traits</Filter></ClInclude>
 	</ItemGroup>
 	<ItemGroup>
 	</ItemGroup>
