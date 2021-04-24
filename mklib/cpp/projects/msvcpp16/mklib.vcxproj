@@ -183,6 +183,7 @@
 		<ClInclude Include="..\..\src\stdlib\type_traits\remove_reference.hpp"/>
 		<ClInclude Include="..\..\src\stdlib\utility.hpp"/>
 		<ClInclude Include="..\..\src\stdlib\utility\move.hpp"/>
+		<ClInclude Include="..\..\src\win\types.hpp"/>
 	</ItemGroup>
 	<ItemGroup>
 		<None Include="..\..\src\stdlib\utility\move.inl"/>
