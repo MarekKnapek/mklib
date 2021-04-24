@@ -10,6 +10,7 @@
 		<Filter Include="tests"><UniqueIdentifier>{fbd7989f-3c35-449b-9343-6da06f7e48dc}</UniqueIdentifier></Filter>
 	</ItemGroup>
 	<ItemGroup>
+		<ClCompile Include="..\..\src\win\kernel32\heap.cpp"><Filter>src\win\kernel32</Filter></ClCompile>
 		<ClCompile Include="..\..\tests\tests.cpp"><Filter>tests</Filter></ClCompile>
 	</ItemGroup>
 	<ItemGroup>
@@ -22,6 +23,7 @@
 		<ClInclude Include="..\..\src\stdlib\utility.hpp"><Filter>src\stdlib</Filter></ClInclude>
 		<ClInclude Include="..\..\src\stdlib\utility\move.hpp"><Filter>src\stdlib\utility</Filter></ClInclude>
 		<ClInclude Include="..\..\src\win\kernel32.hpp"><Filter>src\win</Filter></ClInclude>
+		<ClInclude Include="..\..\src\win\kernel32\heap.hpp"><Filter>src\win\kernel32</Filter></ClInclude>
 		<ClInclude Include="..\..\src\win\types.hpp"><Filter>src\win</Filter></ClInclude>
 	</ItemGroup>
 	<ItemGroup>
