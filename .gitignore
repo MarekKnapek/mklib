@@ -1,1 +1,4 @@
 /.vs
+/mklib/cpp/projects/msvcpp16/.vs/
+/mklib/cpp/projects/msvcpp16/build/
+/mklib/cpp/projects/msvcpp16/mklib.vcxproj.user
