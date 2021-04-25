@@ -1,32 +1,149 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<ItemGroup>
-		<Filter Include="src"><UniqueIdentifier>{f28dea9a-eb20-4484-93bd-a8a45de04e43}</UniqueIdentifier></Filter>
-		<Filter Include="src\stdlib"><UniqueIdentifier>{d771f568-1a6e-44c1-8045-bf8dd803dd49}</UniqueIdentifier></Filter>
-		<Filter Include="src\stdlib\type_traits"><UniqueIdentifier>{21f416c6-da62-4327-8656-2abec2f0ab32}</UniqueIdentifier></Filter>
-		<Filter Include="src\stdlib\utility"><UniqueIdentifier>{df923149-77af-444a-a7b3-b3a637aa29fe}</UniqueIdentifier></Filter>
-		<Filter Include="src\win"><UniqueIdentifier>{24e2dad3-86b5-4477-ba27-7f37c53f5904}</UniqueIdentifier></Filter>
-		<Filter Include="src\win\kernel32"><UniqueIdentifier>{a523820f-0753-470f-9029-2c7c58c2fc4d}</UniqueIdentifier></Filter>
-		<Filter Include="tests"><UniqueIdentifier>{fbd7989f-3c35-449b-9343-6da06f7e48dc}</UniqueIdentifier></Filter>
-	</ItemGroup>
-	<ItemGroup>
-		<ClCompile Include="..\..\src\win\kernel32\heap.cpp"><Filter>src\win\kernel32</Filter></ClCompile>
-		<ClCompile Include="..\..\tests\tests.cpp"><Filter>tests</Filter></ClCompile>
-	</ItemGroup>
-	<ItemGroup>
-		<ClInclude Include="..\..\src\stdlib\architecture.hpp"><Filter>src\stdlib</Filter></ClInclude>
-		<ClInclude Include="..\..\src\stdlib\ints.hpp"><Filter>src\stdlib</Filter></ClInclude>
-		<ClInclude Include="..\..\src\stdlib\size.hpp"><Filter>src\stdlib</Filter></ClInclude>
-		<ClInclude Include="..\..\src\stdlib\type_traits.hpp"><Filter>src\stdlib</Filter></ClInclude>
-		<ClInclude Include="..\..\src\stdlib\type_traits\is_same.hpp"><Filter>src\stdlib\type_traits</Filter></ClInclude>
-		<ClInclude Include="..\..\src\stdlib\type_traits\remove_reference.hpp"><Filter>src\stdlib\type_traits</Filter></ClInclude>
-		<ClInclude Include="..\..\src\stdlib\utility.hpp"><Filter>src\stdlib</Filter></ClInclude>
-		<ClInclude Include="..\..\src\stdlib\utility\move.hpp"><Filter>src\stdlib\utility</Filter></ClInclude>
-		<ClInclude Include="..\..\src\win\kernel32.hpp"><Filter>src\win</Filter></ClInclude>
-		<ClInclude Include="..\..\src\win\kernel32\heap.hpp"><Filter>src\win\kernel32</Filter></ClInclude>
-		<ClInclude Include="..\..\src\win\types.hpp"><Filter>src\win</Filter></ClInclude>
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="..\..\src\stdlib\utility\move.inl"><Filter>src\stdlib\utility</Filter></None>
-	</ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{f28dea9a-eb20-4484-93bd-a8a45de04e43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\stdlib">
+      <UniqueIdentifier>{d771f568-1a6e-44c1-8045-bf8dd803dd49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\stdlib\type_traits">
+      <UniqueIdentifier>{21f416c6-da62-4327-8656-2abec2f0ab32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\stdlib\utility">
+      <UniqueIdentifier>{df923149-77af-444a-a7b3-b3a637aa29fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\win">
+      <UniqueIdentifier>{24e2dad3-86b5-4477-ba27-7f37c53f5904}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\win\kernel32">
+      <UniqueIdentifier>{a523820f-0753-470f-9029-2c7c58c2fc4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tests">
+      <UniqueIdentifier>{fbd7989f-3c35-449b-9343-6da06f7e48dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\stdlib\heap">
+      <UniqueIdentifier>{6ec8d6c6-36af-4088-9b91-087af915c96e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\stdlib\algorithm">
+      <UniqueIdentifier>{94158b3d-dcbd-426e-8438-38f36031fe55}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\win\kernel32\heap.cpp">
+      <Filter>src\win\kernel32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\tests\tests.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\stdlib\heap\heap_multi_threaded.cpp">
+      <Filter>src\stdlib\heap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\stdlib\heap\heap_single_threaded.cpp">
+      <Filter>src\stdlib\heap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\stdlib\heap\heap_process.cpp">
+      <Filter>src\stdlib\heap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\stdlib\assert.cpp">
+      <Filter>src\stdlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\win\types.cpp">
+      <Filter>src\win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\stdlib\heap\heap_type_erased.cpp">
+      <Filter>src\stdlib\heap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\stdlib\heap\heap_virtual.cpp">
+      <Filter>src\stdlib\heap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\stdlib\new.cpp">
+      <Filter>src\stdlib</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\stdlib\architecture.hpp">
+      <Filter>src\stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\ints.hpp">
+      <Filter>src\stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\size.hpp">
+      <Filter>src\stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\type_traits.hpp">
+      <Filter>src\stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\type_traits\is_same.hpp">
+      <Filter>src\stdlib\type_traits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\type_traits\remove_reference.hpp">
+      <Filter>src\stdlib\type_traits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\utility.hpp">
+      <Filter>src\stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\utility\move.hpp">
+      <Filter>src\stdlib\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\win\kernel32.hpp">
+      <Filter>src\win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\win\kernel32\heap.hpp">
+      <Filter>src\win\kernel32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\win\types.hpp">
+      <Filter>src\win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\heap\heap_multi_threaded.hpp">
+      <Filter>src\stdlib\heap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\heap\heap_single_threaded.hpp">
+      <Filter>src\stdlib\heap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\heap\heap_process.hpp">
+      <Filter>src\stdlib\heap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\utility\swap.hpp">
+      <Filter>src\stdlib\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\assert.hpp">
+      <Filter>src\stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\heap\heap_type_erased.hpp">
+      <Filter>src\stdlib\heap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\heap\heap_virtual.hpp">
+      <Filter>src\stdlib\heap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\algorithm.hpp">
+      <Filter>src\stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\algorithm\max.hpp">
+      <Filter>src\stdlib\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\new.hpp">
+      <Filter>src\stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\utility\forward.hpp">
+      <Filter>src\stdlib\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\type_traits\aligned_storage.hpp">
+      <Filter>src\stdlib\type_traits</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\stdlib\utility\move.inl">
+      <Filter>src\stdlib\utility</Filter>
+    </None>
+    <None Include="..\..\src\stdlib\utility\swap.inl">
+      <Filter>src\stdlib\utility</Filter>
+    </None>
+    <None Include="..\..\src\stdlib\algorithm\max.inl">
+      <Filter>src\stdlib\algorithm</Filter>
+    </None>
+    <None Include="..\..\src\stdlib\utility\forward.inl">
+      <Filter>src\stdlib\utility</Filter>
+    </None>
+  </ItemGroup>
 </Project>

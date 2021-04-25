@@ -1,194 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props"/>
-	<Import Project="mklib.props"/>
-	<ItemGroup Label="ProjectConfigurations">
-		<ProjectConfiguration Include="debug|Win32">
-			<Configuration>debug</Configuration>
-			<Platform>Win32</Platform>
-		</ProjectConfiguration>
-		<ProjectConfiguration Include="release|Win32">
-			<Configuration>release</Configuration>
-			<Platform>Win32</Platform>
-		</ProjectConfiguration>
-		<ProjectConfiguration Include="debug|x64">
-			<Configuration>debug</Configuration>
-			<Platform>x64</Platform>
-		</ProjectConfiguration>
-		<ProjectConfiguration Include="release|x64">
-			<Configuration>release</Configuration>
-			<Platform>x64</Platform>
-		</ProjectConfiguration>
-	</ItemGroup>
-	<PropertyGroup Label="Globals">
-		<VCProjectVersion>16.0</VCProjectVersion>
-		<Keyword>Win32Proj</Keyword>
-		<ProjectGuid>{12df8b9d-c039-4783-b2ae-be33114ce48a}</ProjectGuid>
-		<RootNamespace>mklib</RootNamespace>
-	</PropertyGroup>
-	<!-- General -->
-	<PropertyGroup>
-		<OutDir>$(SolutionDir)build\$(Platform)_$(Configuration)_o\</OutDir>
-		<IntDir>$(SolutionDir)build\$(Platform)_$(Configuration)_i\</IntDir>
-		<TargetName>$(ProjectName)</TargetName>
-		<ConfigurationType>Application</ConfigurationType>
-		<WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-		<PlatformToolset>v142</PlatformToolset>
-	</PropertyGroup>
-	<!-- /General -->
-	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.props"/>
-	<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')"/>
-	<!-- Advanced -->
-	<PropertyGroup>
-		<UseDebugLibraries>$(mk_true_in_debug)</UseDebugLibraries>
-		<UseOfMfc>false</UseOfMfc>
-		<CharacterSet>NotSet</CharacterSet>
-		<WholeProgramOptimization>$(mk_true_in_release)</WholeProgramOptimization>
-	</PropertyGroup>
-	<!-- /Advanced -->
-	<PropertyGroup>
-		<ReplaceWildcardsInProjectItems>true</ReplaceWildcardsInProjectItems>
-		<ReadOnlyProject>true</ReadOnlyProject>
-	</PropertyGroup>
-	<!-- C/C++ -->
-	<!-- General -->
-	<ItemDefinitionGroup>
-		<ClCompile>
-			<DebugInformationFormat>$(mk_debug_information_format)</DebugInformationFormat>
-			<SupportJustMyCode>$(mk_true_in_debug)</SupportJustMyCode>
-			<CompileAsManaged>false</CompileAsManaged>
-			<CompileAsWinRT>false</CompileAsWinRT>
-			<SuppressStartupBanner>true</SuppressStartupBanner>
-			<WarningLevel>Level4</WarningLevel>
-			<TreatWarningAsError>true</TreatWarningAsError>
-			<SDLCheck>$(mk_true_in_debug)</SDLCheck>
-			<MultiProcessorCompilation>true</MultiProcessorCompilation>
-			<EnableASAN>false</EnableASAN>
-		</ClCompile>
-	</ItemDefinitionGroup>
-	<!-- /General -->
-	<!-- Optimization -->
-	<ItemDefinitionGroup>
-		<ClCompile>
-			<Optimization>$(mk_optimization)</Optimization>
-			<InlineFunctionExpansion>$(mk_inline_function_expansion)</InlineFunctionExpansion>
-			<IntrinsicFunctions>$(mk_true_in_release)</IntrinsicFunctions>
-			<WholeProgramOptimization>$(mk_true_in_release)</WholeProgramOptimization>
-		</ClCompile>
-	</ItemDefinitionGroup>
-	<!-- /Optimization -->
-	<!-- Preprocessor -->
-	<ItemDefinitionGroup>
-		<ClCompile>
-			<PreprocessorDefinitions>$(mk_preprocessor_definitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
-			<UseStandardPreprocessor>true</UseStandardPreprocessor>
-		</ClCompile>
-	</ItemDefinitionGroup>
-	<!-- /Preprocessor -->
-	<!-- Code Generation -->
-	<ItemDefinitionGroup>
-		<ClCompile>
-			<StringPooling>true</StringPooling>
-			<ExceptionHandling>false</ExceptionHandling>
-			<SmallerTypeCheck>$(mk_true_in_debug)</SmallerTypeCheck>
-			<BasicRuntimeChecks>$(mk_basic_runtime_checks)</BasicRuntimeChecks>
-			<RuntimeLibrary>$(mk_runtime_library)</RuntimeLibrary>
-			<BufferSecurityCheck>$(mk_true_in_debug)</BufferSecurityCheck>
-			<ControlFlowGuard>$(mk_control_flow_guard)</ControlFlowGuard>
-			<FunctionLevelLinking>true</FunctionLevelLinking>
-		</ClCompile>
-	</ItemDefinitionGroup>
-	<!-- /Code Generation -->
-	<!-- Language -->
-	<ItemDefinitionGroup>
-		<ClCompile>
-			<DisableLanguageExtensions>true</DisableLanguageExtensions>
-			<ConformanceMode>true</ConformanceMode>
-			<RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-			<RuntimeTypeInfo>false</RuntimeTypeInfo>
-			<LanguageStandard>stdcpplatest</LanguageStandard>
-			<LanguageStandard_C>Default</LanguageStandard_C>
-		</ClCompile>
-	</ItemDefinitionGroup>
-	<!-- /Language -->
-	<!-- Precompiled Headers -->
-	<ItemDefinitionGroup>
-		<ClCompile>
-			<PrecompiledHeader>NotUsing</PrecompiledHeader>
-			<PrecompiledHeaderFile/>
-			<PrecompiledHeaderOutputFile/>
-		</ClCompile>
-	</ItemDefinitionGroup>
-	<!-- Precompiled Headers -->
-	<!-- Advanced -->
-	<ItemDefinitionGroup>
-		<ClCompile>
-			<DisableSpecificWarnings>4309;4310</DisableSpecificWarnings>
-		</ClCompile>
-	</ItemDefinitionGroup>
-	<!-- /Advanced -->
-	<!-- /C/C++ -->
-	<!-- Linker -->
-	<!-- General -->
-	<PropertyGroup>
-		<LinkIncremental>$(mk_true_in_debug)</LinkIncremental>
-	</PropertyGroup>
-	<ItemDefinitionGroup>
-		<Link>
-			<TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
-		</Link>
-	</ItemDefinitionGroup>
-	<!-- /General -->
-	<!-- Debugging -->
-	<ItemDefinitionGroup>
-		<Link>
-			<GenerateDebugInformation>$(mk_true_in_debug)</GenerateDebugInformation>
-		</Link>
-	</ItemDefinitionGroup>
-	<!-- /Debugging -->
-	<!-- System -->
-	<ItemDefinitionGroup>
-		<Link>
-			<SubSystem>Console</SubSystem>
-		</Link>
-	</ItemDefinitionGroup>
-	<!-- /System -->
-	<!-- Optimization -->
-	<ItemDefinitionGroup>
-		<Link>
-			<OptimizeReferences>$(mk_true_in_release)</OptimizeReferences>
-			<EnableCOMDATFolding>$(mk_true_in_release)</EnableCOMDATFolding>
-			<LinkTimeCodeGeneration>$(mk_link_time_code_generation)</LinkTimeCodeGeneration>
-		</Link>
-	</ItemDefinitionGroup>
-	<!-- /Optimization -->
-	<!-- Advanced -->
-	<ItemDefinitionGroup>
-		<Link>
-			<SetChecksum>$(mk_true_in_release)</SetChecksum>
-		</Link>
-	</ItemDefinitionGroup>
-	<!-- /Advanced -->
-	<!-- /Linker -->
-	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
-	<ItemGroup>
-		<ClCompile Include="..\..\src\win\kernel32\heap.cpp"/>
-		<ClCompile Include="..\..\tests\tests.cpp"/>
-	</ItemGroup>
-	<ItemGroup>
-		<ClInclude Include="..\..\src\stdlib\architecture.hpp"/>
-		<ClInclude Include="..\..\src\stdlib\ints.hpp"/>
-		<ClInclude Include="..\..\src\stdlib\size.hpp"/>
-		<ClInclude Include="..\..\src\stdlib\type_traits.hpp"/>
-		<ClInclude Include="..\..\src\stdlib\type_traits\is_same.hpp"/>
-		<ClInclude Include="..\..\src\stdlib\type_traits\remove_reference.hpp"/>
-		<ClInclude Include="..\..\src\stdlib\utility.hpp"/>
-		<ClInclude Include="..\..\src\stdlib\utility\move.hpp"/>
-		<ClInclude Include="..\..\src\win\kernel32.hpp"/>
-		<ClInclude Include="..\..\src\win\kernel32\heap.hpp"/>
-		<ClInclude Include="..\..\src\win\types.hpp"/>
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="..\..\src\stdlib\utility\move.inl"/>
-	</ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="mklib.props" />
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug|Win32">
+      <Configuration>debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release|Win32">
+      <Configuration>release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="debug|x64">
+      <Configuration>debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release|x64">
+      <Configuration>release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{12df8b9d-c039-4783-b2ae-be33114ce48a}</ProjectGuid>
+    <RootNamespace>mklib</RootNamespace>
+  </PropertyGroup>
+  <!-- General -->
+  <PropertyGroup>
+    <OutDir>$(SolutionDir)build\$(Platform)_$(Configuration)_o\</OutDir>
+    <IntDir>$(SolutionDir)build\$(Platform)_$(Configuration)_i\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+    <ConfigurationType>Application</ConfigurationType>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <!-- /General -->
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  <!-- Advanced -->
+  <PropertyGroup>
+    <UseDebugLibraries>$(mk_true_in_debug)</UseDebugLibraries>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>$(mk_true_in_release)</WholeProgramOptimization>
+  </PropertyGroup>
+  <!-- /Advanced -->
+  <PropertyGroup>
+  </PropertyGroup>
+  <!-- C/C++ -->
+  <!-- General -->
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <DebugInformationFormat>$(mk_debug_information_format)</DebugInformationFormat>
+      <SupportJustMyCode>$(mk_true_in_debug)</SupportJustMyCode>
+      <CompileAsManaged>false</CompileAsManaged>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <SDLCheck>$(mk_true_in_debug)</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <EnableASAN>false</EnableASAN>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /General -->
+  <!-- Optimization -->
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <Optimization>$(mk_optimization)</Optimization>
+      <InlineFunctionExpansion>$(mk_inline_function_expansion)</InlineFunctionExpansion>
+      <IntrinsicFunctions>$(mk_true_in_release)</IntrinsicFunctions>
+      <WholeProgramOptimization>$(mk_true_in_release)</WholeProgramOptimization>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Optimization -->
+  <!-- Preprocessor -->
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>$(mk_preprocessor_definitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <UseStandardPreprocessor>true</UseStandardPreprocessor>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Preprocessor -->
+  <!-- Code Generation -->
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <SmallerTypeCheck>$(mk_true_in_debug)</SmallerTypeCheck>
+      <BasicRuntimeChecks>$(mk_basic_runtime_checks)</BasicRuntimeChecks>
+      <RuntimeLibrary>$(mk_runtime_library)</RuntimeLibrary>
+      <BufferSecurityCheck>$(mk_true_in_debug)</BufferSecurityCheck>
+      <ControlFlowGuard>$(mk_control_flow_guard)</ControlFlowGuard>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Code Generation -->
+  <!-- Language -->
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <DisableLanguageExtensions>true</DisableLanguageExtensions>
+      <ConformanceMode>true</ConformanceMode>
+      <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Language -->
+  <!-- Precompiled Headers -->
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- Precompiled Headers -->
+  <!-- Advanced -->
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <DisableSpecificWarnings>4309;4310;4324</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Advanced -->
+  <!-- /C/C++ -->
+  <!-- Linker -->
+  <!-- General -->
+  <PropertyGroup>
+    <LinkIncremental>$(mk_true_in_debug)</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /General -->
+  <!-- Debugging -->
+  <ItemDefinitionGroup>
+    <Link>
+      <GenerateDebugInformation>$(mk_true_in_debug)</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /Debugging -->
+  <!-- System -->
+  <ItemDefinitionGroup>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /System -->
+  <!-- Optimization -->
+  <ItemDefinitionGroup>
+    <Link>
+      <OptimizeReferences>$(mk_true_in_release)</OptimizeReferences>
+      <EnableCOMDATFolding>$(mk_true_in_release)</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>$(mk_link_time_code_generation)</LinkTimeCodeGeneration>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /Optimization -->
+  <!-- Advanced -->
+  <ItemDefinitionGroup>
+    <Link>
+      <SetChecksum>$(mk_true_in_release)</SetChecksum>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /Advanced -->
+  <!-- /Linker -->
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ItemGroup>
+    <ClCompile Include="..\..\src\stdlib\assert.cpp" />
+    <ClCompile Include="..\..\src\stdlib\heap\heap_multi_threaded.cpp" />
+    <ClCompile Include="..\..\src\stdlib\heap\heap_process.cpp" />
+    <ClCompile Include="..\..\src\stdlib\heap\heap_single_threaded.cpp" />
+    <ClCompile Include="..\..\src\stdlib\heap\heap_type_erased.cpp" />
+    <ClCompile Include="..\..\src\stdlib\heap\heap_virtual.cpp" />
+    <ClCompile Include="..\..\src\stdlib\new.cpp" />
+    <ClCompile Include="..\..\src\win\kernel32\heap.cpp" />
+    <ClCompile Include="..\..\src\win\types.cpp" />
+    <ClCompile Include="..\..\tests\tests.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\stdlib\algorithm.hpp" />
+    <ClInclude Include="..\..\src\stdlib\algorithm\max.hpp" />
+    <ClInclude Include="..\..\src\stdlib\architecture.hpp" />
+    <ClInclude Include="..\..\src\stdlib\assert.hpp" />
+    <ClInclude Include="..\..\src\stdlib\heap\heap_multi_threaded.hpp" />
+    <ClInclude Include="..\..\src\stdlib\heap\heap_process.hpp" />
+    <ClInclude Include="..\..\src\stdlib\heap\heap_single_threaded.hpp" />
+    <ClInclude Include="..\..\src\stdlib\heap\heap_type_erased.hpp" />
+    <ClInclude Include="..\..\src\stdlib\heap\heap_virtual.hpp" />
+    <ClInclude Include="..\..\src\stdlib\ints.hpp" />
+    <ClInclude Include="..\..\src\stdlib\new.hpp" />
+    <ClInclude Include="..\..\src\stdlib\size.hpp" />
+    <ClInclude Include="..\..\src\stdlib\type_traits.hpp" />
+    <ClInclude Include="..\..\src\stdlib\type_traits\aligned_storage.hpp" />
+    <ClInclude Include="..\..\src\stdlib\type_traits\is_same.hpp" />
+    <ClInclude Include="..\..\src\stdlib\type_traits\remove_reference.hpp" />
+    <ClInclude Include="..\..\src\stdlib\utility.hpp" />
+    <ClInclude Include="..\..\src\stdlib\utility\forward.hpp" />
+    <ClInclude Include="..\..\src\stdlib\utility\move.hpp" />
+    <ClInclude Include="..\..\src\stdlib\utility\swap.hpp" />
+    <ClInclude Include="..\..\src\win\kernel32.hpp" />
+    <ClInclude Include="..\..\src\win\kernel32\heap.hpp" />
+    <ClInclude Include="..\..\src\win\types.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\stdlib\algorithm\max.inl" />
+    <None Include="..\..\src\stdlib\utility\forward.inl" />
+    <None Include="..\..\src\stdlib\utility\move.inl" />
+    <None Include="..\..\src\stdlib\utility\swap.inl" />
+  </ItemGroup>
 </Project>
