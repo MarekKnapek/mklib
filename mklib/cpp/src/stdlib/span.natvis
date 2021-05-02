@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nv:AutoVisualizer xmlns:nv="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+	<nv:Type Name="mk::stdlib::span_t&lt;*&gt;">
+		<nv:Intrinsic Name="data" Expression="m_data"/>
+		<nv:Intrinsic Name="size" Expression="m_size"/>
+		<nv:DisplayString>{{ size = {size()} }}</nv:DisplayString>
+		<nv:Expand>
+			<nv:Item Name="[size]">size()</nv:Item>
+			<nv:ArrayItems>
+				<nv:Size>size()</nv:Size>
+				<nv:ValuePointer>data()</nv:ValuePointer>
+			</nv:ArrayItems>
+		</nv:Expand>
+	</nv:Type>
+</nv:AutoVisualizer>

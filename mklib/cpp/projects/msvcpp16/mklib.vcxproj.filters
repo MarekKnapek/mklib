@@ -131,6 +131,9 @@
     <ClInclude Include="..\..\src\stdlib\type_traits\aligned_storage.hpp">
       <Filter>src\stdlib\type_traits</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\span.hpp">
+      <Filter>src\stdlib</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\stdlib\utility\move.inl">
@@ -145,5 +148,13 @@
     <None Include="..\..\src\stdlib\utility\forward.inl">
       <Filter>src\stdlib\utility</Filter>
     </None>
+    <None Include="..\..\src\stdlib\span.inl">
+      <Filter>src\stdlib</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="..\..\src\stdlib\span.natvis">
+      <Filter>src\stdlib</Filter>
+    </Natvis>
   </ItemGroup>
 </Project>

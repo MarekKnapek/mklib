@@ -194,6 +194,7 @@
     <ClInclude Include="..\..\src\stdlib\ints.hpp" />
     <ClInclude Include="..\..\src\stdlib\new.hpp" />
     <ClInclude Include="..\..\src\stdlib\size.hpp" />
+    <ClInclude Include="..\..\src\stdlib\span.hpp" />
     <ClInclude Include="..\..\src\stdlib\type_traits.hpp" />
     <ClInclude Include="..\..\src\stdlib\type_traits\aligned_storage.hpp" />
     <ClInclude Include="..\..\src\stdlib\type_traits\is_same.hpp" />
@@ -208,8 +209,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\stdlib\algorithm\max.inl" />
+    <None Include="..\..\src\stdlib\span.inl" />
     <None Include="..\..\src\stdlib\utility\forward.inl" />
     <None Include="..\..\src\stdlib\utility\move.inl" />
     <None Include="..\..\src\stdlib\utility\swap.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="..\..\src\stdlib\span.natvis" />
   </ItemGroup>
 </Project>
