@@ -134,6 +134,24 @@
     <ClInclude Include="..\..\src\stdlib\span.hpp">
       <Filter>src\stdlib</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\ring_buffer.hpp">
+      <Filter>src\stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\power2.hpp">
+      <Filter>src\stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\array.hpp">
+      <Filter>src\stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\algorithm\copy.hpp">
+      <Filter>src\stdlib\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\algorithm\min.hpp">
+      <Filter>src\stdlib\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\memory.hpp">
+      <Filter>src\stdlib</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\stdlib\utility\move.inl">
@@ -151,9 +169,30 @@
     <None Include="..\..\src\stdlib\span.inl">
       <Filter>src\stdlib</Filter>
     </None>
+    <None Include="..\..\src\stdlib\power2.inl">
+      <Filter>src\stdlib</Filter>
+    </None>
+    <None Include="..\..\src\stdlib\ring_buffer.inl">
+      <Filter>src\stdlib</Filter>
+    </None>
+    <None Include="..\..\src\stdlib\array.inl">
+      <Filter>src\stdlib</Filter>
+    </None>
+    <None Include="..\..\src\stdlib\algorithm\copy.inl">
+      <Filter>src\stdlib\algorithm</Filter>
+    </None>
+    <None Include="..\..\src\stdlib\algorithm\min.inl">
+      <Filter>src\stdlib\algorithm</Filter>
+    </None>
+    <None Include="..\..\src\stdlib\memory.inl">
+      <Filter>src\stdlib</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="..\..\src\stdlib\span.natvis">
+      <Filter>src\stdlib</Filter>
+    </Natvis>
+    <Natvis Include="..\..\src\stdlib\ring_buffer.natvis">
       <Filter>src\stdlib</Filter>
     </Natvis>
   </ItemGroup>

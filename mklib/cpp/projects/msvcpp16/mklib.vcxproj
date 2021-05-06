@@ -183,8 +183,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\stdlib\algorithm.hpp" />
+    <ClInclude Include="..\..\src\stdlib\algorithm\copy.hpp" />
     <ClInclude Include="..\..\src\stdlib\algorithm\max.hpp" />
+    <ClInclude Include="..\..\src\stdlib\algorithm\min.hpp" />
     <ClInclude Include="..\..\src\stdlib\architecture.hpp" />
+    <ClInclude Include="..\..\src\stdlib\array.hpp" />
     <ClInclude Include="..\..\src\stdlib\assert.hpp" />
     <ClInclude Include="..\..\src\stdlib\heap\heap_multi_threaded.hpp" />
     <ClInclude Include="..\..\src\stdlib\heap\heap_process.hpp" />
@@ -192,7 +195,10 @@
     <ClInclude Include="..\..\src\stdlib\heap\heap_type_erased.hpp" />
     <ClInclude Include="..\..\src\stdlib\heap\heap_virtual.hpp" />
     <ClInclude Include="..\..\src\stdlib\ints.hpp" />
+    <ClInclude Include="..\..\src\stdlib\memory.hpp" />
     <ClInclude Include="..\..\src\stdlib\new.hpp" />
+    <ClInclude Include="..\..\src\stdlib\power2.hpp" />
+    <ClInclude Include="..\..\src\stdlib\ring_buffer.hpp" />
     <ClInclude Include="..\..\src\stdlib\size.hpp" />
     <ClInclude Include="..\..\src\stdlib\span.hpp" />
     <ClInclude Include="..\..\src\stdlib\type_traits.hpp" />
@@ -208,13 +214,20 @@
     <ClInclude Include="..\..\src\win\types.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\src\stdlib\algorithm\copy.inl" />
     <None Include="..\..\src\stdlib\algorithm\max.inl" />
+    <None Include="..\..\src\stdlib\algorithm\min.inl" />
+    <None Include="..\..\src\stdlib\array.inl" />
+    <None Include="..\..\src\stdlib\memory.inl" />
+    <None Include="..\..\src\stdlib\power2.inl" />
+    <None Include="..\..\src\stdlib\ring_buffer.inl" />
     <None Include="..\..\src\stdlib\span.inl" />
     <None Include="..\..\src\stdlib\utility\forward.inl" />
     <None Include="..\..\src\stdlib\utility\move.inl" />
     <None Include="..\..\src\stdlib\utility\swap.inl" />
   </ItemGroup>
   <ItemGroup>
+    <Natvis Include="..\..\src\stdlib\ring_buffer.natvis" />
     <Natvis Include="..\..\src\stdlib\span.natvis" />
   </ItemGroup>
 </Project>

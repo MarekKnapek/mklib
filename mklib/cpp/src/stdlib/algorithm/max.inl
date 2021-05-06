@@ -3,9 +3,6 @@
 #include "../type_traits/is_same.hpp"
 #include "../utility/forward.hpp"
 
-#define _ALLOW_RTCc_IN_STL
-//#include <utility>
-
 
 namespace mk
 {
