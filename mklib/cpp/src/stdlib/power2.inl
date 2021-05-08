@@ -15,12 +15,12 @@ namespace mk
 			template<>
 			struct power_2_helper_t<4>
 			{
-				[[nodiscard]] constexpr mk::stdlib::size_t operator()(mk::stdlib::size_t const& n) const noexcept;
+				[[nodiscard]] constexpr mk::stdlib::uint32_t operator()(mk::stdlib::uint32_t const& n) const noexcept;
 			};
 			template<>
 			struct power_2_helper_t<8>
 			{
-				[[nodiscard]] constexpr mk::stdlib::size_t operator()(mk::stdlib::size_t const& n) const noexcept;
+				[[nodiscard]] constexpr mk::stdlib::uint64_t operator()(mk::stdlib::uint64_t const& n) const noexcept;
 			};
 		}
 	}
@@ -43,9 +43,9 @@ template<unsigned bytes>
 	++x;
 	return x;
 }
-[[nodiscard]] constexpr mk::stdlib::size_t mk::stdlib::impl::power_2_helper_t<4>::operator()(mk::stdlib::size_t const& n) const noexcept
+[[nodiscard]] constexpr mk::stdlib::uint32_t mk::stdlib::impl::power_2_helper_t<4>::operator()(mk::stdlib::uint32_t const& n) const noexcept
 {
-	mk::stdlib::size_t x = n;
+	mk::stdlib::uint32_t x = n;
 	--x;
 	x |= x >> 1;
 	x |= x >> 2;
@@ -55,9 +55,9 @@ template<unsigned bytes>
 	++x;
 	return x;
 }
-[[nodiscard]] constexpr mk::stdlib::size_t mk::stdlib::impl::power_2_helper_t<8>::operator()(mk::stdlib::size_t const& n) const noexcept
+[[nodiscard]] constexpr mk::stdlib::uint64_t mk::stdlib::impl::power_2_helper_t<8>::operator()(mk::stdlib::uint64_t const& n) const noexcept
 {
-	mk::stdlib::size_t x = n;
+	mk::stdlib::uint64_t x = n;
 	--x;
 	x |= x >> 1;
 	x |= x >> 2;
