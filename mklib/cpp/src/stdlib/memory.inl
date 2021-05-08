@@ -2,6 +2,7 @@
 
 #include "new.hpp"
 #include "type_traits/remove_reference.hpp"
+#include "utility/forward.hpp"
 #include "utility/move.hpp"
 
 
@@ -102,6 +103,22 @@ constexpr void mk::stdlib::destroy(t const& begin, u const& end) noexcept
 	}
 }
 
+
+template<typename t, typename u>
+t mk::stdlib::uninitialized_default_construct_n(t const& begin, u const& count) noexcept
+{
+	typedef typename mk::stdlib::remove_reference_t<decltype(*begin)>::type_t type;
+
+	t it = begin;
+	u n = count;
+	while(n != 0)
+	{
+		new(it, mk::stdlib::new_t{})type;
+		++it;
+		--n;
+	}
+	return it;
+}
 
 template<typename t, typename u, typename v>
 v mk::stdlib::uninitialized_copy_n(t const& input_begin, u const& size, v const& output_begin) noexcept

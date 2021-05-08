@@ -17,6 +17,7 @@ namespace mk
 		template<typename t, typename u, typename v> v uninitialized_move_destroy(t const& input_begin, u const& input_end, v const& output_begin) noexcept;
 		template<typename t, typename u> constexpr void destroy(t const& begin, u const& end) noexcept;
 
+		template<typename t, typename u> t uninitialized_default_construct_n(t const& begin, u const& count) noexcept;
 		template<typename t, typename u, typename v> v uninitialized_copy_n(t const& input_begin, u const& size, v const& output_begin) noexcept;
 		template<typename t, typename u, typename v> v uninitialized_move_destroy_n(t const& input_begin, u const& input_size, v const& output_begin) noexcept;
 		template<typename t, typename u> constexpr t destroy_n(t const& begin, u const& size) noexcept;
