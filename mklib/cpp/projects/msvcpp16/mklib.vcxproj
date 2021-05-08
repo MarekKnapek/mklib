@@ -190,6 +190,7 @@
     <ClInclude Include="..\..\src\stdlib\architecture.hpp" />
     <ClInclude Include="..\..\src\stdlib\array.hpp" />
     <ClInclude Include="..\..\src\stdlib\assert.hpp" />
+    <ClInclude Include="..\..\src\stdlib\climits.hpp" />
     <ClInclude Include="..\..\src\stdlib\cstdlib.hpp" />
     <ClInclude Include="..\..\src\stdlib\heap\heap_multi_threaded.hpp" />
     <ClInclude Include="..\..\src\stdlib\heap\heap_process.hpp" />

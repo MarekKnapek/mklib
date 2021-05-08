@@ -158,6 +158,9 @@
     <ClInclude Include="..\..\src\stdlib\cstdlib.hpp">
       <Filter>src\stdlib</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\climits.hpp">
+      <Filter>src\stdlib</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\stdlib\utility\move.inl">
