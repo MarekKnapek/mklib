@@ -12,6 +12,7 @@
 #include <string>
 #undef _ALLOW_RTCc_IN_STL
 
+void bits_vector_tests();
 
 int main()
 {
@@ -46,6 +47,7 @@ int main()
 		heap.free(mem);
 	}
 
+	#if 0
 	for(int j = 0; j != 100; ++j)
 	{
 		mk::stdlib::ring_buffer_t<std::string, 5> buff;
@@ -73,6 +75,8 @@ int main()
 		auto copied = buff;
 		auto moved = mk::stdlib::move(copied);
 	}
+	#endif
 
-	return static_cast<int>(mk::stdlib::equal_or_greater_power_2(5));
+	bits_vector_tests();
+	return 0;
 }

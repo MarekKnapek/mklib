@@ -66,6 +66,9 @@
     <ClCompile Include="..\..\src\stdlib\cstdlib.cpp">
       <Filter>src\stdlib</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\tests\bits_vector.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\stdlib\architecture.hpp">

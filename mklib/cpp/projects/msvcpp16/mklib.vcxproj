@@ -180,6 +180,7 @@
     <ClCompile Include="..\..\src\stdlib\new.cpp" />
     <ClCompile Include="..\..\src\win\kernel32\heap.cpp" />
     <ClCompile Include="..\..\src\win\types.cpp" />
+    <ClCompile Include="..\..\tests\bits_vector.cpp" />
     <ClCompile Include="..\..\tests\tests.cpp" />
   </ItemGroup>
   <ItemGroup>
