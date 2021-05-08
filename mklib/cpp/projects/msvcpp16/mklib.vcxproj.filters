@@ -28,6 +28,9 @@
     <Filter Include="src\stdlib\algorithm">
       <UniqueIdentifier>{94158b3d-dcbd-426e-8438-38f36031fe55}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\stdlib\bits_vector">
+      <UniqueIdentifier>{18d547a7-b738-414d-9760-18bfbb8d022b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\win\kernel32\heap.cpp">
@@ -161,6 +164,18 @@
     <ClInclude Include="..\..\src\stdlib\climits.hpp">
       <Filter>src\stdlib</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\bits_vector\bits_vector.hpp">
+      <Filter>src\stdlib\bits_vector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_const_reference.hpp">
+      <Filter>src\stdlib\bits_vector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_reference.hpp">
+      <Filter>src\stdlib\bits_vector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\bits_vector\bits_vector_chunk.hpp">
+      <Filter>src\stdlib\bits_vector</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\stdlib\utility\move.inl">
@@ -196,6 +211,18 @@
     <None Include="..\..\src\stdlib\memory.inl">
       <Filter>src\stdlib</Filter>
     </None>
+    <None Include="..\..\src\stdlib\bits_vector\bits_vector.inl">
+      <Filter>src\stdlib\bits_vector</Filter>
+    </None>
+    <None Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_const_reference.inl">
+      <Filter>src\stdlib\bits_vector</Filter>
+    </None>
+    <None Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_reference.inl">
+      <Filter>src\stdlib\bits_vector</Filter>
+    </None>
+    <None Include="..\..\src\stdlib\bits_vector\bits_vector_chunk.inl">
+      <Filter>src\stdlib\bits_vector</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="..\..\src\stdlib\span.natvis">
@@ -203,6 +230,9 @@
     </Natvis>
     <Natvis Include="..\..\src\stdlib\ring_buffer.natvis">
       <Filter>src\stdlib</Filter>
+    </Natvis>
+    <Natvis Include="..\..\src\stdlib\bits_vector\bits_vector.natvis">
+      <Filter>src\stdlib\bits_vector</Filter>
     </Natvis>
   </ItemGroup>
 </Project>

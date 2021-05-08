@@ -190,6 +190,10 @@
     <ClInclude Include="..\..\src\stdlib\architecture.hpp" />
     <ClInclude Include="..\..\src\stdlib\array.hpp" />
     <ClInclude Include="..\..\src\stdlib\assert.hpp" />
+    <ClInclude Include="..\..\src\stdlib\bits_vector\bits_vector.hpp" />
+    <ClInclude Include="..\..\src\stdlib\bits_vector\bits_vector_chunk.hpp" />
+    <ClInclude Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_const_reference.hpp" />
+    <ClInclude Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_reference.hpp" />
     <ClInclude Include="..\..\src\stdlib\climits.hpp" />
     <ClInclude Include="..\..\src\stdlib\cstdlib.hpp" />
     <ClInclude Include="..\..\src\stdlib\heap\heap_multi_threaded.hpp" />
@@ -221,6 +225,10 @@
     <None Include="..\..\src\stdlib\algorithm\max.inl" />
     <None Include="..\..\src\stdlib\algorithm\min.inl" />
     <None Include="..\..\src\stdlib\array.inl" />
+    <None Include="..\..\src\stdlib\bits_vector\bits_vector.inl" />
+    <None Include="..\..\src\stdlib\bits_vector\bits_vector_chunk.inl" />
+    <None Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_const_reference.inl" />
+    <None Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_reference.inl" />
     <None Include="..\..\src\stdlib\memory.inl" />
     <None Include="..\..\src\stdlib\power2.inl" />
     <None Include="..\..\src\stdlib\ring_buffer.inl" />
@@ -230,6 +238,7 @@
     <None Include="..\..\src\stdlib\utility\swap.inl" />
   </ItemGroup>
   <ItemGroup>
+    <Natvis Include="..\..\src\stdlib\bits_vector\bits_vector.natvis" />
     <Natvis Include="..\..\src\stdlib\ring_buffer.natvis" />
     <Natvis Include="..\..\src\stdlib\span.natvis" />
   </ItemGroup>

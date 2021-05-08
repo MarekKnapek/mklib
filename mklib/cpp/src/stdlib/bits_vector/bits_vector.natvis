@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nv:AutoVisualizer xmlns:nv="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+	<nv:Type Name="mk::stdlib::bits_vector_t&lt;*&gt;">
+		<nv:Intrinsic Name="chunks" Expression="m_chunks"/>
+		<nv:Intrinsic Name="size" Expression="m_size"/>
+		<nv:Intrinsic Name="capacity" Expression="m_capacity"/>
+		<nv:DisplayString>{{ size={size()} }}</nv:DisplayString>
+		<nv:Expand>
+			<nv:Item Name="[size]">size()</nv:Item>
+			<nv:Item Name="[capacity]">capacity()</nv:Item>
+			<nv:IndexListItems>
+				<nv:Size>size()</nv:Size>
+				<nv:ValueNode>($T1)((chunks()[$i / s_elements_per_chunk].m_storage >> (($i % s_elements_per_chunk) * $T2)) &amp; ((1u &lt;&lt; $T2) - 1))</nv:ValueNode>
+			</nv:IndexListItems>
+		</nv:Expand>
+	</nv:Type>
+</nv:AutoVisualizer>
