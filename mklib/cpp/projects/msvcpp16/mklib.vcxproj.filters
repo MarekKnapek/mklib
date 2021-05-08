@@ -60,6 +60,9 @@
     <ClCompile Include="..\..\src\stdlib\new.cpp">
       <Filter>src\stdlib</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\stdlib\cstdlib.cpp">
+      <Filter>src\stdlib</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\stdlib\architecture.hpp">
@@ -150,6 +153,9 @@
       <Filter>src\stdlib\algorithm</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\stdlib\memory.hpp">
+      <Filter>src\stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\cstdlib.hpp">
       <Filter>src\stdlib</Filter>
     </ClInclude>
   </ItemGroup>
