@@ -35,7 +35,7 @@ template<unsigned bytes>
 	{
 		x |= x >> shift;
 		shift *= 2;
-		if(shift == bytes * 8 / 2)
+		if(shift == bytes * 8)
 		{
 			break;
 		}

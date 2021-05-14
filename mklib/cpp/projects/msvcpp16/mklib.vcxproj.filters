@@ -69,6 +69,12 @@
     <ClCompile Include="..\..\tests\bits_vector.cpp">
       <Filter>tests</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\tests\tests_bits_buffer.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\tests\tests_bits_vector.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\stdlib\architecture.hpp">
@@ -179,6 +185,21 @@
     <ClInclude Include="..\..\src\stdlib\bits_vector\bits_vector_chunk.hpp">
       <Filter>src\stdlib\bits_vector</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\bits_vector\bits_buffer.hpp">
+      <Filter>src\stdlib\bits_vector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\type_traits\is_trivial.hpp">
+      <Filter>src\stdlib\type_traits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\tests\tests_bits_buffer.hpp">
+      <Filter>tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\tests\tests_bits_vector.hpp">
+      <Filter>tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\algorithm\fill.hpp">
+      <Filter>src\stdlib\algorithm</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\stdlib\utility\move.inl">
@@ -225,6 +246,12 @@
     </None>
     <None Include="..\..\src\stdlib\bits_vector\bits_vector_chunk.inl">
       <Filter>src\stdlib\bits_vector</Filter>
+    </None>
+    <None Include="..\..\src\stdlib\bits_vector\bits_buffer.inl">
+      <Filter>src\stdlib\bits_vector</Filter>
+    </None>
+    <None Include="..\..\src\stdlib\algorithm\fill.inl">
+      <Filter>src\stdlib\algorithm</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

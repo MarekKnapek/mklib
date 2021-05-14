@@ -7,6 +7,10 @@
 #include "../src/stdlib/heap/heap_virtual.hpp"
 
 #include "../src/stdlib/ring_buffer.hpp"
+#include "../src/stdlib/cstdlib.hpp"
+
+#include "tests_bits_buffer.hpp"
+#include "tests_bits_vector.hpp"
 
 #define _ALLOW_RTCc_IN_STL
 #include <string>
@@ -77,6 +81,9 @@ int main()
 	}
 	#endif
 
-	bits_vector_tests();
+	mk::stdlib::cstdlib_init();
+	tests_bits_buffer::test();
+	tests_bits_vector::test();
+	mk::stdlib::cstdlib_deinit();
 	return 0;
 }

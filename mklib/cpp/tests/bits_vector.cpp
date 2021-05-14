@@ -1,3 +1,4 @@
+#if 0
 #include "../src/stdlib/bits_vector/bits_vector.hpp"
 
 #include "../src/stdlib/assert.hpp"
@@ -104,3 +105,4 @@ void bits_vector_tests()
 	}
 	mk::stdlib::cstdlib_deinit();
 }
+#endif

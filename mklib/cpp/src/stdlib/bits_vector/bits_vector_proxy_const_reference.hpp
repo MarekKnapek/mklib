@@ -11,28 +11,28 @@ namespace mk
 	{
 
 
-		template<typename t, unsigned n>
+		template<typename t, unsigned n, typename chunk_t = mk::stdlib::size_t>
 		class bits_vector_proxy_const_reference_t
 		{
 		public:
 			bits_vector_proxy_const_reference_t() noexcept;
-			bits_vector_proxy_const_reference_t(mk::stdlib::bits_vector_chunk_t<t, n> const* const& chunk, mk::stdlib::size_t const& idx) noexcept;
-			bits_vector_proxy_const_reference_t(mk::stdlib::bits_vector_proxy_const_reference_t<t, n> const& other) noexcept;
-			bits_vector_proxy_const_reference_t(mk::stdlib::bits_vector_proxy_const_reference_t<t, n>&& other) noexcept;
-			mk::stdlib::bits_vector_proxy_const_reference_t<t, n>& operator=(mk::stdlib::bits_vector_proxy_const_reference_t<t, n> const& other) noexcept;
-			mk::stdlib::bits_vector_proxy_const_reference_t<t, n>& operator=(mk::stdlib::bits_vector_proxy_const_reference_t<t, n>&& other) noexcept;
+			bits_vector_proxy_const_reference_t(chunk_t const* const& chunk, mk::stdlib::size_t const& idx) noexcept;
+			bits_vector_proxy_const_reference_t(mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t> const& other) noexcept;
+			bits_vector_proxy_const_reference_t(mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t>&& other) noexcept;
+			mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t>& operator=(mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t> const& other) noexcept;
+			mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t>& operator=(mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t>&& other) noexcept;
 			~bits_vector_proxy_const_reference_t() noexcept;
-			void swap(mk::stdlib::bits_vector_proxy_const_reference_t<t, n>& other) noexcept;
+			void swap(mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t>& other) noexcept;
 		public:
 			operator t() const noexcept;
 		public:
 			t& operator=(t const& val) noexcept = delete;
 		private:
-			mk::stdlib::bits_vector_chunk_t<t, n> const* m_chunk;
+			chunk_t const* m_chunk;
 			mk::stdlib::size_t m_idx;
 		};
 
-		template<typename t, unsigned n> inline void swap(mk::stdlib::bits_vector_proxy_const_reference_t<t, n>& a, mk::stdlib::bits_vector_proxy_const_reference_t<t, n>& b) noexcept { a.swap(b); }
+		template<typename t, unsigned n, typename chunk_t> inline void swap(mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t>& a, mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t>& b) noexcept { a.swap(b); }
 
 
 	}

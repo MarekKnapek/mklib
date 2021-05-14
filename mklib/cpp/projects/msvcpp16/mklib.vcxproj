@@ -182,15 +182,19 @@
     <ClCompile Include="..\..\src\win\types.cpp" />
     <ClCompile Include="..\..\tests\bits_vector.cpp" />
     <ClCompile Include="..\..\tests\tests.cpp" />
+    <ClCompile Include="..\..\tests\tests_bits_buffer.cpp" />
+    <ClCompile Include="..\..\tests\tests_bits_vector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\stdlib\algorithm.hpp" />
     <ClInclude Include="..\..\src\stdlib\algorithm\copy.hpp" />
+    <ClInclude Include="..\..\src\stdlib\algorithm\fill.hpp" />
     <ClInclude Include="..\..\src\stdlib\algorithm\max.hpp" />
     <ClInclude Include="..\..\src\stdlib\algorithm\min.hpp" />
     <ClInclude Include="..\..\src\stdlib\architecture.hpp" />
     <ClInclude Include="..\..\src\stdlib\array.hpp" />
     <ClInclude Include="..\..\src\stdlib\assert.hpp" />
+    <ClInclude Include="..\..\src\stdlib\bits_vector\bits_buffer.hpp" />
     <ClInclude Include="..\..\src\stdlib\bits_vector\bits_vector.hpp" />
     <ClInclude Include="..\..\src\stdlib\bits_vector\bits_vector_chunk.hpp" />
     <ClInclude Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_const_reference.hpp" />
@@ -212,6 +216,7 @@
     <ClInclude Include="..\..\src\stdlib\type_traits.hpp" />
     <ClInclude Include="..\..\src\stdlib\type_traits\aligned_storage.hpp" />
     <ClInclude Include="..\..\src\stdlib\type_traits\is_same.hpp" />
+    <ClInclude Include="..\..\src\stdlib\type_traits\is_trivial.hpp" />
     <ClInclude Include="..\..\src\stdlib\type_traits\remove_reference.hpp" />
     <ClInclude Include="..\..\src\stdlib\utility.hpp" />
     <ClInclude Include="..\..\src\stdlib\utility\forward.hpp" />
@@ -220,12 +225,16 @@
     <ClInclude Include="..\..\src\win\kernel32.hpp" />
     <ClInclude Include="..\..\src\win\kernel32\heap.hpp" />
     <ClInclude Include="..\..\src\win\types.hpp" />
+    <ClInclude Include="..\..\tests\tests_bits_buffer.hpp" />
+    <ClInclude Include="..\..\tests\tests_bits_vector.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\stdlib\algorithm\copy.inl" />
+    <None Include="..\..\src\stdlib\algorithm\fill.inl" />
     <None Include="..\..\src\stdlib\algorithm\max.inl" />
     <None Include="..\..\src\stdlib\algorithm\min.inl" />
     <None Include="..\..\src\stdlib\array.inl" />
+    <None Include="..\..\src\stdlib\bits_vector\bits_buffer.inl" />
     <None Include="..\..\src\stdlib\bits_vector\bits_vector.inl" />
     <None Include="..\..\src\stdlib\bits_vector\bits_vector_chunk.inl" />
     <None Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_const_reference.inl" />
