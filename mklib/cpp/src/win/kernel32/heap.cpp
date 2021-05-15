@@ -1,13 +1,13 @@
 #include "heap.hpp"
 
 
-extern "C" __declspec(dllimport) [[nodiscard]] mk::win::handle_t __stdcall GetProcessHeap(void) noexcept;
-extern "C" __declspec(dllimport) [[nodiscard]] mk::win::handle_t __stdcall HeapCreate(mk::stdlib::uint32_t, mk::stdlib::size_t, mk::stdlib::size_t) noexcept;
-extern "C" __declspec(dllimport) [[nodiscard]] void* __stdcall HeapAlloc(mk::win::handle_t, mk::stdlib::uint32_t, mk::stdlib::size_t) noexcept;
-extern "C" __declspec(dllimport) [[nodiscard]] mk::stdlib::size_t __stdcall HeapSize(mk::win::handle_t, mk::stdlib::uint32_t, void const*) noexcept;
-extern "C" __declspec(dllimport) [[nodiscard]] void* __stdcall HeapReAlloc(mk::win::handle_t, mk::stdlib::uint32_t, void*, mk::stdlib::size_t) noexcept;
-extern "C" __declspec(dllimport) [[nodiscard]] mk::win::bool_t __stdcall HeapFree(mk::win::handle_t, mk::stdlib::uint32_t, void*) noexcept;
-extern "C" __declspec(dllimport) [[nodiscard]] mk::win::bool_t __stdcall HeapDestroy(mk::win::handle_t) noexcept;
+extern "C" [[nodiscard]] __declspec(dllimport) mk::win::handle_t __stdcall GetProcessHeap(void) noexcept;
+extern "C" [[nodiscard]] __declspec(dllimport) mk::win::handle_t __stdcall HeapCreate(mk::stdlib::uint32_t, mk::stdlib::size_t, mk::stdlib::size_t) noexcept;
+extern "C" [[nodiscard]] __declspec(dllimport) void* __stdcall HeapAlloc(mk::win::handle_t, mk::stdlib::uint32_t, mk::stdlib::size_t) noexcept;
+extern "C" [[nodiscard]] __declspec(dllimport) mk::stdlib::size_t __stdcall HeapSize(mk::win::handle_t, mk::stdlib::uint32_t, void const*) noexcept;
+extern "C" [[nodiscard]] __declspec(dllimport) void* __stdcall HeapReAlloc(mk::win::handle_t, mk::stdlib::uint32_t, void*, mk::stdlib::size_t) noexcept;
+extern "C" [[nodiscard]] __declspec(dllimport) mk::win::bool_t __stdcall HeapFree(mk::win::handle_t, mk::stdlib::uint32_t, void*) noexcept;
+extern "C" [[nodiscard]] __declspec(dllimport) mk::win::bool_t __stdcall HeapDestroy(mk::win::handle_t) noexcept;
 
 
 [[nodiscard]] mk::win::handle_t mk::win::kernel32::get_process_heap(void) noexcept
