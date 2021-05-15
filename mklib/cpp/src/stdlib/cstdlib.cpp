@@ -30,6 +30,16 @@ mk::stdlib::heap_multi_threaded_t& mk::stdlib::impl::get_global_heap() noexcept
 }
 
 
+mk::stdlib::cstdlib_init_t::cstdlib_init_t() noexcept
+{
+	mk::stdlib::cstdlib_init();
+}
+
+mk::stdlib::cstdlib_init_t::~cstdlib_init_t() noexcept
+{
+	mk::stdlib::cstdlib_deinit();
+}
+
 void mk::stdlib::cstdlib_init() noexcept
 {
 	mk::stdlib::construct_at(&mk::stdlib::impl::get_global_heap());
