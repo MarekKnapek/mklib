@@ -31,10 +31,10 @@ mk::stdlib::bits_vector_t<t, n, chunk_t>::bits_vector_t() noexcept :
 }
 
 template<typename t, unsigned n, typename chunk_t>
-mk::stdlib::bits_vector_t<t, n, chunk_t>::bits_vector_t(mk::stdlib::size_t const& count) noexcept :
+mk::stdlib::bits_vector_t<t, n, chunk_t>::bits_vector_t(mk::stdlib::size_t const& size) noexcept :
 	mk::stdlib::bits_vector_t<t, n, chunk_t>()
 {
-	resize(count);
+	resize(size);
 }
 
 template<typename t, unsigned n, typename chunk_t>
@@ -42,7 +42,7 @@ mk::stdlib::bits_vector_t<t, n, chunk_t>::bits_vector_t(mk::stdlib::bits_vector_
 	mk::stdlib::bits_vector_t<t, n, chunk_t>()
 {
 	mk::stdlib::size_t const chunks_count = element_to_chunk_count(other.m_size);
-	m_chunks = mk::stdlib::malloc(chunks_count * sizeof(chunk_t));
+	m_chunks = static_cast<chunk_t*>(mk::stdlib::malloc(chunks_count * sizeof(chunk_t)));
 	m_size = other.m_size;
 	m_capacity = chunk_to_element_count(chunks_count);
 	mk::stdlib::copy_n(other.m_chunks, chunks_count, m_chunks);
@@ -109,7 +109,7 @@ void mk::stdlib::bits_vector_t<t, n, chunk_t>::swap(mk::stdlib::bits_vector_t<t,
 template<typename t, unsigned n, typename chunk_t>
 [[nodiscard]] bool mk::stdlib::bits_vector_t<t, n, chunk_t>::empty() const noexcept
 {
-	return m_size != 0;
+	return m_size == 0;
 }
 
 template<typename t, unsigned n, typename chunk_t>
@@ -138,6 +138,42 @@ template<typename t, unsigned n, typename chunk_t>
 	return mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t>{m_chunks + chunk_idx, chunk_off};
 }
 
+template<typename t, unsigned n, typename chunk_t>
+[[nodiscard]] mk::stdlib::bits_vector_const_iterator_t<t, n, chunk_t> mk::stdlib::bits_vector_t<t, n, chunk_t>::cbegin() const noexcept
+{
+	mk::stdlib::size_t const idx = 0;
+	mk::stdlib::size_t const chunk_idx = idx / s_elements_per_chunk;
+	mk::stdlib::size_t const chunk_off = idx % s_elements_per_chunk;
+	return mk::stdlib::bits_vector_const_iterator_t<t, n, chunk_t>{m_chunks + chunk_idx, chunk_off};
+}
+
+template<typename t, unsigned n, typename chunk_t>
+[[nodiscard]] mk::stdlib::bits_vector_const_iterator_t<t, n, chunk_t> mk::stdlib::bits_vector_t<t, n, chunk_t>::begin() const noexcept
+{
+	mk::stdlib::size_t const idx = 0;
+	mk::stdlib::size_t const chunk_idx = idx / s_elements_per_chunk;
+	mk::stdlib::size_t const chunk_off = idx % s_elements_per_chunk;
+	return mk::stdlib::bits_vector_const_iterator_t<t, n, chunk_t>{m_chunks + chunk_idx, chunk_off};
+}
+
+template<typename t, unsigned n, typename chunk_t>
+[[nodiscard]] mk::stdlib::bits_vector_const_iterator_t<t, n, chunk_t> mk::stdlib::bits_vector_t<t, n, chunk_t>::cend() const noexcept
+{
+	mk::stdlib::size_t const idx = m_size;
+	mk::stdlib::size_t const chunk_idx = idx / s_elements_per_chunk;
+	mk::stdlib::size_t const chunk_off = idx % s_elements_per_chunk;
+	return mk::stdlib::bits_vector_const_iterator_t<t, n, chunk_t>{m_chunks + chunk_idx, chunk_off};
+}
+
+template<typename t, unsigned n, typename chunk_t>
+[[nodiscard]] mk::stdlib::bits_vector_const_iterator_t<t, n, chunk_t> mk::stdlib::bits_vector_t<t, n, chunk_t>::end() const noexcept
+{
+	mk::stdlib::size_t const idx = m_size;
+	mk::stdlib::size_t const chunk_idx = idx / s_elements_per_chunk;
+	mk::stdlib::size_t const chunk_off = idx % s_elements_per_chunk;
+	return mk::stdlib::bits_vector_const_iterator_t<t, n, chunk_t>{m_chunks + chunk_idx, chunk_off};
+}
+
 
 template<typename t, unsigned n, typename chunk_t>
 [[nodiscard]] mk::stdlib::bits_vector_proxy_reference_t<t, n, chunk_t> mk::stdlib::bits_vector_t<t, n, chunk_t>::operator[](mk::stdlib::size_t const& idx) noexcept
@@ -145,6 +181,24 @@ template<typename t, unsigned n, typename chunk_t>
 	mk::stdlib::size_t const chunk_idx = idx / s_elements_per_chunk;
 	mk::stdlib::size_t const chunk_off = idx % s_elements_per_chunk;
 	return mk::stdlib::bits_vector_proxy_reference_t<t, n, chunk_t>{m_chunks + chunk_idx, chunk_off};
+}
+
+template<typename t, unsigned n, typename chunk_t>
+[[nodiscard]] mk::stdlib::bits_vector_iterator_t<t, n, chunk_t> mk::stdlib::bits_vector_t<t, n, chunk_t>::begin() noexcept
+{
+	mk::stdlib::size_t const idx = 0;
+	mk::stdlib::size_t const chunk_idx = idx / s_elements_per_chunk;
+	mk::stdlib::size_t const chunk_off = idx % s_elements_per_chunk;
+	return mk::stdlib::bits_vector_iterator_t<t, n, chunk_t>{m_chunks + chunk_idx, chunk_off};
+}
+
+template<typename t, unsigned n, typename chunk_t>
+[[nodiscard]] mk::stdlib::bits_vector_iterator_t<t, n, chunk_t> mk::stdlib::bits_vector_t<t, n, chunk_t>::end() noexcept
+{
+	mk::stdlib::size_t const idx = m_size;
+	mk::stdlib::size_t const chunk_idx = idx / s_elements_per_chunk;
+	mk::stdlib::size_t const chunk_off = idx % s_elements_per_chunk;
+	return mk::stdlib::bits_vector_iterator_t<t, n, chunk_t>{m_chunks + chunk_idx, chunk_off};
 }
 
 template<typename t, unsigned n, typename chunk_t>

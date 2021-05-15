@@ -3,11 +3,11 @@
 
 #include "../src/stdlib/assert.hpp"
 
+
 namespace tests_bits_vector
 {
 
-
-	enum class olympic_medal
+	enum class olympic_medal_t
 	{
 		gold,
 		silver,
@@ -15,14 +15,25 @@ namespace tests_bits_vector
 		potato,
 	};
 
-
 }
 
 
 void tests_bits_vector::test()
 {
-	mk::stdlib::bits_vector_t<olympic_medal, 2> buff(1'000);
-	buff[42] = olympic_medal::bronze;
-
-	MK_STDLIB_ASSERT(buff[42] == olympic_medal::bronze);
+	{
+		// default construct
+		mk::stdlib::bits_vector_t<olympic_medal_t, 2> vec;
+		MK_STDLIB_ASSERT(vec.empty());
+	}
+	{
+		// size construct
+		mk::stdlib::bits_vector_t<olympic_medal_t, 2> vec{1'000};
+		MK_STDLIB_ASSERT(!vec.empty());
+	}
+	{
+		// copy construct
+		mk::stdlib::bits_vector_t<olympic_medal_t, 2> vec{1'000};
+		mk::stdlib::bits_vector_t<olympic_medal_t, 2> vec2{vec};
+		MK_STDLIB_ASSERT(vec2.size() == 1'000);
+	}
 }

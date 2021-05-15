@@ -180,7 +180,6 @@
     <ClCompile Include="..\..\src\stdlib\new.cpp" />
     <ClCompile Include="..\..\src\win\kernel32\heap.cpp" />
     <ClCompile Include="..\..\src\win\types.cpp" />
-    <ClCompile Include="..\..\tests\bits_vector.cpp" />
     <ClCompile Include="..\..\tests\tests.cpp" />
     <ClCompile Include="..\..\tests\tests_bits_buffer.cpp" />
     <ClCompile Include="..\..\tests\tests_bits_vector.cpp" />
@@ -197,6 +196,8 @@
     <ClInclude Include="..\..\src\stdlib\bits_vector\bits_buffer.hpp" />
     <ClInclude Include="..\..\src\stdlib\bits_vector\bits_vector.hpp" />
     <ClInclude Include="..\..\src\stdlib\bits_vector\bits_vector_chunk.hpp" />
+    <ClInclude Include="..\..\src\stdlib\bits_vector\bits_vector_const_iterator.hpp" />
+    <ClInclude Include="..\..\src\stdlib\bits_vector\bits_vector_iterator.hpp" />
     <ClInclude Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_const_reference.hpp" />
     <ClInclude Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_reference.hpp" />
     <ClInclude Include="..\..\src\stdlib\climits.hpp" />
@@ -237,6 +238,8 @@
     <None Include="..\..\src\stdlib\bits_vector\bits_buffer.inl" />
     <None Include="..\..\src\stdlib\bits_vector\bits_vector.inl" />
     <None Include="..\..\src\stdlib\bits_vector\bits_vector_chunk.inl" />
+    <None Include="..\..\src\stdlib\bits_vector\bits_vector_const_iterator.inl" />
+    <None Include="..\..\src\stdlib\bits_vector\bits_vector_iterator.inl" />
     <None Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_const_reference.inl" />
     <None Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_reference.inl" />
     <None Include="..\..\src\stdlib\memory.inl" />

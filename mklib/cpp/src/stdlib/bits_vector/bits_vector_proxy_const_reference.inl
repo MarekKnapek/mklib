@@ -69,6 +69,5 @@ void mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t>::swap(mk::st
 template<typename t, unsigned n, typename chunk_t>
 mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t>::operator t() const noexcept
 {
-	t const val = mk::stdlib::bits_vector_chunk_t<t, n, chunk_t>::get(*m_chunk, m_idx);
-	return val;
+	return mk::stdlib::bits_vector_chunk_t<t, n, chunk_t>::get(*m_chunk, m_idx);
 }

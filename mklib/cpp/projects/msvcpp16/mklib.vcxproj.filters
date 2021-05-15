@@ -66,9 +66,6 @@
     <ClCompile Include="..\..\src\stdlib\cstdlib.cpp">
       <Filter>src\stdlib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\tests\bits_vector.cpp">
-      <Filter>tests</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\tests\tests_bits_buffer.cpp">
       <Filter>tests</Filter>
     </ClCompile>
@@ -200,6 +197,12 @@
     <ClInclude Include="..\..\src\stdlib\algorithm\fill.hpp">
       <Filter>src\stdlib\algorithm</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\bits_vector\bits_vector_iterator.hpp">
+      <Filter>src\stdlib\bits_vector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\bits_vector\bits_vector_const_iterator.hpp">
+      <Filter>src\stdlib\bits_vector</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\stdlib\utility\move.inl">
@@ -252,6 +255,12 @@
     </None>
     <None Include="..\..\src\stdlib\algorithm\fill.inl">
       <Filter>src\stdlib\algorithm</Filter>
+    </None>
+    <None Include="..\..\src\stdlib\bits_vector\bits_vector_iterator.inl">
+      <Filter>src\stdlib\bits_vector</Filter>
+    </None>
+    <None Include="..\..\src\stdlib\bits_vector\bits_vector_const_iterator.inl">
+      <Filter>src\stdlib\bits_vector</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
