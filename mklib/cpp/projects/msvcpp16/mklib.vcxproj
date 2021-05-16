@@ -254,6 +254,8 @@
     <Natvis Include="..\..\src\stdlib\bits_vector\bits_vector.natvis" />
     <Natvis Include="..\..\src\stdlib\bits_vector\bits_vector_const_iterator.natvis" />
     <Natvis Include="..\..\src\stdlib\bits_vector\bits_vector_iterator.natvis" />
+    <Natvis Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_const_reference.natvis" />
+    <Natvis Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_reference.natvis" />
     <Natvis Include="..\..\src\stdlib\ring_buffer.natvis" />
     <Natvis Include="..\..\src\stdlib\span.natvis" />
   </ItemGroup>

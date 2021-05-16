@@ -226,8 +226,8 @@ template<typename t, unsigned n, typename chunk_t>
 template<typename t, unsigned n, typename chunk_t>
 mk::stdlib::bits_vector_const_iterator_t<t, n, chunk_t>& mk::stdlib::bits_vector_const_iterator_t<t, n, chunk_t>::operator++() noexcept
 {
-	bool const end_of_chunk = m_idx == s_elements_per_chunk - 1;
-	if(!end_of_chunk)
+	bool const is_end_of_chunk = m_idx == s_elements_per_chunk - 1;
+	if(!is_end_of_chunk)
 	{
 		++m_idx;
 	}
@@ -242,8 +242,8 @@ mk::stdlib::bits_vector_const_iterator_t<t, n, chunk_t>& mk::stdlib::bits_vector
 template<typename t, unsigned n, typename chunk_t>
 mk::stdlib::bits_vector_const_iterator_t<t, n, chunk_t>& mk::stdlib::bits_vector_const_iterator_t<t, n, chunk_t>::operator--() noexcept
 {
-	bool const start_of_chunk = m_idx == 0;
-	if(!start_of_chunk)
+	bool const is_start_of_chunk = m_idx == 0;
+	if(!is_start_of_chunk)
 	{
 		--m_idx;
 	}

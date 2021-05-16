@@ -38,10 +38,16 @@ namespace mk
 			[[nodiscard]] mk::stdlib::bits_vector_const_iterator_t<t, n, chunk_t> begin() const noexcept;
 			[[nodiscard]] mk::stdlib::bits_vector_const_iterator_t<t, n, chunk_t> cend() const noexcept;
 			[[nodiscard]] mk::stdlib::bits_vector_const_iterator_t<t, n, chunk_t> end() const noexcept;
+			[[nodiscard]] mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t> cfront() const noexcept;
+			[[nodiscard]] mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t> front() const noexcept;
+			[[nodiscard]] mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t> cback() const noexcept;
+			[[nodiscard]] mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t> back() const noexcept;
 		public:
 			[[nodiscard]] mk::stdlib::bits_vector_proxy_reference_t<t, n, chunk_t> operator[](mk::stdlib::size_t const& idx) noexcept;
 			[[nodiscard]] mk::stdlib::bits_vector_iterator_t<t, n, chunk_t> begin() noexcept;
 			[[nodiscard]] mk::stdlib::bits_vector_iterator_t<t, n, chunk_t> end() noexcept;
+			[[nodiscard]] mk::stdlib::bits_vector_proxy_reference_t<t, n, chunk_t> front() noexcept;
+			[[nodiscard]] mk::stdlib::bits_vector_proxy_reference_t<t, n, chunk_t> back() noexcept;
 			void reserve(mk::stdlib::size_t const& capacity) noexcept;
 			void resize(mk::stdlib::size_t const& size) noexcept;
 			void push_back(t const& val) noexcept;
