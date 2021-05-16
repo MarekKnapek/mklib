@@ -6,7 +6,7 @@ void mk::stdlib::copy(t1 const& src_begin, t2 const& src_end, t3 const& dst) noe
 {
 	t1 it_src = src_begin;
 	t3 it_dst = dst;
-	while(it_src != dst)
+	while(it_src != src_end)
 	{
 		*it_dst = *it_src;
 		++it_src;
@@ -15,7 +15,7 @@ void mk::stdlib::copy(t1 const& src_begin, t2 const& src_end, t3 const& dst) noe
 }
 
 template<typename t1, typename t2, typename t3>
-void mk::stdlib::copy_n(t1 const& src, t2 const& count, t3 const& dst) noexcept
+t3 mk::stdlib::copy_n(t1 const& src, t2 const& count, t3 const& dst) noexcept
 {
 	t1 it_src = src;
 	t2 cnt = count;
@@ -27,4 +27,5 @@ void mk::stdlib::copy_n(t1 const& src, t2 const& count, t3 const& dst) noexcept
 		--cnt;
 		++it_dst;
 	}
+	return dst;
 }
