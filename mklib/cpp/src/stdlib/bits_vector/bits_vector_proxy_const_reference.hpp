@@ -20,13 +20,12 @@ namespace mk
 			bits_vector_proxy_const_reference_t(mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t> const& other) noexcept;
 			bits_vector_proxy_const_reference_t(mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t>&& other) noexcept;
 			mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t>& operator=(mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t> const& other) noexcept;
-			mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t>& operator=(mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t>&& other) noexcept;
 			~bits_vector_proxy_const_reference_t() noexcept;
 			void swap(mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t>& other) noexcept;
 		public:
 			operator t() const noexcept;
 		public:
-			t& operator=(t const& val) noexcept = delete;
+			mk::stdlib::bits_vector_proxy_const_reference_t<t, n, chunk_t>& operator=(t const&) noexcept = delete;
 		private:
 			chunk_t const* m_chunk;
 			mk::stdlib::size_t m_idx;

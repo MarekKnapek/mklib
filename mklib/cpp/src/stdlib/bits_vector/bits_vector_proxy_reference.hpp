@@ -20,7 +20,6 @@ namespace mk
 			bits_vector_proxy_reference_t(mk::stdlib::bits_vector_proxy_reference_t<t, n, chunk_t> const& other) noexcept;
 			bits_vector_proxy_reference_t(mk::stdlib::bits_vector_proxy_reference_t<t, n, chunk_t>&& other) noexcept;
 			mk::stdlib::bits_vector_proxy_reference_t<t, n, chunk_t>& operator=(mk::stdlib::bits_vector_proxy_reference_t<t, n, chunk_t> const& other) noexcept;
-			mk::stdlib::bits_vector_proxy_reference_t<t, n, chunk_t>& operator=(mk::stdlib::bits_vector_proxy_reference_t<t, n, chunk_t>&& other) noexcept;
 			~bits_vector_proxy_reference_t() noexcept;
 			void swap(mk::stdlib::bits_vector_proxy_reference_t<t, n, chunk_t>& other) noexcept;
 		public:

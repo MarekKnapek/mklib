@@ -37,18 +37,7 @@ template<typename t, unsigned n, typename chunk_t>
 mk::stdlib::bits_vector_proxy_reference_t<t, n, chunk_t>& mk::stdlib::bits_vector_proxy_reference_t<t, n, chunk_t>::operator=(mk::stdlib::bits_vector_proxy_reference_t<t, n, chunk_t> const& other) noexcept
 {
 	MK_STDLIB_ASSERT(this != &other);
-	m_chunk = other.m_chunk;
-	m_idx = other.m_idx;
-	return *this;
-}
-
-template<typename t, unsigned n, typename chunk_t>
-mk::stdlib::bits_vector_proxy_reference_t<t, n, chunk_t>& mk::stdlib::bits_vector_proxy_reference_t<t, n, chunk_t>::operator=(mk::stdlib::bits_vector_proxy_reference_t<t, n, chunk_t>&& other) noexcept
-{
-	MK_STDLIB_ASSERT(this != &other);
-	m_chunk = mk::stdlib::move(other.m_chunk);
-	m_idx = mk::stdlib::move(other.m_idx);
-	return *this;
+	return *this = static_cast<t>(other);
 }
 
 template<typename t, unsigned n, typename chunk_t>

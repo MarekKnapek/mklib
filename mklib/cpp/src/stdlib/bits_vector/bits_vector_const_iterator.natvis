@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nv:AutoVisualizer xmlns:nv="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+	<nv:Type Name="mk::stdlib::bits_vector_iterator_t&lt;*&gt;">
+		<nv:DisplayString>{{ deref={static_cast&lt;$T1&gt;(((*m_chunk) &gt;&gt; (m_idx * $T2)) &amp; ((1u &lt;&lt; $T2) - 1))} }}</nv:DisplayString>
+	</nv:Type>
+</nv:AutoVisualizer>
