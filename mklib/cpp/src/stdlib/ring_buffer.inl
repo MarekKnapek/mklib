@@ -1,10 +1,11 @@
 #include "ring_buffer.hpp"
 
-#include "assert.hpp"
-#include "utility/move.hpp"
-#include "utility/swap.hpp"
-#include "algorithm/min.hpp"
-#include "memory.hpp"
+#include "algorithm/min.hpp" // mk::stdlib::min
+#include "assert.hpp" // MK_STDLIB_ASSERT
+#include "memory.hpp" // mk::stdlib::uninitialized_copy, mk::stdlib::uninitialized_move, mk::stdlib::construct_at, mk::stdlib::destroy_n
+#include "utility/forward.hpp" // mk::stdlib::forward
+#include "utility/move.hpp" // mk::stdlib::move
+#include "utility/swap.hpp" // mk::stdlib::swap
 
 
 template<typename t, mk::stdlib::size_t n>
@@ -19,49 +20,97 @@ template<typename t, mk::stdlib::size_t n>
 mk::stdlib::ring_buffer_t<t, n>::ring_buffer_t(mk::stdlib::ring_buffer_t<t, n> const& other) noexcept :
 	mk::stdlib::ring_buffer_t<t, n>()
 {
-	auto const first_h = other.first_half();
-	auto const second_h = other.second_half();
-	t* const first_ptr = reinterpret_cast<t*>(m_array.data());
-	t* const second_ptr = first_ptr + first_h.size();
-	mk::stdlib::uninitialized_copy(first_h.cbegin(), first_h.cend(), first_ptr);
-	mk::stdlib::uninitialized_copy(second_h.cbegin(), second_h.cend(), second_ptr);
-	m_write += first_h.size() + second_h.size();
+	mk::stdlib::span_t<t const> const other_fh = other.first_half();
+	mk::stdlib::span_t<t const> const other_sh = other.second_half();
+	t* const self_first_ptr = reinterpret_cast<t*>(m_array.data());
+	t* const self_second_ptr = self_first_ptr + other_fh.size();
+	mk::stdlib::uninitialized_copy(other_fh.cbegin(), other_fh.cend(), self_first_ptr);
+	mk::stdlib::uninitialized_copy(other_sh.cbegin(), other_sh.cend(), self_second_ptr);
+	m_write = other_fh.size() + other_sh.size();
 }
 
 template<typename t, mk::stdlib::size_t n>
 mk::stdlib::ring_buffer_t<t, n>::ring_buffer_t(mk::stdlib::ring_buffer_t<t, n>&& other) noexcept :
 	mk::stdlib::ring_buffer_t<t, n>()
 {
-	auto first_h = other.first_half();
-	auto second_h = other.second_half();
-	t* const first_ptr = reinterpret_cast<t*>(m_array.data());
-	t* const second_ptr = first_ptr + first_h.size();
-	mk::stdlib::uninitialized_move(first_h.begin(), first_h.end(), first_ptr);
-	mk::stdlib::uninitialized_move(second_h.begin(), second_h.end(), second_ptr);
-	m_write += first_h.size() + second_h.size();
+	mk::stdlib::span_t<t> other_fh = other.first_half();
+	mk::stdlib::span_t<t> other_sh = other.second_half();
+	t* const self_first_ptr = reinterpret_cast<t*>(m_array.data());
+	t* const self_second_ptr = self_first_ptr + other_fh.size();
+	mk::stdlib::uninitialized_move(other_fh.begin(), other_fh.end(), self_first_ptr);
+	mk::stdlib::uninitialized_move(other_sh.begin(), other_sh.end(), self_second_ptr);
+	m_write = other_fh.size() + other_sh.size();
+	other.clear();
 }
 
 template<typename t, mk::stdlib::size_t n>
 mk::stdlib::ring_buffer_t<t, n>& mk::stdlib::ring_buffer_t<t, n>::operator=(mk::stdlib::ring_buffer_t<t, n> const& other) noexcept
 {
 	MK_STDLIB_ASSERT(this != &other);
-	// TODO
+	mk::stdlib::size_t const my_size = size();
+	mk::stdlib::size_t const other_size = other.size();
+	if(my_size < other_size)
+	{
+		for(mk::stdlib::size_t i = 0; i != my_size; ++i)
+		{
+			operator[](i) = other[i];
+		}
+		mk::stdlib::size_t const diff = other_size - my_size;
+		for(mk::stdlib::size_t i = 0; i != diff; ++i)
+		{
+			push_back(other[my_size + i]);
+		}
+	}
+	else
+	{
+		for(mk::stdlib::size_t i = 0; i != other_size; ++i)
+		{
+			operator[](i) = other[i];
+		}
+		mk::stdlib::size_t const diff = my_size - other_size;
+		pop_back(diff);
+	}
+	return *this;
 }
 
 template<typename t, mk::stdlib::size_t n>
 mk::stdlib::ring_buffer_t<t, n>& mk::stdlib::ring_buffer_t<t, n>::operator=(mk::stdlib::ring_buffer_t<t, n>&& other) noexcept
 {
 	MK_STDLIB_ASSERT(this != &other);
-	// TODO
+	mk::stdlib::size_t const my_size = size();
+	mk::stdlib::size_t const other_size = other.size();
+	if(my_size < other_size)
+	{
+		for(mk::stdlib::size_t i = 0; i != my_size; ++i)
+		{
+			operator[](i) = mk::stdlib::move(other[i]);
+		}
+		mk::stdlib::size_t const diff = other_size - my_size;
+		for(mk::stdlib::size_t i = 0; i != diff; ++i)
+		{
+			push_back(mk::stdlib::move(other[my_size + i]));
+		}
+	}
+	else
+	{
+		for(mk::stdlib::size_t i = 0; i != other_size; ++i)
+		{
+			operator[](i) = mk::stdlib::move(other[i]);
+		}
+		mk::stdlib::size_t const diff = my_size - other_size;
+		pop_back(diff);
+	}
+	other.clear();
+	return *this;
 }
 
 template<typename t, mk::stdlib::size_t n>
 mk::stdlib::ring_buffer_t<t, n>::~ring_buffer_t() noexcept
 {
-	auto const first_h = first_half();
-	auto const second_h = second_half();
-	mk::stdlib::destroy_n(first_h.data(), first_h.size());
-	mk::stdlib::destroy_n(second_h.data(), second_h.size());
+	mk::stdlib::span_t<t> const fh = first_half();
+	mk::stdlib::span_t<t> const sh = second_half();
+	mk::stdlib::destroy_n(fh.data(), fh.size());
+	mk::stdlib::destroy_n(sh.data(), sh.size());
 }
 
 template<typename t, mk::stdlib::size_t n>
@@ -69,42 +118,69 @@ void mk::stdlib::ring_buffer_t<t, n>::swap(mk::stdlib::ring_buffer_t<t, n>& othe
 {
 	MK_STDLIB_ASSERT(this != &other);
 	using mk::stdlib::swap;
-	// TODO
+	mk::stdlib::size_t const my_size = size();
+	mk::stdlib::size_t const other_size = other.size();
+	if(my_size < other_size)
+	{
+		for(mk::stdlib::size_t i = 0; i != my_size; ++i)
+		{
+			swap(operator[](i), other[i]);
+		}
+		mk::stdlib::size_t const diff = other_size - my_size;
+		for(mk::stdlib::size_t i = 0; i != diff; ++i)
+		{
+			push_back(mk::stdlib::move(other[my_size + i]));
+		}
+		other.pop_back(diff);
+	}
+	else
+	{
+		for(mk::stdlib::size_t i = 0; i != other_size; ++i)
+		{
+			swap(operator[](i), other[i]);
+		}
+		mk::stdlib::size_t const diff = my_size - other_size;
+		for(mk::stdlib::size_t i = 0; i != diff; ++i)
+		{
+			other.push_back(mk::stdlib::move(operator[](other_size + i)));
+		}
+		pop_back(diff);
+	}
 }
 
 
 template<typename t, mk::stdlib::size_t n>
-[[nodiscard]] constexpr bool mk::stdlib::ring_buffer_t<t, n>::empty() const noexcept
+[[nodiscard]] bool mk::stdlib::ring_buffer_t<t, n>::empty() const noexcept
 {
 	return m_write == m_read;
 }
 
 template<typename t, mk::stdlib::size_t n>
-[[nodiscard]] constexpr bool mk::stdlib::ring_buffer_t<t, n>::full() const noexcept
+[[nodiscard]] bool mk::stdlib::ring_buffer_t<t, n>::full() const noexcept
 {
 	return m_write == m_read + s_capacity;
 }
 
 template<typename t, mk::stdlib::size_t n>
-[[nodiscard]] constexpr mk::stdlib::size_t mk::stdlib::ring_buffer_t<t, n>::size() const noexcept
+[[nodiscard]] mk::stdlib::size_t mk::stdlib::ring_buffer_t<t, n>::size() const noexcept
 {
 	return m_write - m_read;
 }
 
 template<typename t, mk::stdlib::size_t n>
-[[nodiscard]] constexpr mk::stdlib::size_t mk::stdlib::ring_buffer_t<t, n>::capacity() const noexcept
+[[nodiscard]] mk::stdlib::size_t mk::stdlib::ring_buffer_t<t, n>::capacity() const noexcept
 {
 	return s_capacity;
 }
 
 template<typename t, mk::stdlib::size_t n>
-[[nodiscard]] constexpr mk::stdlib::size_t mk::stdlib::ring_buffer_t<t, n>::free() const noexcept
+[[nodiscard]] mk::stdlib::size_t mk::stdlib::ring_buffer_t<t, n>::free() const noexcept
 {
 	return capacity() - size();
 }
 
 template<typename t, mk::stdlib::size_t n>
-[[nodiscard]] constexpr mk::stdlib::span_t<t const> mk::stdlib::ring_buffer_t<t, n>::first_half() const noexcept
+[[nodiscard]] mk::stdlib::span_t<t const> mk::stdlib::ring_buffer_t<t, n>::first_half() const noexcept
 {
 	t const* const ptr = reinterpret_cast<t const*>(m_array.data()) + (m_read & s_mask);
 	mk::stdlib::size_t const count = mk::stdlib::min(s_capacity - (m_read & s_mask), m_write - m_read);
@@ -112,7 +188,7 @@ template<typename t, mk::stdlib::size_t n>
 }
 
 template<typename t, mk::stdlib::size_t n>
-[[nodiscard]] constexpr mk::stdlib::span_t<t const> mk::stdlib::ring_buffer_t<t, n>::second_half() const noexcept
+[[nodiscard]] mk::stdlib::span_t<t const> mk::stdlib::ring_buffer_t<t, n>::second_half() const noexcept
 {
 	t const* const ptr = reinterpret_cast<t const*>(m_array.data());
 	mk::stdlib::size_t const count = (m_write & s_mask) < (m_read & s_mask) ? (m_write & s_mask) : static_cast<mk::stdlib::size_t>(0);
@@ -120,7 +196,7 @@ template<typename t, mk::stdlib::size_t n>
 }
 
 template<typename t, mk::stdlib::size_t n>
-[[nodiscard]] constexpr t const& mk::stdlib::ring_buffer_t<t, n>::operator[](mk::stdlib::size_t const& idx) const noexcept
+[[nodiscard]] t const& mk::stdlib::ring_buffer_t<t, n>::operator[](mk::stdlib::size_t const& idx) const noexcept
 {
 	MK_STDLIB_ASSERT(idx < size());
 	t const* ptr = reinterpret_cast<t const*>(m_array.data()) + ((m_read + idx) & s_mask);
@@ -129,15 +205,15 @@ template<typename t, mk::stdlib::size_t n>
 
 
 template<typename t, mk::stdlib::size_t n>
-[[nodiscard]] constexpr mk::stdlib::span_t<t> mk::stdlib::ring_buffer_t<t, n>::first_half() noexcept
+[[nodiscard]] mk::stdlib::span_t<t> mk::stdlib::ring_buffer_t<t, n>::first_half() noexcept
 {
-	t* const ptr = reinterpret_cast<t*>(m_array.data()) + (m_read & s_mask);
+	t* const ptr = static_cast<t*>(static_cast<void*>(m_array.data())) + (m_read & s_mask);
 	mk::stdlib::size_t const count = mk::stdlib::min(s_capacity - (m_read & s_mask), m_write - m_read);
 	return {ptr, count};
 }
 
 template<typename t, mk::stdlib::size_t n>
-[[nodiscard]] constexpr mk::stdlib::span_t<t> mk::stdlib::ring_buffer_t<t, n>::second_half() noexcept
+[[nodiscard]] mk::stdlib::span_t<t> mk::stdlib::ring_buffer_t<t, n>::second_half() noexcept
 {
 	t* const ptr = reinterpret_cast<t*>(m_array.data());
 	mk::stdlib::size_t const count = (m_write & s_mask) < (m_read & s_mask) ? (m_write & s_mask) : static_cast<mk::stdlib::size_t>(0);
@@ -145,7 +221,7 @@ template<typename t, mk::stdlib::size_t n>
 }
 
 template<typename t, mk::stdlib::size_t n>
-[[nodiscard]] constexpr t& mk::stdlib::ring_buffer_t<t, n>::operator[](mk::stdlib::size_t const& idx) noexcept
+[[nodiscard]] t& mk::stdlib::ring_buffer_t<t, n>::operator[](mk::stdlib::size_t const& idx) noexcept
 {
 	MK_STDLIB_ASSERT(idx < size());
 	t* ptr = reinterpret_cast<t*>(m_array.data()) + ((m_read + idx) & s_mask);
@@ -154,13 +230,38 @@ template<typename t, mk::stdlib::size_t n>
 
 template<typename t, mk::stdlib::size_t n>
 template<typename u>
-constexpr t& mk::stdlib::ring_buffer_t<t, n>::push_back(u&& obj) noexcept
+t& mk::stdlib::ring_buffer_t<t, n>::push_back(u&& obj) noexcept
 {
 	MK_STDLIB_ASSERT(!full());
 	t* const ptr = reinterpret_cast<t*>(m_array.data()) + (m_write & s_mask);
-	mk::stdlib::construct_at(ptr, obj);
+	mk::stdlib::construct_at(ptr, mk::stdlib::forward<u>(obj));
 	++m_write;
 	return *ptr;
+}
+
+template<typename t, mk::stdlib::size_t n>
+void mk::stdlib::ring_buffer_t<t, n>::pop_back() noexcept
+{
+	MK_STDLIB_ASSERT(!empty());
+	t* const ptr = reinterpret_cast<t*>(m_array.data()) + ((m_write - 1) & s_mask);
+	mk::stdlib::destroy_at(ptr);
+	--m_write;
+}
+
+template<typename t, mk::stdlib::size_t n>
+void mk::stdlib::ring_buffer_t<t, n>::pop_back(mk::stdlib::size_t const& count) noexcept
+{
+	MK_STDLIB_ASSERT(count <= size());
+
+	mk::stdlib::span_t<t> const sh = second_half();
+	mk::stdlib::size_t const sh_count = mk::stdlib::min(sh.size(), static_cast<mk::stdlib::size_t>(count));
+	mk::stdlib::destroy_n(sh.end() - sh_count, sh_count);
+
+	mk::stdlib::span_t<t> const fh = first_half();
+	mk::stdlib::size_t const fh_count = count - sh_count;
+	mk::stdlib::destroy_n(fh.end() - fh_count, fh_count);
+
+	m_write -= count;
 }
 
 template<typename t, mk::stdlib::size_t n>
@@ -170,4 +271,30 @@ void mk::stdlib::ring_buffer_t<t, n>::pop_front() noexcept
 	t* const ptr = reinterpret_cast<t*>(m_array.data()) + (m_read & s_mask);
 	mk::stdlib::destroy_at(ptr);
 	++m_read;
+}
+
+template<typename t, mk::stdlib::size_t n>
+void mk::stdlib::ring_buffer_t<t, n>::pop_front(mk::stdlib::size_t const& count) noexcept
+{
+	MK_STDLIB_ASSERT(count <= size());
+
+	mk::stdlib::span_t<t> const fh = first_half();
+	mk::stdlib::size_t const fh_count = mk::stdlib::min(fh.size(), static_cast<mk::stdlib::size_t>(count));
+	mk::stdlib::destroy_n(fh.begin() + fh_count, fh_count);
+
+	mk::stdlib::span_t<t> const sh = second_half();
+	mk::stdlib::size_t const sh_count = count - fh_count;
+	mk::stdlib::destroy_n(sh.begin() - sh_count, sh_count);
+
+	m_read += count;
+}
+
+template<typename t, mk::stdlib::size_t n>
+void mk::stdlib::ring_buffer_t<t, n>::clear() noexcept
+{
+	mk::stdlib::span_t<t> const fh = first_half();
+	mk::stdlib::span_t<t> const sh = second_half();
+	mk::stdlib::destroy_n(fh.data(), fh.size());
+	mk::stdlib::destroy_n(sh.data(), sh.size());
+	m_read = m_write;
 }

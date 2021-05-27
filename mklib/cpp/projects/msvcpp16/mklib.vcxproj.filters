@@ -155,9 +155,6 @@
     <ClInclude Include="..\..\src\stdlib\span.hpp">
       <Filter>src\stdlib</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\stdlib\ring_buffer.hpp">
-      <Filter>src\stdlib</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\stdlib\power2.hpp">
       <Filter>src\stdlib</Filter>
     </ClInclude>
@@ -218,6 +215,9 @@
     <ClInclude Include="..\..\src\stdlib\memory\default_deleter.h">
       <Filter>src\stdlib\memory</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\ring_buffer.hpp">
+      <Filter>src\stdlib</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\src\stdlib\memory\unique_ptr_single.hpp">
       <Filter>src\stdlib\memory</Filter>
     </ClInclude>
@@ -259,9 +259,6 @@
     <None Include="..\..\src\stdlib\power2.inl">
       <Filter>src\stdlib</Filter>
     </None>
-    <None Include="..\..\src\stdlib\ring_buffer.inl">
-      <Filter>src\stdlib</Filter>
-    </None>
     <None Include="..\..\src\stdlib\array.inl">
       <Filter>src\stdlib</Filter>
     </None>
@@ -301,6 +298,9 @@
     <None Include="..\..\src\stdlib\memory\default_deleter.inl">
       <Filter>src\stdlib\memory</Filter>
     </None>
+    <None Include="..\..\src\stdlib\ring_buffer.inl">
+      <Filter>src\stdlib</Filter>
+    </None>
     <None Include="..\..\src\stdlib\memory\unique_ptr_single.inl">
       <Filter>src\stdlib\memory</Filter>
     </None>
@@ -310,9 +310,6 @@
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="..\..\src\stdlib\span.natvis">
-      <Filter>src\stdlib</Filter>
-    </Natvis>
-    <Natvis Include="..\..\src\stdlib\ring_buffer.natvis">
       <Filter>src\stdlib</Filter>
     </Natvis>
     <Natvis Include="..\..\src\stdlib\bits_vector\bits_vector.natvis">
@@ -329,6 +326,9 @@
     </Natvis>
     <Natvis Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_reference.natvis">
       <Filter>src\stdlib\bits_vector</Filter>
+    </Natvis>
+    <Natvis Include="..\..\src\stdlib\ring_buffer.natvis">
+      <Filter>src\stdlib</Filter>
     </Natvis>
   </ItemGroup>
 </Project>
