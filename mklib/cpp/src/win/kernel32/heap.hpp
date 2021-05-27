@@ -60,7 +60,7 @@ namespace mk
 			[[nodiscard]] void* heap_alloc(mk::win::handle_t const& heap, mk::win::kernel32::heap_alloc_t const& flags, mk::stdlib::size_t const& bytes) noexcept;
 			[[nodiscard]] mk::stdlib::size_t heap_size(mk::win::handle_t const& heap, mk::win::kernel32::heap_size_t const& flags, void const* const& mem) noexcept;
 			[[nodiscard]] void* heap_realloc(mk::win::handle_t const& heap, mk::win::kernel32::heap_realloc_t const& flags, void* const& mem, mk::stdlib::size_t const& bytes) noexcept;
-			[[nodiscard]] bool heap_free(mk::win::handle_t const& heap, mk::win::kernel32::heap_free_t const& flags, void* const& mem) noexcept;
+			[[nodiscard]] bool heap_free(mk::win::handle_t const& heap, mk::win::kernel32::heap_free_t const& flags, void const* const& mem) noexcept;
 			[[nodiscard]] bool heap_destroy(mk::win::handle_t const& heap) noexcept;
 
 

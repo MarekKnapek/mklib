@@ -6,7 +6,7 @@ extern "C" [[nodiscard]] __declspec(dllimport) mk::win::handle_t __stdcall HeapC
 extern "C" [[nodiscard]] __declspec(dllimport) void* __stdcall HeapAlloc(mk::win::handle_t, mk::stdlib::uint32_t, mk::stdlib::size_t) noexcept;
 extern "C" [[nodiscard]] __declspec(dllimport) mk::stdlib::size_t __stdcall HeapSize(mk::win::handle_t, mk::stdlib::uint32_t, void const*) noexcept;
 extern "C" [[nodiscard]] __declspec(dllimport) void* __stdcall HeapReAlloc(mk::win::handle_t, mk::stdlib::uint32_t, void*, mk::stdlib::size_t) noexcept;
-extern "C" [[nodiscard]] __declspec(dllimport) mk::win::bool_t __stdcall HeapFree(mk::win::handle_t, mk::stdlib::uint32_t, void*) noexcept;
+extern "C" [[nodiscard]] __declspec(dllimport) mk::win::bool_t __stdcall HeapFree(mk::win::handle_t, mk::stdlib::uint32_t, void const*) noexcept;
 extern "C" [[nodiscard]] __declspec(dllimport) mk::win::bool_t __stdcall HeapDestroy(mk::win::handle_t) noexcept;
 
 
@@ -35,7 +35,7 @@ extern "C" [[nodiscard]] __declspec(dllimport) mk::win::bool_t __stdcall HeapDes
 	return HeapReAlloc(heap, static_cast<mk::stdlib::uint32_t>(flags), mem, bytes);
 }
 
-[[nodiscard]] bool mk::win::kernel32::heap_free(mk::win::handle_t const& heap, mk::win::kernel32::heap_free_t const& flags, void* const& mem) noexcept
+[[nodiscard]] bool mk::win::kernel32::heap_free(mk::win::handle_t const& heap, mk::win::kernel32::heap_free_t const& flags, void const* const& mem) noexcept
 {
 	return HeapFree(heap, static_cast<mk::stdlib::uint32_t>(flags), mem) != 0;
 }
