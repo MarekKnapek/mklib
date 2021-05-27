@@ -11,9 +11,11 @@
 
 #include "tests_bits_buffer.hpp"
 #include "tests_bits_vector.hpp"
-#include "tests_unique_ptr_single.hpp"
+#include "tests_ints.hpp"
 #include "tests_ring_buffer.hpp"
+#include "tests_size.hpp"
 #include "tests_unique_ptr_multi.hpp"
+#include "tests_unique_ptr_single.hpp"
 
 #define _ALLOW_RTCc_IN_STL
 #include <string>
@@ -23,21 +25,6 @@ void bits_vector_tests();
 
 int main()
 {
-	static_assert(sizeof(mk::stdlib::uint8_t) == 1);
-	static_assert(sizeof(mk::stdlib::uint16_t) == 2);
-	static_assert(sizeof(mk::stdlib::uint32_t) == 4);
-	static_assert(sizeof(mk::stdlib::uint64_t) == 8);
-
-	static_assert(sizeof(mk::stdlib::int8_t) == 1);
-	static_assert(sizeof(mk::stdlib::int16_t) == 2);
-	static_assert(sizeof(mk::stdlib::int32_t) == 4);
-	static_assert(sizeof(mk::stdlib::int64_t) == 8);
-
-
-	static_assert(sizeof(mk::stdlib::size_t) == sizeof(void*));
-	static_assert(sizeof(mk::stdlib::ptrdiff_t) == sizeof(void*));
-
-
 	mk::stdlib::heap_multi_threaded_t heap_multi_threaded;
 	mk::stdlib::heap_process_t heap_process;
 	mk::stdlib::heap_single_threaded_t heap_single_threaded;
@@ -84,12 +71,15 @@ int main()
 	}
 	#endif
 
-	mk::stdlib::cstdlib_init();
+	mk::stdlib::cstdlib_init_t stdlib;
+
 	tests_bits_buffer::test();
 	tests_bits_vector::test();
-	mk::stdlib::cstdlib_deinit();
-	tests_unique_ptr_single::test();
+	tests_ints::test();
 	tests_ring_buffer::test();
+	tests_size::test();
 	tests_unique_ptr_multi::test();
+	tests_unique_ptr_single::test();
+
 	return 0;
 }

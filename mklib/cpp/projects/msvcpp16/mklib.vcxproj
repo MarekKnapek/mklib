@@ -183,7 +183,9 @@
     <ClCompile Include="..\..\tests\tests.cpp" />
     <ClCompile Include="..\..\tests\tests_bits_buffer.cpp" />
     <ClCompile Include="..\..\tests\tests_bits_vector.cpp" />
+    <ClCompile Include="..\..\tests\tests_ints.cpp" />
     <ClCompile Include="..\..\tests\tests_ring_buffer.cpp" />
+    <ClCompile Include="..\..\tests\tests_size.cpp" />
     <ClCompile Include="..\..\tests\tests_unique_ptr_multi.cpp" />
     <ClCompile Include="..\..\tests\tests_unique_ptr_single.cpp" />
   </ItemGroup>
@@ -238,7 +240,9 @@
     <ClInclude Include="..\..\src\win\types.hpp" />
     <ClInclude Include="..\..\tests\tests_bits_buffer.hpp" />
     <ClInclude Include="..\..\tests\tests_bits_vector.hpp" />
+    <ClInclude Include="..\..\tests\tests_ints.hpp" />
     <ClInclude Include="..\..\tests\tests_ring_buffer.hpp" />
+    <ClInclude Include="..\..\tests\tests_size.hpp" />
     <ClInclude Include="..\..\tests\tests_unique_ptr_multi.hpp" />
     <ClInclude Include="..\..\tests\tests_unique_ptr_single.hpp" />
   </ItemGroup>

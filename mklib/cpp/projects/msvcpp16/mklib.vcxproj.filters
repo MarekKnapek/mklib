@@ -84,6 +84,12 @@
     <ClCompile Include="..\..\tests\tests_unique_ptr_single.cpp">
       <Filter>tests</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\tests\tests_ints.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\tests\tests_size.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\stdlib\architecture.hpp">
@@ -244,6 +250,12 @@
     </ClInclude>
     <ClInclude Include="..\..\src\stdlib\type_traits\enable_if.hpp">
       <Filter>src\stdlib\type_traits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\tests\tests_ints.hpp">
+      <Filter>tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\tests\tests_size.hpp">
+      <Filter>tests</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
