@@ -97,7 +97,7 @@ void mk::stdlib::unique_ptr_t<t, d>::reset(t* const& ptr) noexcept
 }
 
 
-template<typename t, typename... ts>
+template<typename t, typename... ts, typename mk::stdlib::enable_if_t<!mk::stdlib::is_array_t<t>::s_value ,void*>::type_t /* = nullptr */>
 mk::stdlib::unique_ptr_t<t> mk::stdlib::make_unique(ts&&... vals) noexcept
 {
 	t* const ptr = static_cast<t*>(mk::stdlib::malloc(sizeof(t)));

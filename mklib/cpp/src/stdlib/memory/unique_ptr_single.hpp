@@ -1,6 +1,8 @@
 #pragma once
 
 
+#include "../type_traits/enable_if.hpp" // mk::stdlib::mk::stdlib::enable_if_t
+#include "../type_traits/is_array.hpp" // mk::stdlib::is_array_t
 #include "default_deleter.h" // mk::stdlib::default_deleter_t
 
 
@@ -36,7 +38,7 @@ namespace mk
 
 		template<typename t, typename d> inline void swap(mk::stdlib::unique_ptr_t<t, d>& a, mk::stdlib::unique_ptr_t<t, d>& b) noexcept { a.swap(b); }
 
-		template<typename t, typename... ts> mk::stdlib::unique_ptr_t<t> make_unique(ts&&... vals) noexcept;
+		template<typename t, typename... ts, typename mk::stdlib::enable_if_t<!mk::stdlib::is_array_t<t>::s_value ,void*>::type_t = nullptr> mk::stdlib::unique_ptr_t<t> make_unique(ts&&... vals) noexcept;
 
 
 	}
