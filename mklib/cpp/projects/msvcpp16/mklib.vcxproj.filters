@@ -313,6 +313,9 @@
     <None Include="..\..\src\stdlib\memory\unique_ptr_multi.inl">
       <Filter>src\stdlib\memory</Filter>
     </None>
+    <None Include="..\..\src\stdlib\memory\unique_ptr.inl">
+      <Filter>src\stdlib\memory</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="..\..\src\stdlib\span.natvis">

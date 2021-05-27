@@ -257,6 +257,7 @@
     <None Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_reference.inl" />
     <None Include="..\..\src\stdlib\memory.inl" />
     <None Include="..\..\src\stdlib\memory\default_deleter.inl" />
+    <None Include="..\..\src\stdlib\memory\unique_ptr.inl" />
     <None Include="..\..\src\stdlib\memory\unique_ptr_multi.inl" />
     <None Include="..\..\src\stdlib\memory\unique_ptr_single.inl" />
     <None Include="..\..\src\stdlib\power2.inl" />
