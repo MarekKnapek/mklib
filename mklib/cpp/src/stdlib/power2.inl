@@ -1,5 +1,7 @@
 #include "power2.hpp"
 
+#include "ints.hpp"
+
 
 namespace mk
 {
