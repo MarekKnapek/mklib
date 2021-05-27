@@ -224,6 +224,7 @@
     <ClInclude Include="..\..\src\stdlib\type_traits\aligned_storage.hpp" />
     <ClInclude Include="..\..\src\stdlib\type_traits\is_same.hpp" />
     <ClInclude Include="..\..\src\stdlib\type_traits\is_trivial.hpp" />
+    <ClInclude Include="..\..\src\stdlib\type_traits\remove_extent.hpp" />
     <ClInclude Include="..\..\src\stdlib\type_traits\remove_reference.hpp" />
     <ClInclude Include="..\..\src\stdlib\utility.hpp" />
     <ClInclude Include="..\..\src\stdlib\utility\forward.hpp" />
