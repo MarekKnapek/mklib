@@ -210,6 +210,7 @@
     <ClInclude Include="..\..\src\stdlib\ints.hpp" />
     <ClInclude Include="..\..\src\stdlib\memory.hpp" />
     <ClInclude Include="..\..\src\stdlib\memory\default_deleter.h" />
+    <ClInclude Include="..\..\src\stdlib\memory\unique_ptr.hpp" />
     <ClInclude Include="..\..\src\stdlib\new.hpp" />
     <ClInclude Include="..\..\src\stdlib\power2.hpp" />
     <ClInclude Include="..\..\src\stdlib\ring_buffer.hpp" />
@@ -245,6 +246,7 @@
     <None Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_reference.inl" />
     <None Include="..\..\src\stdlib\memory.inl" />
     <None Include="..\..\src\stdlib\memory\default_deleter.inl" />
+    <None Include="..\..\src\stdlib\memory\unique_ptr.inl" />
     <None Include="..\..\src\stdlib\power2.inl" />
     <None Include="..\..\src\stdlib\ring_buffer.inl" />
     <None Include="..\..\src\stdlib\span.inl" />

@@ -203,6 +203,9 @@
     <ClInclude Include="..\..\src\stdlib\bits_vector\bits_vector_const_iterator.hpp">
       <Filter>src\stdlib\bits_vector</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\memory\unique_ptr.hpp">
+      <Filter>src\stdlib\memory</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\src\stdlib\memory\default_deleter.h">
       <Filter>src\stdlib\memory</Filter>
     </ClInclude>
@@ -264,6 +267,9 @@
     </None>
     <None Include="..\..\src\stdlib\bits_vector\bits_vector_const_iterator.inl">
       <Filter>src\stdlib\bits_vector</Filter>
+    </None>
+    <None Include="..\..\src\stdlib\memory\unique_ptr.inl">
+      <Filter>src\stdlib\memory</Filter>
     </None>
     <None Include="..\..\src\stdlib\memory\default_deleter.inl">
       <Filter>src\stdlib\memory</Filter>
