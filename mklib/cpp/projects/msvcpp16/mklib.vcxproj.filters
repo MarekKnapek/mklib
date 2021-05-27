@@ -75,6 +75,9 @@
     <ClCompile Include="..\..\tests\tests_bits_vector.cpp">
       <Filter>tests</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\tests\tests_ring_buffer.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\tests\tests_unique_ptr_multi.cpp">
       <Filter>tests</Filter>
     </ClCompile>
@@ -208,6 +211,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\stdlib\bits_vector\bits_vector_const_iterator.hpp">
       <Filter>src\stdlib\bits_vector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\tests\tests_ring_buffer.hpp">
+      <Filter>tests</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\stdlib\memory\unique_ptr.hpp">
       <Filter>src\stdlib\memory</Filter>
