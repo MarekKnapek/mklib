@@ -183,7 +183,8 @@
     <ClCompile Include="..\..\tests\tests.cpp" />
     <ClCompile Include="..\..\tests\tests_bits_buffer.cpp" />
     <ClCompile Include="..\..\tests\tests_bits_vector.cpp" />
-    <ClCompile Include="..\..\tests\tests_unique_ptr.cpp" />
+    <ClCompile Include="..\..\tests\tests_unique_ptr_multi.cpp" />
+    <ClCompile Include="..\..\tests\tests_unique_ptr_single.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\stdlib\algorithm.hpp" />
@@ -212,6 +213,8 @@
     <ClInclude Include="..\..\src\stdlib\memory.hpp" />
     <ClInclude Include="..\..\src\stdlib\memory\default_deleter.h" />
     <ClInclude Include="..\..\src\stdlib\memory\unique_ptr.hpp" />
+    <ClInclude Include="..\..\src\stdlib\memory\unique_ptr_multi.hpp" />
+    <ClInclude Include="..\..\src\stdlib\memory\unique_ptr_single.hpp" />
     <ClInclude Include="..\..\src\stdlib\new.hpp" />
     <ClInclude Include="..\..\src\stdlib\power2.hpp" />
     <ClInclude Include="..\..\src\stdlib\ring_buffer.hpp" />
@@ -231,7 +234,8 @@
     <ClInclude Include="..\..\src\win\types.hpp" />
     <ClInclude Include="..\..\tests\tests_bits_buffer.hpp" />
     <ClInclude Include="..\..\tests\tests_bits_vector.hpp" />
-    <ClInclude Include="..\..\tests\tests_unique_ptr.hpp" />
+    <ClInclude Include="..\..\tests\tests_unique_ptr_multi.hpp" />
+    <ClInclude Include="..\..\tests\tests_unique_ptr_single.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\stdlib\algorithm\copy.inl" />
@@ -248,7 +252,8 @@
     <None Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_reference.inl" />
     <None Include="..\..\src\stdlib\memory.inl" />
     <None Include="..\..\src\stdlib\memory\default_deleter.inl" />
-    <None Include="..\..\src\stdlib\memory\unique_ptr.inl" />
+    <None Include="..\..\src\stdlib\memory\unique_ptr_multi.inl" />
+    <None Include="..\..\src\stdlib\memory\unique_ptr_single.inl" />
     <None Include="..\..\src\stdlib\power2.inl" />
     <None Include="..\..\src\stdlib\ring_buffer.inl" />
     <None Include="..\..\src\stdlib\span.inl" />

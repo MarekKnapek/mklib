@@ -31,6 +31,9 @@
     <Filter Include="src\stdlib\bits_vector">
       <UniqueIdentifier>{18d547a7-b738-414d-9760-18bfbb8d022b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\stdlib\memory">
+      <UniqueIdentifier>{9675224d-14d3-4cef-9af8-8f645ffc9b90}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\win\kernel32\heap.cpp">
@@ -70,6 +73,12 @@
       <Filter>tests</Filter>
     </ClCompile>
     <ClCompile Include="..\..\tests\tests_bits_vector.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\tests\tests_unique_ptr_multi.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\tests\tests_unique_ptr_single.cpp">
       <Filter>tests</Filter>
     </ClCompile>
   </ItemGroup>
@@ -209,6 +218,18 @@
     <ClInclude Include="..\..\src\stdlib\memory\default_deleter.h">
       <Filter>src\stdlib\memory</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\memory\unique_ptr_single.hpp">
+      <Filter>src\stdlib\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\memory\unique_ptr_multi.hpp">
+      <Filter>src\stdlib\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\tests\tests_unique_ptr_multi.hpp">
+      <Filter>tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\tests\tests_unique_ptr_single.hpp">
+      <Filter>tests</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\stdlib\utility\move.inl">
@@ -268,10 +289,13 @@
     <None Include="..\..\src\stdlib\bits_vector\bits_vector_const_iterator.inl">
       <Filter>src\stdlib\bits_vector</Filter>
     </None>
-    <None Include="..\..\src\stdlib\memory\unique_ptr.inl">
+    <None Include="..\..\src\stdlib\memory\default_deleter.inl">
       <Filter>src\stdlib\memory</Filter>
     </None>
-    <None Include="..\..\src\stdlib\memory\default_deleter.inl">
+    <None Include="..\..\src\stdlib\memory\unique_ptr_single.inl">
+      <Filter>src\stdlib\memory</Filter>
+    </None>
+    <None Include="..\..\src\stdlib\memory\unique_ptr_multi.inl">
       <Filter>src\stdlib\memory</Filter>
     </None>
   </ItemGroup>
