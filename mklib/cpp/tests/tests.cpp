@@ -11,6 +11,7 @@
 
 #include "tests_bits_buffer.hpp"
 #include "tests_bits_vector.hpp"
+#include "tests_unique_ptr.hpp"
 
 #define _ALLOW_RTCc_IN_STL
 #include <string>
@@ -85,5 +86,6 @@ int main()
 	tests_bits_buffer::test();
 	tests_bits_vector::test();
 	mk::stdlib::cstdlib_deinit();
+	tests_unique_ptr::test();
 	return 0;
 }

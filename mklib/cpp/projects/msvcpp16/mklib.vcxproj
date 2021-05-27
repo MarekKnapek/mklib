@@ -183,6 +183,7 @@
     <ClCompile Include="..\..\tests\tests.cpp" />
     <ClCompile Include="..\..\tests\tests_bits_buffer.cpp" />
     <ClCompile Include="..\..\tests\tests_bits_vector.cpp" />
+    <ClCompile Include="..\..\tests\tests_unique_ptr.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\stdlib\algorithm.hpp" />
@@ -230,6 +231,7 @@
     <ClInclude Include="..\..\src\win\types.hpp" />
     <ClInclude Include="..\..\tests\tests_bits_buffer.hpp" />
     <ClInclude Include="..\..\tests\tests_bits_vector.hpp" />
+    <ClInclude Include="..\..\tests\tests_unique_ptr.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\stdlib\algorithm\copy.inl" />
