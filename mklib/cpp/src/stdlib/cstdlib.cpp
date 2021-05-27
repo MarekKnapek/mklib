@@ -57,7 +57,7 @@ void mk::stdlib::cstdlib_deinit() noexcept
 	return ptr;
 }
 
-void mk::stdlib::free(void* const& ptr) noexcept
+void mk::stdlib::free(void const* const& ptr) noexcept
 {
 	mk::stdlib::impl::get_global_heap().free(ptr);
 }

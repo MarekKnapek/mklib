@@ -69,7 +69,7 @@ void mk::stdlib::heap_single_threaded_t::swap(mk::stdlib::heap_single_threaded_t
 	return mk::win::kernel32::heap_realloc(m_heap, mk::win::kernel32::heap_realloc_t::no_serialize | mk::win::kernel32::heap_realloc_t::in_place_only, mem, bytes);
 }
 
-void mk::stdlib::heap_single_threaded_t::free(void* const& mem) noexcept
+void mk::stdlib::heap_single_threaded_t::free(void const* const& mem) noexcept
 {
 	bool const freed = mk::win::kernel32::heap_free(m_heap, mk::win::kernel32::heap_free_t::no_serialize, mem);
 	MK_STDLIB_ASSERT(freed);

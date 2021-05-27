@@ -26,7 +26,7 @@ namespace mk
 
 
 		[[nodiscard]] void* malloc(mk::stdlib::size_t const& count) noexcept;
-		void free(void* const& ptr) noexcept;
+		void free(void const* const& ptr) noexcept;
 	
 	
 	}

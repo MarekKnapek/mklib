@@ -30,7 +30,7 @@ namespace mk
 			[[nodiscard]] mk::stdlib::size_t size(void const* const& mem) const noexcept;
 			[[nodiscard]] void* realloc(void* const& mem, mk::stdlib::size_t const& bytes) noexcept;
 			[[nodiscard]] void* realloc_inplace(void* const& mem, mk::stdlib::size_t const& bytes) noexcept;
-			void free(void* const& mem) noexcept;
+			void free(void const* const& mem) noexcept;
 		private:
 			int m_type;
 			mk::stdlib::aligned_storage_t<2 * sizeof(void*)>::type_t m_storage;

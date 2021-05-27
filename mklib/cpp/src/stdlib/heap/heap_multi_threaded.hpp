@@ -27,7 +27,7 @@ namespace mk
 			[[nodiscard]] mk::stdlib::size_t size(void const* const& mem) const noexcept;
 			[[nodiscard]] void* realloc(void* const& mem, mk::stdlib::size_t const& bytes) noexcept;
 			[[nodiscard]] void* realloc_inplace(void* const& mem, mk::stdlib::size_t const& bytes) noexcept;
-			void free(void* const& mem) noexcept;
+			void free(void const* const& mem) noexcept;
 		private:
 			mk::win::handle_t m_heap;
 		};

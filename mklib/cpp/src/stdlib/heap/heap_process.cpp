@@ -63,7 +63,7 @@ void mk::stdlib::heap_process_t::swap(mk::stdlib::heap_process_t& other) noexcep
 	return mk::win::kernel32::heap_realloc(m_heap, mk::win::kernel32::heap_realloc_t::in_place_only, mem, bytes);
 }
 
-void mk::stdlib::heap_process_t::free(void* const& mem) noexcept
+void mk::stdlib::heap_process_t::free(void const* const& mem) noexcept
 {
 	bool const freed = mk::win::kernel32::heap_free(m_heap, mk::win::kernel32::heap_free_t::none, mem);
 	MK_STDLIB_ASSERT(freed);

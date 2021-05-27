@@ -386,7 +386,7 @@ void mk::stdlib::heap_virtual_t::destroy() noexcept
 	return ret;
 }
 
-void mk::stdlib::heap_virtual_t::free(void* const& mem) noexcept
+void mk::stdlib::heap_virtual_t::free(void const* const& mem) noexcept
 {
 	MK_STDLIB_ASSERT(*this);
 	switch(static_cast<mk::stdlib::impl::heap_virtual_type_t>(m_type))
