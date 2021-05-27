@@ -279,5 +279,6 @@
     <Natvis Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_reference.natvis" />
     <Natvis Include="..\..\src\stdlib\ring_buffer.natvis" />
     <Natvis Include="..\..\src\stdlib\span.natvis" />
+    <Natvis Include="..\..\src\stdlib\type_traits\aligned_storage.natvis" />
   </ItemGroup>
 </Project>

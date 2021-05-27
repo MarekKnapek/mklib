@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nv:AutoVisualizer xmlns:nv="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+	<nv:Type Name="mk::stdlib::aligned_storage_t&lt;*&gt;::type_t">
+		<nv:Intrinsic Name="data" Expression="*reinterpret_cast&lt;$T3*&gt;(m_data)"/>
+		<nv:DisplayString>{{ data = {data()} }}</nv:DisplayString>
+		<nv:Expand>
+			<nv:Item Name="[data]">data()</nv:Item>
+		</nv:Expand>
+	</nv:Type>
+	<nv:Type Name="mk::stdlib::aligned_storage_t&lt;*,*,void&gt;::type_t"/>
+</nv:AutoVisualizer>

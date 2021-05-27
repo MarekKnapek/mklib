@@ -351,5 +351,8 @@
     <Natvis Include="..\..\src\stdlib\ring_buffer.natvis">
       <Filter>src\stdlib</Filter>
     </Natvis>
+    <Natvis Include="..\..\src\stdlib\type_traits\aligned_storage.natvis">
+      <Filter>src\stdlib\type_traits</Filter>
+    </Natvis>
   </ItemGroup>
 </Project>

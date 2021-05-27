@@ -7,7 +7,7 @@ namespace mk
 	{
 
 
-		template<unsigned s, unsigned a = alignof(void*)>
+		template<unsigned s, unsigned a = alignof(void*), typename t = void>
 		struct aligned_storage_t
 		{
 			struct type_t
@@ -17,7 +17,7 @@ namespace mk
 		};
 
 		template<typename t>
-		using aligned_storage_helper_t = typename mk::stdlib::aligned_storage_t<sizeof(t), alignof(t)>::type_t;
+		using aligned_storage_helper_t = typename mk::stdlib::aligned_storage_t<sizeof(t), alignof(t), t>::type_t;
 	
 	
 	}
