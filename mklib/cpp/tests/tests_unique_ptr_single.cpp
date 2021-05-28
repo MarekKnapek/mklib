@@ -70,7 +70,9 @@ void tests_unique_ptr_single::impl::test()
 
 		MK_STDLIB_ASSERT(a.get() == reinterpret_cast<t*>(0x20));
 		MK_STDLIB_ASSERT(b.get() == reinterpret_cast<t*>(0x10));
-		MK_STDLIB_ASSERT(a.release() == reinterpret_cast<t*>(0x20));
-		MK_STDLIB_ASSERT(b.release() == reinterpret_cast<t*>(0x10));
+		bool const a_released = (a.release() == reinterpret_cast<t*>(0x20));
+		bool const b_released = (b.release() == reinterpret_cast<t*>(0x10));
+		MK_STDLIB_ASSERT(a_released);
+		MK_STDLIB_ASSERT(b_released);
 	}
 }
