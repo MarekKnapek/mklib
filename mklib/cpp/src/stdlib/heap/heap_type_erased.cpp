@@ -1,6 +1,7 @@
 #include "heap_type_erased.hpp"
 
 #include "../assert.hpp"
+#include "../macros.hpp"
 #include "../utility/swap.hpp"
 #include "heap_multi_threaded.hpp"
 #include "heap_process.hpp"

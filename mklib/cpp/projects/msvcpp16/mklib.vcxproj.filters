@@ -263,6 +263,9 @@
     <ClInclude Include="..\..\src\stdlib\ring_buffer_iterator.hpp">
       <Filter>src\stdlib</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\macros.hpp">
+      <Filter>src\stdlib</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\stdlib\utility\move.inl">

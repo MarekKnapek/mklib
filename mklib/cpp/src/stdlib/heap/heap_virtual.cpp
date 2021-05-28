@@ -2,13 +2,14 @@
 
 #include "../algorithm/max.hpp"
 #include "../assert.hpp"
+#include "../macros.hpp"
+#include "../new.hpp"
+#include "../utility/move.hpp"
 #include "../utility/swap.hpp"
 #include "heap_multi_threaded.hpp"
 #include "heap_process.hpp"
 #include "heap_single_threaded.hpp"
 #include "heap_type_erased.hpp"
-#include "../new.hpp"
-#include "../utility/move.hpp"
 
 
 namespace mk

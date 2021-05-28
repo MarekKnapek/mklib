@@ -213,6 +213,7 @@
     <ClInclude Include="..\..\src\stdlib\heap\heap_type_erased.hpp" />
     <ClInclude Include="..\..\src\stdlib\heap\heap_virtual.hpp" />
     <ClInclude Include="..\..\src\stdlib\ints.hpp" />
+    <ClInclude Include="..\..\src\stdlib\macros.hpp" />
     <ClInclude Include="..\..\src\stdlib\memory.hpp" />
     <ClInclude Include="..\..\src\stdlib\memory\default_deleter.h" />
     <ClInclude Include="..\..\src\stdlib\memory\unique_ptr.hpp" />
