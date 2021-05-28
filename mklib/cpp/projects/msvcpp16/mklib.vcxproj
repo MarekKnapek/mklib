@@ -221,6 +221,8 @@
     <ClInclude Include="..\..\src\stdlib\new.hpp" />
     <ClInclude Include="..\..\src\stdlib\power2.hpp" />
     <ClInclude Include="..\..\src\stdlib\ring_buffer.hpp" />
+    <ClInclude Include="..\..\src\stdlib\ring_buffer_const_iterator.hpp" />
+    <ClInclude Include="..\..\src\stdlib\ring_buffer_iterator.hpp" />
     <ClInclude Include="..\..\src\stdlib\size.hpp" />
     <ClInclude Include="..\..\src\stdlib\span.hpp" />
     <ClInclude Include="..\..\src\stdlib\type_traits.hpp" />
@@ -266,6 +268,8 @@
     <None Include="..\..\src\stdlib\memory\unique_ptr_single.inl" />
     <None Include="..\..\src\stdlib\power2.inl" />
     <None Include="..\..\src\stdlib\ring_buffer.inl" />
+    <None Include="..\..\src\stdlib\ring_buffer_const_iterator.inl" />
+    <None Include="..\..\src\stdlib\ring_buffer_iterator.inl" />
     <None Include="..\..\src\stdlib\span.inl" />
     <None Include="..\..\src\stdlib\utility\forward.inl" />
     <None Include="..\..\src\stdlib\utility\move.inl" />
@@ -278,6 +282,8 @@
     <Natvis Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_const_reference.natvis" />
     <Natvis Include="..\..\src\stdlib\bits_vector\bits_vector_proxy_reference.natvis" />
     <Natvis Include="..\..\src\stdlib\ring_buffer.natvis" />
+    <Natvis Include="..\..\src\stdlib\ring_buffer_const_iterator.natvis" />
+    <Natvis Include="..\..\src\stdlib\ring_buffer_iterator.natvis" />
     <Natvis Include="..\..\src\stdlib\span.natvis" />
     <Natvis Include="..\..\src\stdlib\type_traits\aligned_storage.natvis" />
   </ItemGroup>

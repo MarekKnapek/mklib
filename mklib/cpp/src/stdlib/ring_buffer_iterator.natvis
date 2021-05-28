@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nv:AutoVisualizer xmlns:nv="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+	<nv:Type Name="mk::stdlib::ring_buffer_iterator_t&lt;*&gt;">
+		<nv:Intrinsic Name="is_null" Expression="m_ring_buffer == nullptr"/>
+		<nv:Intrinsic Name="is_one_before_beginning" Expression="m_idx == (static_cast&lt;mk::stdlib::size_t&gt;(0) - 1)"/>
+		<nv:Intrinsic Name="is_one_after_end" Expression="m_idx == (m_ring_buffer->m_write - m_ring_buffer->m_read)"/>
+		<nv:DisplayString Condition="is_null()">{{ null }}</nv:DisplayString>
+		<nv:DisplayString Condition="!is_null() &amp;&amp; is_one_before_beginning()">{{ one before beginning }}</nv:DisplayString>
+		<nv:DisplayString Condition="!is_null() &amp;&amp; is_one_after_end()">{{ one after end }}</nv:DisplayString>
+		<nv:DisplayString>{{ pointee = {*static_cast&lt;$T1*&gt;(static_cast&lt;void*&gt;(m_ring_buffer->m_array.m_array[m_idx].m_data))} }}</nv:DisplayString>
+		<nv:Expand>
+			<nv:Item Name="[pointee]">*static_cast&lt;$T1*&gt;(static_cast&lt;void*&gt;(m_ring_buffer->m_array.m_array[m_idx].m_data))</nv:Item>
+		</nv:Expand>
+	</nv:Type>
+</nv:AutoVisualizer>

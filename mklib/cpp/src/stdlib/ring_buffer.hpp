@@ -8,6 +8,10 @@
 #include "type_traits/aligned_storage.hpp" // mk::stdlib::aligned_storage_helper_t
 
 
+namespace mk { namespace stdlib { template<typename, mk::stdlib::size_t> class ring_buffer_const_iterator_t; } }
+namespace mk { namespace stdlib { template<typename, mk::stdlib::size_t> class ring_buffer_iterator_t; } }
+
+
 namespace mk
 {
 	namespace stdlib
@@ -33,11 +37,17 @@ namespace mk
 			[[nodiscard]] mk::stdlib::size_t free() const noexcept;
 			[[nodiscard]] mk::stdlib::span_t<t const> first_half() const noexcept;
 			[[nodiscard]] mk::stdlib::span_t<t const> second_half() const noexcept;
+			[[nodiscard]] mk::stdlib::ring_buffer_const_iterator_t<t, n> cbegin() const noexcept;
+			[[nodiscard]] mk::stdlib::ring_buffer_const_iterator_t<t, n> cend() const noexcept;
+			[[nodiscard]] mk::stdlib::ring_buffer_const_iterator_t<t, n> begin() const noexcept;
+			[[nodiscard]] mk::stdlib::ring_buffer_const_iterator_t<t, n> end() const noexcept;
 			[[nodiscard]] t const& operator[](mk::stdlib::size_t const& idx) const noexcept;
 		public:
 			[[nodiscard]] mk::stdlib::span_t<t> first_half() noexcept;
 			[[nodiscard]] mk::stdlib::span_t<t> second_half() noexcept;
 			[[nodiscard]] t& operator[](mk::stdlib::size_t const& idx) noexcept;
+			[[nodiscard]] mk::stdlib::ring_buffer_iterator_t<t, n> begin() noexcept;
+			[[nodiscard]] mk::stdlib::ring_buffer_iterator_t<t, n> end() noexcept;
 			template<typename u> t& push_back(u&& obj) noexcept;
 			void pop_back() noexcept;
 			void pop_back(mk::stdlib::size_t const& count) noexcept;

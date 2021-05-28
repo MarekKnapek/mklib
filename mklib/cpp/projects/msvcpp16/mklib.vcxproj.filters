@@ -230,6 +230,9 @@
     <ClInclude Include="..\..\src\stdlib\ring_buffer.hpp">
       <Filter>src\stdlib</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\ring_buffer_const_iterator.hpp">
+      <Filter>src\stdlib</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\src\stdlib\memory\unique_ptr_single.hpp">
       <Filter>src\stdlib\memory</Filter>
     </ClInclude>
@@ -256,6 +259,9 @@
     </ClInclude>
     <ClInclude Include="..\..\tests\tests_size.hpp">
       <Filter>tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\ring_buffer_iterator.hpp">
+      <Filter>src\stdlib</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -319,6 +325,9 @@
     <None Include="..\..\src\stdlib\ring_buffer.inl">
       <Filter>src\stdlib</Filter>
     </None>
+    <None Include="..\..\src\stdlib\ring_buffer_const_iterator.inl">
+      <Filter>src\stdlib</Filter>
+    </None>
     <None Include="..\..\src\stdlib\memory\unique_ptr_single.inl">
       <Filter>src\stdlib\memory</Filter>
     </None>
@@ -327,6 +336,9 @@
     </None>
     <None Include="..\..\src\stdlib\memory\unique_ptr.inl">
       <Filter>src\stdlib\memory</Filter>
+    </None>
+    <None Include="..\..\src\stdlib\ring_buffer_iterator.inl">
+      <Filter>src\stdlib</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -353,6 +365,12 @@
     </Natvis>
     <Natvis Include="..\..\src\stdlib\type_traits\aligned_storage.natvis">
       <Filter>src\stdlib\type_traits</Filter>
+    </Natvis>
+    <Natvis Include="..\..\src\stdlib\ring_buffer_const_iterator.natvis">
+      <Filter>src\stdlib</Filter>
+    </Natvis>
+    <Natvis Include="..\..\src\stdlib\ring_buffer_iterator.natvis">
+      <Filter>src\stdlib</Filter>
     </Natvis>
   </ItemGroup>
 </Project>

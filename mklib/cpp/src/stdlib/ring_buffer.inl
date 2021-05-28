@@ -3,6 +3,8 @@
 #include "algorithm/min.hpp" // mk::stdlib::min
 #include "assert.hpp" // MK_STDLIB_ASSERT
 #include "memory.hpp" // mk::stdlib::uninitialized_copy, mk::stdlib::uninitialized_move, mk::stdlib::construct_at, mk::stdlib::destroy_n
+#include "ring_buffer_const_iterator.hpp" // mk::stdlib::ring_buffer_const_iterator_t
+#include "ring_buffer_iterator.hpp" // mk::stdlib::ring_buffer_iterator_t
 #include "utility/forward.hpp" // mk::stdlib::forward
 #include "utility/move.hpp" // mk::stdlib::move
 #include "utility/swap.hpp" // mk::stdlib::swap
@@ -196,6 +198,30 @@ template<typename t, mk::stdlib::size_t n>
 }
 
 template<typename t, mk::stdlib::size_t n>
+[[nodiscard]] mk::stdlib::ring_buffer_const_iterator_t<t, n> mk::stdlib::ring_buffer_t<t, n>::cbegin() const noexcept
+{
+	return {this, 0};
+}
+
+template<typename t, mk::stdlib::size_t n>
+[[nodiscard]] mk::stdlib::ring_buffer_const_iterator_t<t, n> mk::stdlib::ring_buffer_t<t, n>::cend() const noexcept
+{
+	return {this, size()};
+}
+
+template<typename t, mk::stdlib::size_t n>
+[[nodiscard]] mk::stdlib::ring_buffer_const_iterator_t<t, n> mk::stdlib::ring_buffer_t<t, n>::begin() const noexcept
+{
+	return {this, 0};
+}
+
+template<typename t, mk::stdlib::size_t n>
+[[nodiscard]] mk::stdlib::ring_buffer_const_iterator_t<t, n> mk::stdlib::ring_buffer_t<t, n>::end() const noexcept
+{
+	return {this, size()};
+}
+
+template<typename t, mk::stdlib::size_t n>
 [[nodiscard]] t const& mk::stdlib::ring_buffer_t<t, n>::operator[](mk::stdlib::size_t const& idx) const noexcept
 {
 	MK_STDLIB_ASSERT(idx < size());
@@ -218,6 +244,18 @@ template<typename t, mk::stdlib::size_t n>
 	t* const ptr = data();
 	mk::stdlib::size_t const count = (m_write & s_mask) < (m_read & s_mask) ? (m_write & s_mask) : static_cast<mk::stdlib::size_t>(0);
 	return {ptr, count};
+}
+
+template<typename t, mk::stdlib::size_t n>
+[[nodiscard]] mk::stdlib::ring_buffer_iterator_t<t, n> mk::stdlib::ring_buffer_t<t, n>::begin() noexcept
+{
+	return {this, 0};
+}
+
+template<typename t, mk::stdlib::size_t n>
+[[nodiscard]] mk::stdlib::ring_buffer_iterator_t<t, n> mk::stdlib::ring_buffer_t<t, n>::end() noexcept
+{
+	return {this, size()};
 }
 
 template<typename t, mk::stdlib::size_t n>
