@@ -37,6 +37,10 @@ namespace mk
 			[[nodiscard]] mk::stdlib::size_t free() const noexcept;
 			[[nodiscard]] mk::stdlib::span_t<t const> first_half() const noexcept;
 			[[nodiscard]] mk::stdlib::span_t<t const> second_half() const noexcept;
+			[[nodiscard]] t const& cfront() const noexcept;
+			[[nodiscard]] t const& cback() const noexcept;
+			[[nodiscard]] t const& front() const noexcept;
+			[[nodiscard]] t const& back() const noexcept;
 			[[nodiscard]] mk::stdlib::ring_buffer_const_iterator_t<t, n> cbegin() const noexcept;
 			[[nodiscard]] mk::stdlib::ring_buffer_const_iterator_t<t, n> cend() const noexcept;
 			[[nodiscard]] mk::stdlib::ring_buffer_const_iterator_t<t, n> begin() const noexcept;
@@ -46,6 +50,8 @@ namespace mk
 			[[nodiscard]] mk::stdlib::span_t<t> first_half() noexcept;
 			[[nodiscard]] mk::stdlib::span_t<t> second_half() noexcept;
 			[[nodiscard]] t& operator[](mk::stdlib::size_t const& idx) noexcept;
+			[[nodiscard]] t& front() noexcept;
+			[[nodiscard]] t& back() noexcept;
 			[[nodiscard]] mk::stdlib::ring_buffer_iterator_t<t, n> begin() noexcept;
 			[[nodiscard]] mk::stdlib::ring_buffer_iterator_t<t, n> end() noexcept;
 			template<typename u> t& push_back(u&& obj) noexcept;

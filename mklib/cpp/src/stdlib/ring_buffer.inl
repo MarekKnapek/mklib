@@ -198,6 +198,34 @@ template<typename t, mk::stdlib::size_t n>
 }
 
 template<typename t, mk::stdlib::size_t n>
+[[nodiscard]] t const& mk::stdlib::ring_buffer_t<t, n>::cfront() const noexcept
+{
+	MK_STDLIB_ASSERT(!empty());
+	return operator[](0);
+}
+
+template<typename t, mk::stdlib::size_t n>
+[[nodiscard]] t const& mk::stdlib::ring_buffer_t<t, n>::cback() const noexcept
+{
+	MK_STDLIB_ASSERT(!empty());
+	return operator[](size() - 1);
+}
+
+template<typename t, mk::stdlib::size_t n>
+[[nodiscard]] t const& mk::stdlib::ring_buffer_t<t, n>::front() const noexcept
+{
+	MK_STDLIB_ASSERT(!empty());
+	return operator[](0);
+}
+
+template<typename t, mk::stdlib::size_t n>
+[[nodiscard]] t const& mk::stdlib::ring_buffer_t<t, n>::back() const noexcept
+{
+	MK_STDLIB_ASSERT(!empty());
+	return operator[](size() - 1);
+}
+
+template<typename t, mk::stdlib::size_t n>
 [[nodiscard]] mk::stdlib::ring_buffer_const_iterator_t<t, n> mk::stdlib::ring_buffer_t<t, n>::cbegin() const noexcept
 {
 	return {this, 0};
@@ -244,6 +272,20 @@ template<typename t, mk::stdlib::size_t n>
 	t* const ptr = data();
 	mk::stdlib::size_t const count = (m_write & s_mask) < (m_read & s_mask) ? (m_write & s_mask) : static_cast<mk::stdlib::size_t>(0);
 	return {ptr, count};
+}
+
+template<typename t, mk::stdlib::size_t n>
+[[nodiscard]] t& mk::stdlib::ring_buffer_t<t, n>::front() noexcept
+{
+	MK_STDLIB_ASSERT(!empty());
+	return operator[](0);
+}
+
+template<typename t, mk::stdlib::size_t n>
+[[nodiscard]] t& mk::stdlib::ring_buffer_t<t, n>::back() noexcept
+{
+	MK_STDLIB_ASSERT(!empty());
+	return operator[](size() - 1);
 }
 
 template<typename t, mk::stdlib::size_t n>
