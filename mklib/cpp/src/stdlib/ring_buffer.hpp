@@ -44,7 +44,10 @@ namespace mk
 			void pop_front() noexcept;
 			void pop_front(mk::stdlib::size_t const& count) noexcept;
 			void clear() noexcept;
-		public:
+		private:
+			[[nodiscard]] t const* data() const noexcept;
+			[[nodiscard]] t* data() noexcept;
+		private:
 			static constexpr mk::stdlib::size_t const s_capacity = mk::stdlib::equal_or_greater_power_2(n);
 			static constexpr mk::stdlib::size_t const s_mask = s_capacity - 1;
 		private:
