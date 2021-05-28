@@ -28,7 +28,7 @@ template<typename t>
 void tests_ring_buffer::impl::test()
 {
 	{
-		mk::stdlib::ring_buffer_t<t, 8> buff;
+		mk::stdlib::ring_buffer_t<t, 5> buff;
 
 		MK_STDLIB_ASSERT(buff.empty() == true);
 		MK_STDLIB_ASSERT(buff.full() == false);
