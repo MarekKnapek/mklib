@@ -34,6 +34,9 @@
     <Filter Include="src\stdlib\memory">
       <UniqueIdentifier>{9675224d-14d3-4cef-9af8-8f645ffc9b90}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\runtime">
+      <UniqueIdentifier>{bab5fa24-69b3-4d57-8183-0d102488d22a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\win\kernel32\heap.cpp">
@@ -89,6 +92,9 @@
     </ClCompile>
     <ClCompile Include="..\..\tests\tests_size.cpp">
       <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\runtime\asan.cpp">
+      <Filter>src\runtime</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -265,6 +271,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\stdlib\macros.hpp">
       <Filter>src\stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\runtime\asan.hpp">
+      <Filter>src\runtime</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

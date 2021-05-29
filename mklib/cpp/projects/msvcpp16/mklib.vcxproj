@@ -6,16 +6,32 @@
       <Configuration>debug</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="debugasan|Win32">
+      <Configuration>debugasan</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="release|Win32">
       <Configuration>release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="releaseasan|Win32">
+      <Configuration>releaseasan</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="debug|x64">
       <Configuration>debug</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="debugasan|x64">
+      <Configuration>debugasan</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="release|x64">
       <Configuration>release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="releaseasan|x64">
+      <Configuration>releaseasan</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
@@ -172,6 +188,138 @@
 
 
   <!-- Advanced -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|Win32'">
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+  </PropertyGroup>
+  <!-- /Advanced -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|Win32'">
+  </PropertyGroup>
+  <!-- C/C++ -->
+  <!-- General -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|Win32'">
+    <ClCompile>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <SupportJustMyCode>true</SupportJustMyCode>
+      <CompileAsManaged>false</CompileAsManaged>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <SDLCheck>true</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <EnableASAN>true</EnableASAN>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /General -->
+  <!-- Optimization -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Optimization -->
+  <!-- Preprocessor -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <UseStandardPreprocessor>true</UseStandardPreprocessor>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Preprocessor -->
+  <!-- Code Generation -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|Win32'">
+    <ClCompile>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <SmallerTypeCheck>true</SmallerTypeCheck>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <ControlFlowGuard>Guard</ControlFlowGuard>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Code Generation -->
+  <!-- Language -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|Win32'">
+    <ClCompile>
+      <DisableLanguageExtensions>true</DisableLanguageExtensions>
+      <ConformanceMode>true</ConformanceMode>
+      <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Language -->
+  <!-- Precompiled Headers -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- Precompiled Headers -->
+  <!-- Advanced -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|Win32'">
+    <ClCompile>
+      <DisableSpecificWarnings>4309;4310;4324</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Advanced -->
+  <!-- /C/C++ -->
+  <!-- Linker -->
+  <!-- General -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|Win32'">
+    <Link>
+      <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /General -->
+  <!-- Debugging -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|Win32'">
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /Debugging -->
+  <!-- System -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|Win32'">
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /System -->
+  <!-- Optimization -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|Win32'">
+    <Link>
+      <OptimizeReferences>false</OptimizeReferences>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /Optimization -->
+  <!-- Advanced -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|Win32'">
+    <Link>
+      <SetChecksum>false</SetChecksum>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /Advanced -->
+  <!-- /Linker -->
+
+
+  <!-- Advanced -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|Win32'">
     <UseDebugLibraries>false</UseDebugLibraries>
     <UseOfMfc>false</UseOfMfc>
@@ -295,6 +443,138 @@
   <!-- /Optimization -->
   <!-- Advanced -->
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|Win32'">
+    <Link>
+      <SetChecksum>true</SetChecksum>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /Advanced -->
+  <!-- /Linker -->
+
+
+  <!-- Advanced -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|Win32'">
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <!-- /Advanced -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|Win32'">
+  </PropertyGroup>
+  <!-- C/C++ -->
+  <!-- General -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|Win32'">
+    <ClCompile>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <SupportJustMyCode>false</SupportJustMyCode>
+      <CompileAsManaged>false</CompileAsManaged>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <SDLCheck>false</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <EnableASAN>true</EnableASAN>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /General -->
+  <!-- Optimization -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Optimization -->
+  <!-- Preprocessor -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <UseStandardPreprocessor>true</UseStandardPreprocessor>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Preprocessor -->
+  <!-- Code Generation -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|Win32'">
+    <ClCompile>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <SmallerTypeCheck>false</SmallerTypeCheck>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <ControlFlowGuard>false</ControlFlowGuard>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Code Generation -->
+  <!-- Language -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|Win32'">
+    <ClCompile>
+      <DisableLanguageExtensions>true</DisableLanguageExtensions>
+      <ConformanceMode>true</ConformanceMode>
+      <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Language -->
+  <!-- Precompiled Headers -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- Precompiled Headers -->
+  <!-- Advanced -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|Win32'">
+    <ClCompile>
+      <DisableSpecificWarnings>4309;4310;4324</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Advanced -->
+  <!-- /C/C++ -->
+  <!-- Linker -->
+  <!-- General -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|Win32'">
+    <Link>
+      <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /General -->
+  <!-- Debugging -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|Win32'">
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /Debugging -->
+  <!-- System -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|Win32'">
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /System -->
+  <!-- Optimization -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|Win32'">
+    <Link>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /Optimization -->
+  <!-- Advanced -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|Win32'">
     <Link>
       <SetChecksum>true</SetChecksum>
     </Link>
@@ -436,6 +716,138 @@
 
 
   <!-- Advanced -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|x64'">
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+  </PropertyGroup>
+  <!-- /Advanced -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|x64'">
+  </PropertyGroup>
+  <!-- C/C++ -->
+  <!-- General -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|x64'">
+    <ClCompile>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <SupportJustMyCode>true</SupportJustMyCode>
+      <CompileAsManaged>false</CompileAsManaged>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <SDLCheck>true</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <EnableASAN>true</EnableASAN>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /General -->
+  <!-- Optimization -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Optimization -->
+  <!-- Preprocessor -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <UseStandardPreprocessor>true</UseStandardPreprocessor>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Preprocessor -->
+  <!-- Code Generation -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|x64'">
+    <ClCompile>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <SmallerTypeCheck>true</SmallerTypeCheck>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <ControlFlowGuard>Guard</ControlFlowGuard>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Code Generation -->
+  <!-- Language -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|x64'">
+    <ClCompile>
+      <DisableLanguageExtensions>true</DisableLanguageExtensions>
+      <ConformanceMode>true</ConformanceMode>
+      <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Language -->
+  <!-- Precompiled Headers -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- Precompiled Headers -->
+  <!-- Advanced -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|x64'">
+    <ClCompile>
+      <DisableSpecificWarnings>4309;4310;4324</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Advanced -->
+  <!-- /C/C++ -->
+  <!-- Linker -->
+  <!-- General -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|x64'">
+    <Link>
+      <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /General -->
+  <!-- Debugging -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|x64'">
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /Debugging -->
+  <!-- System -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|x64'">
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /System -->
+  <!-- Optimization -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|x64'">
+    <Link>
+      <OptimizeReferences>false</OptimizeReferences>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /Optimization -->
+  <!-- Advanced -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|x64'">
+    <Link>
+      <SetChecksum>false</SetChecksum>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /Advanced -->
+  <!-- /Linker -->
+
+
+  <!-- Advanced -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
     <UseDebugLibraries>false</UseDebugLibraries>
     <UseOfMfc>false</UseOfMfc>
@@ -465,7 +877,7 @@
   <!-- Optimization -->
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
     <ClCompile>
-      <Optimization>MaxSpeed)</Optimization>
+      <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -567,8 +979,141 @@
   <!-- /Linker -->
 
 
+  <!-- Advanced -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|x64'">
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <!-- /Advanced -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|x64'">
+  </PropertyGroup>
+  <!-- C/C++ -->
+  <!-- General -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|x64'">
+    <ClCompile>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <SupportJustMyCode>false</SupportJustMyCode>
+      <CompileAsManaged>false</CompileAsManaged>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <SDLCheck>false</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <EnableASAN>true</EnableASAN>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /General -->
+  <!-- Optimization -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Optimization -->
+  <!-- Preprocessor -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <UseStandardPreprocessor>true</UseStandardPreprocessor>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Preprocessor -->
+  <!-- Code Generation -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|x64'">
+    <ClCompile>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <SmallerTypeCheck>false</SmallerTypeCheck>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <ControlFlowGuard>false</ControlFlowGuard>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Code Generation -->
+  <!-- Language -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|x64'">
+    <ClCompile>
+      <DisableLanguageExtensions>true</DisableLanguageExtensions>
+      <ConformanceMode>true</ConformanceMode>
+      <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Language -->
+  <!-- Precompiled Headers -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- Precompiled Headers -->
+  <!-- Advanced -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|x64'">
+    <ClCompile>
+      <DisableSpecificWarnings>4309;4310;4324</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- /Advanced -->
+  <!-- /C/C++ -->
+  <!-- Linker -->
+  <!-- General -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|x64'">
+    <Link>
+      <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /General -->
+  <!-- Debugging -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|x64'">
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /Debugging -->
+  <!-- System -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|x64'">
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /System -->
+  <!-- Optimization -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|x64'">
+    <Link>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /Optimization -->
+  <!-- Advanced -->
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|x64'">
+    <Link>
+      <SetChecksum>true</SetChecksum>
+    </Link>
+  </ItemDefinitionGroup>
+  <!-- /Advanced -->
+  <!-- /Linker -->
+
+
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ItemGroup>
+    <ClCompile Include="..\..\src\runtime\asan.cpp" />
     <ClCompile Include="..\..\src\stdlib\assert.cpp" />
     <ClCompile Include="..\..\src\stdlib\cstdlib.cpp" />
     <ClCompile Include="..\..\src\stdlib\heap\heap_multi_threaded.cpp" />
@@ -589,6 +1134,7 @@
     <ClCompile Include="..\..\tests\tests_unique_ptr_single.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\runtime\asan.hpp" />
     <ClInclude Include="..\..\src\stdlib\algorithm.hpp" />
     <ClInclude Include="..\..\src\stdlib\algorithm\copy.hpp" />
     <ClInclude Include="..\..\src\stdlib\algorithm\fill.hpp" />
