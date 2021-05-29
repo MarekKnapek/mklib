@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="debug|Win32">
       <Configuration>debug</Configuration>
@@ -40,27 +39,90 @@
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{12df8b9d-c039-4783-b2ae-be33114ce48a}</ProjectGuid>
     <RootNamespace>mklib</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props"/>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+    <EnableASAN>false</EnableASAN>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+    <EnableASAN>true</EnableASAN>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+    <EnableASAN>false</EnableASAN>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+    <EnableASAN>true</EnableASAN>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+    <EnableASAN>false</EnableASAN>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+    <EnableASAN>true</EnableASAN>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+    <EnableASAN>false</EnableASAN>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+    <EnableASAN>true</EnableASAN>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props"/>
+  <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform"/>
+
+
   <!-- General -->
   <PropertyGroup>
     <OutDir>$(SolutionDir)build\$(Platform)_$(Configuration)_o\</OutDir>
     <IntDir>$(SolutionDir)build\$(Platform)_$(Configuration)_i\</IntDir>
     <TargetName>$(ProjectName)</TargetName>
-    <ConfigurationType>Application</ConfigurationType>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <!-- /General -->
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
 
 
   <!-- Advanced -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">
-    <UseDebugLibraries>true</UseDebugLibraries>
     <UseOfMfc>false</UseOfMfc>
-    <CharacterSet>NotSet</CharacterSet>
-    <WholeProgramOptimization>false</WholeProgramOptimization>
   </PropertyGroup>
   <!-- /Advanced -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">
@@ -78,7 +140,6 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <EnableASAN>false</EnableASAN>
     </ClCompile>
   </ItemDefinitionGroup>
   <!-- /General -->
@@ -189,10 +250,7 @@
 
   <!-- Advanced -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|Win32'">
-    <UseDebugLibraries>true</UseDebugLibraries>
     <UseOfMfc>false</UseOfMfc>
-    <CharacterSet>NotSet</CharacterSet>
-    <WholeProgramOptimization>false</WholeProgramOptimization>
   </PropertyGroup>
   <!-- /Advanced -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|Win32'">
@@ -210,7 +268,6 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <EnableASAN>true</EnableASAN>
     </ClCompile>
   </ItemDefinitionGroup>
   <!-- /General -->
@@ -321,10 +378,7 @@
 
   <!-- Advanced -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|Win32'">
-    <UseDebugLibraries>false</UseDebugLibraries>
     <UseOfMfc>false</UseOfMfc>
-    <CharacterSet>NotSet</CharacterSet>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <!-- /Advanced -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|Win32'">
@@ -342,7 +396,6 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <SDLCheck>false</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <EnableASAN>false</EnableASAN>
     </ClCompile>
   </ItemDefinitionGroup>
   <!-- /General -->
@@ -453,10 +506,7 @@
 
   <!-- Advanced -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|Win32'">
-    <UseDebugLibraries>false</UseDebugLibraries>
     <UseOfMfc>false</UseOfMfc>
-    <CharacterSet>NotSet</CharacterSet>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <!-- /Advanced -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|Win32'">
@@ -474,7 +524,6 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <SDLCheck>false</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <EnableASAN>true</EnableASAN>
     </ClCompile>
   </ItemDefinitionGroup>
   <!-- /General -->
@@ -585,10 +634,7 @@
 
   <!-- Advanced -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
-    <UseDebugLibraries>true</UseDebugLibraries>
     <UseOfMfc>false</UseOfMfc>
-    <CharacterSet>NotSet</CharacterSet>
-    <WholeProgramOptimization>false</WholeProgramOptimization>
   </PropertyGroup>
   <!-- /Advanced -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
@@ -606,7 +652,6 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <EnableASAN>false</EnableASAN>
     </ClCompile>
   </ItemDefinitionGroup>
   <!-- /General -->
@@ -717,10 +762,7 @@
 
   <!-- Advanced -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|x64'">
-    <UseDebugLibraries>true</UseDebugLibraries>
     <UseOfMfc>false</UseOfMfc>
-    <CharacterSet>NotSet</CharacterSet>
-    <WholeProgramOptimization>false</WholeProgramOptimization>
   </PropertyGroup>
   <!-- /Advanced -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debugasan|x64'">
@@ -738,7 +780,6 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <EnableASAN>true</EnableASAN>
     </ClCompile>
   </ItemDefinitionGroup>
   <!-- /General -->
@@ -849,10 +890,7 @@
 
   <!-- Advanced -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
-    <UseDebugLibraries>false</UseDebugLibraries>
     <UseOfMfc>false</UseOfMfc>
-    <CharacterSet>NotSet</CharacterSet>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <!-- /Advanced -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
@@ -870,7 +908,6 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <SDLCheck>false</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <EnableASAN>false</EnableASAN>
     </ClCompile>
   </ItemDefinitionGroup>
   <!-- /General -->
@@ -981,10 +1018,7 @@
 
   <!-- Advanced -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|x64'">
-    <UseDebugLibraries>false</UseDebugLibraries>
     <UseOfMfc>false</UseOfMfc>
-    <CharacterSet>NotSet</CharacterSet>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <!-- /Advanced -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='releaseasan|x64'">
@@ -1002,7 +1036,6 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <SDLCheck>false</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <EnableASAN>true</EnableASAN>
     </ClCompile>
   </ItemDefinitionGroup>
   <!-- /General -->
@@ -1111,7 +1144,6 @@
   <!-- /Linker -->
 
 
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ItemGroup>
     <ClCompile Include="..\..\src\runtime\asan.cpp" />
     <ClCompile Include="..\..\src\stdlib\assert.cpp" />
@@ -1233,4 +1265,5 @@
     <Natvis Include="..\..\src\stdlib\span.natvis" />
     <Natvis Include="..\..\src\stdlib\type_traits\aligned_storage.natvis" />
   </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
 </Project>
