@@ -71,7 +71,7 @@ int main()
 	}
 	#endif
 
-	mk::stdlib::cstdlib_init_t stdlib;
+	mk::stdlib::cstdlib_init_t const stdlib;
 
 	tests_bits_buffer::test();
 	tests_bits_vector::test();
