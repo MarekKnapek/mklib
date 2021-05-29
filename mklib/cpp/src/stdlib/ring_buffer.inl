@@ -1,5 +1,6 @@
 #include "ring_buffer.hpp"
 
+#include "../runtime/asan.hpp"
 #include "algorithm/min.hpp" // mk::stdlib::min
 #include "assert.hpp" // MK_STDLIB_ASSERT
 #include "memory.hpp" // mk::stdlib::uninitialized_copy, mk::stdlib::uninitialized_move, mk::stdlib::construct_at, mk::stdlib::destroy_n
@@ -16,6 +17,7 @@ mk::stdlib::ring_buffer_t<t, n>::ring_buffer_t() noexcept :
 	m_read(),
 	m_write()
 {
+	mk::runtime::asan_poison_memory_region(&m_array, sizeof(m_array));
 }
 
 template<typename t, mk::stdlib::size_t n>

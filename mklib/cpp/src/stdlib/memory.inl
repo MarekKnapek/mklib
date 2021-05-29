@@ -1,5 +1,6 @@
 #include "memory.h"
 
+#include "../runtime/asan.hpp"
 #include "new.hpp"
 #include "type_traits/remove_reference.hpp"
 #include "utility/forward.hpp"
@@ -9,8 +10,8 @@
 template<typename t, typename... ts>
 constexpr t* mk::stdlib::construct_at(t* const& ptr, ts&&... params) noexcept
 {
+	mk::runtime::asan_unpoison_memory_region(ptr, sizeof(t));
 	void* const newd = new(static_cast<void*>(ptr), mk::stdlib::new_t{})t(mk::stdlib::forward<ts>(params)...);
-
 	t* const ret = static_cast<t*>(newd);
 	return ret;
 }
@@ -19,6 +20,7 @@ template<typename t>
 constexpr void mk::stdlib::destroy(t& val) noexcept
 {
 	val.~t();
+	mk::runtime::asan_poison_memory_region(&val, sizeof(t));
 }
 
 template<typename t>
@@ -31,12 +33,10 @@ constexpr void mk::stdlib::destroy_at(t const& it) noexcept
 template<typename t, typename u>
 void mk::stdlib::uninitialized_default_construct(t const& begin, u const& end) noexcept
 {
-	typedef typename mk::stdlib::remove_reference_t<decltype(*begin)>::type_t type;
-
 	t it = begin;
 	while(it != end)
 	{
-		new(static_cast<void*>(it), mk::stdlib::new_t{})type();
+		mk::stdlib::construct_at(it);
 		++it;
 	}
 }
@@ -44,13 +44,11 @@ void mk::stdlib::uninitialized_default_construct(t const& begin, u const& end) n
 template<typename t, typename u, typename v>
 v mk::stdlib::uninitialized_copy(t const& input_begin, u const& input_end, v const& output_begin) noexcept
 {
-	typedef typename mk::stdlib::remove_reference_t<decltype(*output_begin)>::type_t type;
-
 	t input_it = input_begin;
 	v output_it = output_begin;
 	while(input_it != input_end)
 	{
-		new(static_cast<void*>(output_it), mk::stdlib::new_t{})type(*input_it);
+		mk::stdlib::construct_at(output_it, *input_it);
 		++input_it;
 		++output_it;
 	}
@@ -60,13 +58,11 @@ v mk::stdlib::uninitialized_copy(t const& input_begin, u const& input_end, v con
 template<typename t, typename u, typename v>
 v mk::stdlib::uninitialized_move(t const& input_begin, u const& input_end, v const& output_begin) noexcept
 {
-	typedef typename mk::stdlib::remove_reference_t<decltype(*output_begin)>::type_t type;
-
 	t input_it = input_begin;
 	v output_it = output_begin;
 	while(input_it != input_end)
 	{
-		new(static_cast<void*>(output_it), mk::stdlib::new_t{})type(mk::stdlib::move(*input_it));
+		mk::stdlib::construct_at(output_it, mk::stdlib::move(*input_it));
 		++input_it;
 		++output_it;
 	}
@@ -76,13 +72,11 @@ v mk::stdlib::uninitialized_move(t const& input_begin, u const& input_end, v con
 template<typename t, typename u, typename v>
 v mk::stdlib::uninitialized_move_destroy(t const& input_begin, u const& input_end, v const& output_begin) noexcept
 {
-	typedef typename mk::stdlib::remove_reference_t<decltype(*output_begin)>::type_t type;
-
 	t input_it = input_begin;
 	v output_it = output_begin;
 	while(input_it != input_end)
 	{
-		new(static_cast<void*>(output_it), mk::stdlib::new_t{})type(mk::stdlib::move(*input_it));
+		mk::stdlib::construct_at(output_it, mk::stdlib::move(*input_it));
 		mk::stdlib::destroy_at(input_it);
 		++input_it;
 		++output_it;
@@ -93,8 +87,6 @@ v mk::stdlib::uninitialized_move_destroy(t const& input_begin, u const& input_en
 template<typename t, typename u>
 constexpr void mk::stdlib::destroy(t const& begin, u const& end) noexcept
 {
-	typedef typename mk::stdlib::remove_reference_t<decltype(*begin)>::type_t type;
-
 	t it = begin;
 	while(it != end)
 	{
@@ -107,13 +99,11 @@ constexpr void mk::stdlib::destroy(t const& begin, u const& end) noexcept
 template<typename t, typename u>
 t mk::stdlib::uninitialized_default_construct_n(t const& begin, u const& count) noexcept
 {
-	typedef typename mk::stdlib::remove_reference_t<decltype(*begin)>::type_t type;
-
 	t it = begin;
 	u n = count;
 	while(n != 0)
 	{
-		new(it, mk::stdlib::new_t{})type;
+		mk::stdlib::construct_at(it);
 		++it;
 		--n;
 	}
@@ -123,14 +113,12 @@ t mk::stdlib::uninitialized_default_construct_n(t const& begin, u const& count) 
 template<typename t, typename u, typename v>
 v mk::stdlib::uninitialized_copy_n(t const& input_begin, u const& size, v const& output_begin) noexcept
 {
-	typedef typename mk::stdlib::remove_reference_t<decltype(*output_begin)>::type_t type;
-
 	t input_it = input_begin;
 	u n = size;
 	v ouput_it = output_begin;
 	while(n != 0)
 	{
-		new(output_begin, mk::stdlib::new_t{})type(*input_it);
+		mk::stdlib::construct_at(output_begin, *input_it);
 		++input_it;
 		--n;
 		++ouput_it;
@@ -140,15 +128,13 @@ v mk::stdlib::uninitialized_copy_n(t const& input_begin, u const& size, v const&
 template<typename t, typename u, typename v>
 v mk::stdlib::uninitialized_move_destroy_n(t const& input_begin, u const& input_size, v const& output_begin) noexcept
 {
-	typedef typename mk::stdlib::remove_reference_t<decltype(*output_begin)>::type_t type;
-
 	t input_it = input_begin;
 	u n = input_size;
 	v output_it = output_begin;
 	while(n != 0)
 	{
-		new(static_cast<void*>(output_it), mk::stdlib::new_t{})type(mk::stdlib::move(*input_it));
-		input_it->~type();
+		mk::stdlib::construct_at(output_it, mk::stdlib::move(*input_it));
+		mk::stdlib::destroy_at(input_it);
 		++input_it;
 		--n;
 		++output_it;
