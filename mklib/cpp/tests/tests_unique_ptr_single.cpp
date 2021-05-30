@@ -10,20 +10,20 @@ namespace tests_unique_ptr_single
 	namespace impl
 	{
 		template<typename t>
-		void test();
+		void tests();
 	}
 }
 
 
-void tests_unique_ptr_single::test()
+void tests_unique_ptr_single::tests()
 {
-	tests_unique_ptr_single::impl::test<int>();
-	tests_unique_ptr_single::impl::test<mk::stdlib::unique_ptr_t<int>>();
+	tests_unique_ptr_single::impl::tests<int>();
+	tests_unique_ptr_single::impl::tests<mk::stdlib::unique_ptr_t<int>>();
 }
 
 
 template<typename t>
-void tests_unique_ptr_single::impl::test()
+void tests_unique_ptr_single::impl::tests()
 {
 	{
 		mk::stdlib::unique_ptr_t<t> up;

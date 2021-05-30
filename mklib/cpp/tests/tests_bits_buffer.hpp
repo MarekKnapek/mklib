@@ -3,5 +3,5 @@
 
 namespace tests_bits_buffer
 {
-	void test();
+	void tests();
 }

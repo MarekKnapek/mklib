@@ -11,20 +11,20 @@ namespace tests_unique_ptr_multi
 	{
 		static constexpr int const s_count = 10;
 		template<typename t>
-		void test();
+		void tests();
 	}
 }
 
 
-void tests_unique_ptr_multi::test()
+void tests_unique_ptr_multi::tests()
 {
-	tests_unique_ptr_multi::impl::test<int>();
-	tests_unique_ptr_multi::impl::test<mk::stdlib::unique_ptr_t<int[]>>();
+	tests_unique_ptr_multi::impl::tests<int>();
+	tests_unique_ptr_multi::impl::tests<mk::stdlib::unique_ptr_t<int[]>>();
 }
 
 
 template<typename t>
-void tests_unique_ptr_multi::impl::test()
+void tests_unique_ptr_multi::impl::tests()
 {
 	{
 		mk::stdlib::unique_ptr_t<t[]> up;

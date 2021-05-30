@@ -3,5 +3,5 @@
 
 namespace tests_bits_vector
 {
-	void test();
+	void tests();
 }

@@ -3,5 +3,5 @@
 
 namespace tests_size
 {
-	void test();
+	void tests();
 }

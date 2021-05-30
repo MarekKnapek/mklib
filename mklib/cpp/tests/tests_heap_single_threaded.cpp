@@ -6,7 +6,7 @@
 #include "../src/stdlib/verify.hpp"
 
 
-namespace test_heap_single_threaded
+namespace tests_heap_single_threaded
 {
 	namespace impl
 	{
@@ -23,21 +23,21 @@ namespace test_heap_single_threaded
 }
 
 
-void test_heap_single_threaded::test()
+void tests_heap_single_threaded::tests()
 {
-	test_heap_single_threaded::impl::test_default_construct();
-	test_heap_single_threaded::impl::test_move_construct();
-	test_heap_single_threaded::impl::test_move_assign();
-	test_heap_single_threaded::impl::test_swap_member();
-	test_heap_single_threaded::impl::test_swap_nonmember();
-	test_heap_single_threaded::impl::test_alloc();
-	test_heap_single_threaded::impl::test_size();
-	test_heap_single_threaded::impl::test_realloc();
-	test_heap_single_threaded::impl::test_realloc_inplace();
+	tests_heap_single_threaded::impl::test_default_construct();
+	tests_heap_single_threaded::impl::test_move_construct();
+	tests_heap_single_threaded::impl::test_move_assign();
+	tests_heap_single_threaded::impl::test_swap_member();
+	tests_heap_single_threaded::impl::test_swap_nonmember();
+	tests_heap_single_threaded::impl::test_alloc();
+	tests_heap_single_threaded::impl::test_size();
+	tests_heap_single_threaded::impl::test_realloc();
+	tests_heap_single_threaded::impl::test_realloc_inplace();
 }
 
 
-void test_heap_single_threaded::impl::test_default_construct()
+void tests_heap_single_threaded::impl::test_default_construct()
 {
 	mk::stdlib::heap_single_threaded_t heap;
 
@@ -45,7 +45,7 @@ void test_heap_single_threaded::impl::test_default_construct()
 	MK_STDLIB_VERIFY(!heap.get());
 }
 
-void test_heap_single_threaded::impl::test_move_construct()
+void tests_heap_single_threaded::impl::test_move_construct()
 {
 	mk::stdlib::heap_single_threaded_t heap = mk::stdlib::heap_single_threaded_t::make();
 
@@ -57,7 +57,7 @@ void test_heap_single_threaded::impl::test_move_construct()
 	MK_STDLIB_VERIFY(heap_2.get());
 }
 
-void test_heap_single_threaded::impl::test_move_assign()
+void tests_heap_single_threaded::impl::test_move_assign()
 {
 	mk::stdlib::heap_single_threaded_t heap = mk::stdlib::heap_single_threaded_t::make();
 	mk::stdlib::heap_single_threaded_t heap_2;
@@ -70,7 +70,7 @@ void test_heap_single_threaded::impl::test_move_assign()
 	MK_STDLIB_VERIFY(heap_2.get());
 }
 
-void test_heap_single_threaded::impl::test_swap_member()
+void tests_heap_single_threaded::impl::test_swap_member()
 {
 	mk::stdlib::heap_single_threaded_t heap = mk::stdlib::heap_single_threaded_t::make();
 	mk::stdlib::heap_single_threaded_t heap_2;
@@ -83,7 +83,7 @@ void test_heap_single_threaded::impl::test_swap_member()
 	MK_STDLIB_VERIFY(heap_2.get());
 }
 
-void test_heap_single_threaded::impl::test_swap_nonmember()
+void tests_heap_single_threaded::impl::test_swap_nonmember()
 {
 	mk::stdlib::heap_single_threaded_t heap = mk::stdlib::heap_single_threaded_t::make();
 	mk::stdlib::heap_single_threaded_t heap_2;
@@ -96,7 +96,7 @@ void test_heap_single_threaded::impl::test_swap_nonmember()
 	MK_STDLIB_VERIFY(heap_2.get());
 }
 
-void test_heap_single_threaded::impl::test_alloc()
+void tests_heap_single_threaded::impl::test_alloc()
 {
 	mk::stdlib::heap_single_threaded_t heap = mk::stdlib::heap_single_threaded_t::make();
 
@@ -107,7 +107,7 @@ void test_heap_single_threaded::impl::test_alloc()
 	heap.free(p_num);
 }
 
-void test_heap_single_threaded::impl::test_size()
+void tests_heap_single_threaded::impl::test_size()
 {
 	mk::stdlib::heap_single_threaded_t heap = mk::stdlib::heap_single_threaded_t::make();
 	mk::stdlib::uint64_t* const p_num = static_cast<mk::stdlib::uint64_t*>(heap.alloc(sizeof(mk::stdlib::uint64_t)));
@@ -118,7 +118,7 @@ void test_heap_single_threaded::impl::test_size()
 	heap.free(p_num);
 }
 
-void test_heap_single_threaded::impl::test_realloc()
+void tests_heap_single_threaded::impl::test_realloc()
 {
 	mk::stdlib::heap_single_threaded_t heap = mk::stdlib::heap_single_threaded_t::make();
 	mk::stdlib::uint64_t* const p_num = static_cast<mk::stdlib::uint64_t*>(heap.alloc(sizeof(mk::stdlib::uint64_t)));
@@ -130,7 +130,7 @@ void test_heap_single_threaded::impl::test_realloc()
 	heap.free(p_new_num);
 }
 
-void test_heap_single_threaded::impl::test_realloc_inplace()
+void tests_heap_single_threaded::impl::test_realloc_inplace()
 {
 	static constexpr int const s_new_sizes[] = {16, 1 * 1024 * 1024};
 

@@ -11,21 +11,21 @@ namespace tests_ring_buffer
 	namespace impl
 	{
 		template<typename t>
-		void test();
+		void tests();
 	}
 }
 
 
-void tests_ring_buffer::test()
+void tests_ring_buffer::tests()
 {
-	tests_ring_buffer::impl::test<int>();
-	tests_ring_buffer::impl::test<mk::stdlib::unique_ptr_t<int>>();
-	tests_ring_buffer::impl::test<mk::stdlib::unique_ptr_t<int[]>>();
+	tests_ring_buffer::impl::tests<int>();
+	tests_ring_buffer::impl::tests<mk::stdlib::unique_ptr_t<int>>();
+	tests_ring_buffer::impl::tests<mk::stdlib::unique_ptr_t<int[]>>();
 }
 
 
 template<typename t>
-void tests_ring_buffer::impl::test()
+void tests_ring_buffer::impl::tests()
 {
 	{
 		mk::stdlib::ring_buffer_t<t, 5> buff;

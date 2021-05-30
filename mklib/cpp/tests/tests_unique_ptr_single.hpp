@@ -3,5 +3,5 @@
 
 namespace tests_unique_ptr_single
 {
-	void test();
+	void tests();
 }

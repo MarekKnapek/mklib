@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace test_heap_process
+namespace tests_heap_process
 {
-	void test();
+	void tests();
 }

@@ -19,7 +19,7 @@ namespace tests_bits_vector
 }
 
 
-void tests_bits_vector::test()
+void tests_bits_vector::tests()
 {
 	{
 		// default construct

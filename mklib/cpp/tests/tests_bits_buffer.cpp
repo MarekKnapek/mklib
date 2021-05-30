@@ -19,7 +19,7 @@ namespace tests_bits_buffer
 }
 
 
-void tests_bits_buffer::test()
+void tests_bits_buffer::tests()
 {
 	mk::stdlib::bits_buffer_t<olympic_medal, 2> buff(1'000);
 	buff[42] = olympic_medal::bronze;

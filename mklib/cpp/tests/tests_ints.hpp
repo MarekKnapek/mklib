@@ -3,5 +3,5 @@
 
 namespace tests_ints
 {
-	void test();
+	void tests();
 }

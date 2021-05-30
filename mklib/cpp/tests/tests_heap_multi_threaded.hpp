@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace test_heap_multi_threaded
+namespace tests_heap_multi_threaded
 {
-	void test();
+	void tests();
 }

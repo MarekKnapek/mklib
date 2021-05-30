@@ -2,7 +2,7 @@
 #include "../src/stdlib/size.hpp"
 
 
-void tests_size::test()
+void tests_size::tests()
 {
 	static_assert(sizeof(mk::stdlib::size_t) == sizeof(void*));
 	static_assert(sizeof(mk::stdlib::ptrdiff_t) == sizeof(void*));

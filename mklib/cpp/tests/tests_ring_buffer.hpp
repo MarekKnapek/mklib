@@ -3,5 +3,5 @@
 
 namespace tests_ring_buffer
 {
-	void test();
+	void tests();
 }

@@ -2,7 +2,7 @@
 #include "../src/stdlib/ints.hpp"
 
 
-void tests_ints::test()
+void tests_ints::tests()
 {
 	static_assert(sizeof(mk::stdlib::uint8_t) == 1);
 	static_assert(sizeof(mk::stdlib::uint16_t) == 2);
