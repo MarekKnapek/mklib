@@ -293,6 +293,9 @@
     <ClInclude Include="..\..\tests\tests_heap_single_threaded.hpp">
       <Filter>tests</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\stdlib\verify.hpp">
+      <Filter>src\stdlib</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\stdlib\utility\move.inl">

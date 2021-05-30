@@ -1218,6 +1218,7 @@
     <ClInclude Include="..\..\src\stdlib\utility\forward.hpp" />
     <ClInclude Include="..\..\src\stdlib\utility\move.hpp" />
     <ClInclude Include="..\..\src\stdlib\utility\swap.hpp" />
+    <ClInclude Include="..\..\src\stdlib\verify.hpp" />
     <ClInclude Include="..\..\src\win\kernel32.hpp" />
     <ClInclude Include="..\..\src\win\kernel32\heap.hpp" />
     <ClInclude Include="..\..\src\win\types.hpp" />
