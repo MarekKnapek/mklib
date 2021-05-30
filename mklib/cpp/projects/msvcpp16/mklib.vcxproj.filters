@@ -105,6 +105,9 @@
     <ClCompile Include="..\..\tests\tests_heap_single_threaded.cpp">
       <Filter>tests</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\tests\tests_heap_type_erased.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\stdlib\architecture.hpp">
@@ -295,6 +298,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\stdlib\verify.hpp">
       <Filter>src\stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\tests\tests_heap_type_erased.hpp">
+      <Filter>tests</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -9,6 +9,7 @@
 #include "tests_size.hpp"
 #include "tests_unique_ptr_multi.hpp"
 #include "tests_unique_ptr_single.hpp"
+#include "tests_heap_type_erased.hpp"
 
 
 int main()
@@ -25,6 +26,7 @@ int main()
 	tests_size::test();
 	tests_unique_ptr_multi::test();
 	tests_unique_ptr_single::test();
+	tests_heap_type_erased::tests();
 
 	return 0;
 }

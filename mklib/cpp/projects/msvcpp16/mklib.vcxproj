@@ -1162,6 +1162,7 @@
     <ClCompile Include="..\..\tests\tests_heap_multi_threaded.cpp" />
     <ClCompile Include="..\..\tests\tests_heap_process.cpp" />
     <ClCompile Include="..\..\tests\tests_heap_single_threaded.cpp" />
+    <ClCompile Include="..\..\tests\tests_heap_type_erased.cpp" />
     <ClCompile Include="..\..\tests\tests_ints.cpp" />
     <ClCompile Include="..\..\tests\tests_ring_buffer.cpp" />
     <ClCompile Include="..\..\tests\tests_size.cpp" />
@@ -1227,6 +1228,7 @@
     <ClInclude Include="..\..\tests\tests_heap_multi_threaded.hpp" />
     <ClInclude Include="..\..\tests\tests_heap_process.hpp" />
     <ClInclude Include="..\..\tests\tests_heap_single_threaded.hpp" />
+    <ClInclude Include="..\..\tests\tests_heap_type_erased.hpp" />
     <ClInclude Include="..\..\tests\tests_ints.hpp" />
     <ClInclude Include="..\..\tests\tests_ring_buffer.hpp" />
     <ClInclude Include="..\..\tests\tests_size.hpp" />
