@@ -44,7 +44,7 @@ namespace mk
 				no_serialize        = 0x00000001,
 				generate_exceptions = 0x00000004,
 				zero_memory         = 0x00000008,
-				in_place_only       = 0x00000010,
+				inplace_only        = 0x00000010,
 			};
 			[[nodiscard]] inline mk::win::kernel32::heap_realloc_t operator|(mk::win::kernel32::heap_realloc_t const& a, mk::win::kernel32::heap_realloc_t const& b) noexcept { return static_cast<mk::win::kernel32::heap_realloc_t>(static_cast<mk::stdlib::uint32_t>(a) | static_cast<mk::stdlib::uint32_t>(b)); }
 

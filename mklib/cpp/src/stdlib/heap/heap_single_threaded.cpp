@@ -87,7 +87,7 @@ void mk::stdlib::heap_single_threaded_t::swap(mk::stdlib::heap_single_threaded_t
 [[nodiscard]] void* mk::stdlib::heap_single_threaded_t::realloc_inplace(void* const& mem, mk::stdlib::size_t const& bytes) noexcept
 {
 	MK_STDLIB_ASSERT(*this);
-	return mk::win::kernel32::heap_realloc(m_heap, mk::win::kernel32::heap_realloc_t::no_serialize | mk::win::kernel32::heap_realloc_t::in_place_only, mem, bytes);
+	return mk::win::kernel32::heap_realloc(m_heap, mk::win::kernel32::heap_realloc_t::no_serialize | mk::win::kernel32::heap_realloc_t::inplace_only, mem, bytes);
 }
 
 void mk::stdlib::heap_single_threaded_t::free(void const* const& mem) noexcept
