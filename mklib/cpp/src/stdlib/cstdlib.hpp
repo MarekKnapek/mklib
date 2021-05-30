@@ -21,6 +21,7 @@ namespace mk
 			~cstdlib_init_t() noexcept;
 		};
 
+		
 		void cstdlib_init() noexcept;
 		void cstdlib_deinit() noexcept;
 

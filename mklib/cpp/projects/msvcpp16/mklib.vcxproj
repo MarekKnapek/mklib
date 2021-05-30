@@ -1159,6 +1159,9 @@
     <ClCompile Include="..\..\tests\tests.cpp" />
     <ClCompile Include="..\..\tests\tests_bits_buffer.cpp" />
     <ClCompile Include="..\..\tests\tests_bits_vector.cpp" />
+    <ClCompile Include="..\..\tests\tests_heap_multi_threaded.cpp" />
+    <ClCompile Include="..\..\tests\tests_heap_process.cpp" />
+    <ClCompile Include="..\..\tests\tests_heap_single_threaded.cpp" />
     <ClCompile Include="..\..\tests\tests_ints.cpp" />
     <ClCompile Include="..\..\tests\tests_ring_buffer.cpp" />
     <ClCompile Include="..\..\tests\tests_size.cpp" />
@@ -1220,6 +1223,9 @@
     <ClInclude Include="..\..\src\win\types.hpp" />
     <ClInclude Include="..\..\tests\tests_bits_buffer.hpp" />
     <ClInclude Include="..\..\tests\tests_bits_vector.hpp" />
+    <ClInclude Include="..\..\tests\tests_heap_multi_threaded.hpp" />
+    <ClInclude Include="..\..\tests\tests_heap_process.hpp" />
+    <ClInclude Include="..\..\tests\tests_heap_single_threaded.hpp" />
     <ClInclude Include="..\..\tests\tests_ints.hpp" />
     <ClInclude Include="..\..\tests\tests_ring_buffer.hpp" />
     <ClInclude Include="..\..\tests\tests_size.hpp" />

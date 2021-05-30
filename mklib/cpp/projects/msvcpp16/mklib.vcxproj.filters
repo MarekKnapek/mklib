@@ -96,6 +96,15 @@
     <ClCompile Include="..\..\src\runtime\asan.cpp">
       <Filter>src\runtime</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\tests\tests_heap_multi_threaded.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\tests\tests_heap_process.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\tests\tests_heap_single_threaded.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\stdlib\architecture.hpp">
@@ -274,6 +283,15 @@
     </ClInclude>
     <ClInclude Include="..\..\src\runtime\asan.hpp">
       <Filter>src\runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\tests\tests_heap_multi_threaded.hpp">
+      <Filter>tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\tests\tests_heap_process.hpp">
+      <Filter>tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\tests\tests_heap_single_threaded.hpp">
+      <Filter>tests</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
