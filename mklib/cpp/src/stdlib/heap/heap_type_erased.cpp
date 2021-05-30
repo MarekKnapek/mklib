@@ -2,6 +2,7 @@
 
 #include "../assert.hpp"
 #include "../macros.hpp"
+#include "../utility/move.hpp"
 #include "../utility/swap.hpp"
 #include "heap_multi_threaded.hpp"
 #include "heap_process.hpp"
@@ -30,51 +31,66 @@ namespace mk
 
 
 mk::stdlib::heap_type_erased_t::heap_type_erased_t() noexcept :
-	m_type(),
-	m_heap()
+	m_heap(),
+	m_type()
 {
 }
 
 mk::stdlib::heap_type_erased_t::heap_type_erased_t(mk::stdlib::heap_multi_threaded_t& heap) noexcept :
-	m_type(static_cast<int>(mk::stdlib::impl::heap_type_erased_type_t::multi_threaded)),
-	m_heap(&heap)
+	m_heap(&heap),
+	m_type(static_cast<int>(mk::stdlib::impl::heap_type_erased_type_t::multi_threaded))
 {
 }
 
 mk::stdlib::heap_type_erased_t::heap_type_erased_t(mk::stdlib::heap_process_t& heap) noexcept :
-	m_type(static_cast<int>(mk::stdlib::impl::heap_type_erased_type_t::process)),
-	m_heap(&heap)
+	m_heap(&heap),
+	m_type(static_cast<int>(mk::stdlib::impl::heap_type_erased_type_t::process))
 {
 }
 
 mk::stdlib::heap_type_erased_t::heap_type_erased_t(mk::stdlib::heap_single_threaded_t& heap) noexcept :
-	m_type(static_cast<int>(mk::stdlib::impl::heap_type_erased_type_t::single_threaded)),
-	m_heap(&heap)
+	m_heap(&heap),
+	m_type(static_cast<int>(mk::stdlib::impl::heap_type_erased_type_t::single_threaded))
 {
 }
 
 mk::stdlib::heap_type_erased_t::heap_type_erased_t(mk::stdlib::heap_type_erased_t& heap) noexcept :
-	m_type(static_cast<int>(mk::stdlib::impl::heap_type_erased_type_t::type_erased)),
-	m_heap(&heap)
+	m_heap(&heap),
+	m_type(static_cast<int>(mk::stdlib::impl::heap_type_erased_type_t::type_erased))
 {
 }
 
 mk::stdlib::heap_type_erased_t::heap_type_erased_t(mk::stdlib::heap_virtual_t& heap) noexcept :
-	m_type(static_cast<int>(mk::stdlib::impl::heap_type_erased_type_t::virtuall)),
-	m_heap(&heap)
+	m_heap(&heap),
+	m_type(static_cast<int>(mk::stdlib::impl::heap_type_erased_type_t::virtuall))
+{
+}
+
+mk::stdlib::heap_type_erased_t::heap_type_erased_t(mk::stdlib::heap_type_erased_t const& other) noexcept :
+	m_heap(other.m_heap),
+	m_type(other.m_type)
 {
 }
 
 mk::stdlib::heap_type_erased_t::heap_type_erased_t(mk::stdlib::heap_type_erased_t&& other) noexcept :
-	mk::stdlib::heap_type_erased_t()
+	m_heap(mk::stdlib::move(other.m_heap)),
+	m_type(mk::stdlib::move(other.m_type))
 {
-	swap(other);
+}
+
+mk::stdlib::heap_type_erased_t& mk::stdlib::heap_type_erased_t::operator=(mk::stdlib::heap_type_erased_t const& other) noexcept
+{
+	MK_STDLIB_ASSERT(this != &other);
+	m_heap = other.m_heap;
+	m_type = other.m_type;
+	return *this;
 }
 
 mk::stdlib::heap_type_erased_t& mk::stdlib::heap_type_erased_t::operator=(mk::stdlib::heap_type_erased_t&& other) noexcept
 {
 	MK_STDLIB_ASSERT(this != &other);
-	swap(other);
+	m_heap = mk::stdlib::move(other.m_heap);
+	m_type = mk::stdlib::move(other.m_type);
 	return *this;
 }
 
@@ -82,17 +98,28 @@ mk::stdlib::heap_type_erased_t::~heap_type_erased_t() noexcept
 {
 }
 
-mk::stdlib::heap_type_erased_t::operator bool() const noexcept
-{
-	return !!m_heap;
-}
-
 void mk::stdlib::heap_type_erased_t::swap(mk::stdlib::heap_type_erased_t& other) noexcept
 {
 	MK_STDLIB_ASSERT(this != &other);
 	using mk::stdlib::swap;
-	swap(m_type, other.m_type);
 	swap(m_heap, other.m_heap);
+	swap(m_type, other.m_type);
+}
+
+[[nodiscard]] mk::stdlib::heap_type_erased_t::operator bool() const noexcept
+{
+	return !!m_heap;
+}
+
+
+[[nodiscard]] void* const& mk::stdlib::heap_type_erased_t::get_heap() const noexcept
+{
+	return m_heap;
+}
+
+[[nodiscard]] int const& mk::stdlib::heap_type_erased_t::get_type() const noexcept
+{
+	return m_type;
 }
 
 

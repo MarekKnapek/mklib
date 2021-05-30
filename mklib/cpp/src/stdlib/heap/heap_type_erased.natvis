@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nv:AutoVisualizer xmlns:nv="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+	<nv:Type Name="mk::stdlib::heap_type_erased_t">
+		<nv:DisplayString Condition="m_type == mk::stdlib::impl::heap_type_erased_type_t::multi_threaded">heap_type_erased_t {*static_cast&lt;mk::stdlib::heap_multi_threaded_t*&gt;(m_heap)}</nv:DisplayString>
+		<nv:DisplayString Condition="m_type == mk::stdlib::impl::heap_type_erased_type_t::process">heap_type_erased_t {*static_cast&lt;mk::stdlib::heap_process_t*&gt;(m_heap)}</nv:DisplayString>
+		<nv:DisplayString Condition="m_type == mk::stdlib::impl::heap_type_erased_type_t::single_threaded">heap_type_erased_t {*static_cast&lt;mk::stdlib::heap_single_threaded_t*&gt;(m_heap)}</nv:DisplayString>
+		<nv:DisplayString Condition="m_type == mk::stdlib::impl::heap_type_erased_type_t::type_erased">heap_type_erased_t {*static_cast&lt;mk::stdlib::heap_type_erased_t*&gt;(m_heap)}</nv:DisplayString>
+		<nv:DisplayString Condition="m_type == mk::stdlib::impl::heap_type_erased_type_t::virtuall">heap_type_erased_t {*static_cast&lt;mk::stdlib::heap_virtual_t*&gt;(m_heap)}</nv:DisplayString>
+		<nv:DisplayString>heap_type_erased_t</nv:DisplayString>
+		<nv:Expand>
+			<nv:Item Condition="m_type == mk::stdlib::impl::heap_type_erased_type_t::multi_threaded" Name="[heap]">static_cast&lt;mk::stdlib::heap_multi_threaded_t*&gt;(m_heap)</nv:Item>
+			<nv:Item Condition="m_type == mk::stdlib::impl::heap_type_erased_type_t::process" Name="[heap]">static_cast&lt;mk::stdlib::heap_process_t*&gt;(m_heap)</nv:Item>
+			<nv:Item Condition="m_type == mk::stdlib::impl::heap_type_erased_type_t::single_threaded" Name="[heap]">static_cast&lt;mk::stdlib::heap_single_threaded_t*&gt;(m_heap)</nv:Item>
+			<nv:Item Condition="m_type == mk::stdlib::impl::heap_type_erased_type_t::type_erased" Name="[heap]">static_cast&lt;mk::stdlib::heap_type_erased_t*&gt;(m_heap)</nv:Item>
+			<nv:Item Condition="m_type == mk::stdlib::impl::heap_type_erased_type_t::virtuall" Name="[heap]">static_cast&lt;mk::stdlib::heap_virtual_t*&gt;(m_heap)</nv:Item>
+		</nv:Expand>
+	</nv:Type>
+</nv:AutoVisualizer>

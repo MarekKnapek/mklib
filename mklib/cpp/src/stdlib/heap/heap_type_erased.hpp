@@ -27,13 +27,16 @@ namespace mk
 			explicit heap_type_erased_t(mk::stdlib::heap_single_threaded_t& heap) noexcept;
 			explicit heap_type_erased_t(mk::stdlib::heap_type_erased_t& heap) noexcept;
 			explicit heap_type_erased_t(mk::stdlib::heap_virtual_t& heap) noexcept;
-			heap_type_erased_t(mk::stdlib::heap_type_erased_t const&) = delete;
+			heap_type_erased_t(mk::stdlib::heap_type_erased_t const& other) noexcept;
 			heap_type_erased_t(mk::stdlib::heap_type_erased_t&& other) noexcept;
-			mk::stdlib::heap_type_erased_t& operator=(mk::stdlib::heap_type_erased_t const&) = delete;
+			mk::stdlib::heap_type_erased_t& operator=(mk::stdlib::heap_type_erased_t const& other) noexcept;
 			mk::stdlib::heap_type_erased_t& operator=(mk::stdlib::heap_type_erased_t&& other) noexcept;
 			~heap_type_erased_t() noexcept;
-			explicit operator bool() const noexcept;
 			void swap(mk::stdlib::heap_type_erased_t& other) noexcept;
+			[[nodiscard]] explicit operator bool() const noexcept;
+		public:
+			[[nodiscard]] void* const& get_heap() const noexcept;
+			[[nodiscard]] int const& get_type() const noexcept;
 		public:
 			[[nodiscard]] void* alloc(mk::stdlib::size_t const& bytes) noexcept;
 			[[nodiscard]] mk::stdlib::size_t size(void const* const& mem) const noexcept;
@@ -41,8 +44,8 @@ namespace mk
 			[[nodiscard]] void* realloc_inplace(void* const& mem, mk::stdlib::size_t const& bytes) noexcept;
 			void free(void const* const& mem) noexcept;
 		private:
-			int m_type;
 			void* m_heap;
+			int m_type;
 		};
 
 		inline void swap(mk::stdlib::heap_type_erased_t& a, mk::stdlib::heap_type_erased_t& b) noexcept { a.swap(b); }

@@ -405,5 +405,8 @@
     <Natvis Include="..\..\src\stdlib\ring_buffer_iterator.natvis">
       <Filter>src\stdlib</Filter>
     </Natvis>
+    <Natvis Include="..\..\src\stdlib\heap\heap_type_erased.natvis">
+      <Filter>src\stdlib\heap</Filter>
+    </Natvis>
   </ItemGroup>
 </Project>
