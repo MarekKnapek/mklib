@@ -1,6 +1,5 @@
 #include "memory.h"
 
-#include "../runtime/asan.hpp"
 #include "new.hpp"
 #include "type_traits/remove_reference.hpp"
 #include "utility/forward.hpp"
@@ -10,7 +9,6 @@
 template<typename t, typename... ts>
 constexpr t* mk::stdlib::construct_at(t* const& ptr, ts&&... params) noexcept
 {
-	mk::runtime::asan_unpoison_memory_region(ptr, sizeof(t));
 	void* const newd = new(static_cast<void*>(ptr), mk::stdlib::new_t{})t(mk::stdlib::forward<ts>(params)...);
 	t* const ret = static_cast<t*>(newd);
 	return ret;
@@ -20,7 +18,6 @@ template<typename t>
 constexpr void mk::stdlib::destroy(t& val) noexcept
 {
 	val.~t();
-	mk::runtime::asan_poison_memory_region(&val, sizeof(t));
 }
 
 template<typename t>
