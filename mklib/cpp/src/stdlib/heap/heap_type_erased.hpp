@@ -22,11 +22,6 @@ namespace mk
 		{
 		public:
 			heap_type_erased_t() noexcept;
-			explicit heap_type_erased_t(mk::stdlib::heap_multi_threaded_t& heap) noexcept;
-			explicit heap_type_erased_t(mk::stdlib::heap_process_t& heap) noexcept;
-			explicit heap_type_erased_t(mk::stdlib::heap_single_threaded_t& heap) noexcept;
-			explicit heap_type_erased_t(mk::stdlib::heap_type_erased_t& heap) noexcept;
-			explicit heap_type_erased_t(mk::stdlib::heap_virtual_t& heap) noexcept;
 			heap_type_erased_t(mk::stdlib::heap_type_erased_t const& other) noexcept;
 			heap_type_erased_t(mk::stdlib::heap_type_erased_t&& other) noexcept;
 			mk::stdlib::heap_type_erased_t& operator=(mk::stdlib::heap_type_erased_t const& other) noexcept;
@@ -35,6 +30,11 @@ namespace mk
 			void swap(mk::stdlib::heap_type_erased_t& other) noexcept;
 			[[nodiscard]] explicit operator bool() const noexcept;
 		public:
+			explicit heap_type_erased_t(mk::stdlib::heap_multi_threaded_t& heap) noexcept;
+			explicit heap_type_erased_t(mk::stdlib::heap_process_t& heap) noexcept;
+			explicit heap_type_erased_t(mk::stdlib::heap_single_threaded_t& heap) noexcept;
+			explicit heap_type_erased_t(mk::stdlib::heap_type_erased_t& heap) noexcept;
+			explicit heap_type_erased_t(mk::stdlib::heap_virtual_t& heap) noexcept;
 			[[nodiscard]] void* const& get_heap() const noexcept;
 			[[nodiscard]] int const& get_type() const noexcept;
 		public:
